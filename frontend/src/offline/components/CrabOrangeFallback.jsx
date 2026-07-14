@@ -1,83 +1,106 @@
-// 蟹酿橙分层 2.5D 备用视图：WebGL 不可用时以 SVG/CSS 绘制蒸盏、橙壳、蟹馅与顶盖分层。
-// 三个证据热点对应原文短摘（运行时数据来自 crabOrangeEvidence.hotspots，不在组件内重复维护）：
-//   橙壳 → 以橙为器
-//   蟹馅 → 以蟹膏肉实其内
-//   蒸制结构 → 覆橙顶，入甑蒸熟
-// 点击热点显示原文短摘、出处、推断类型与置信状态。
-
-import { useState } from 'react';
+import { ChefHat, History, Layers3 } from 'lucide-react';
 import { crabOrangeEvidence } from '../data/offlineMuseumData.js';
 
-export default function CrabOrangeFallback({ onHotspotSelect }) {
-  const [selected, setSelected] = useState(null);
-
-  const handleSelect = (hotspot) => {
-    setSelected(hotspot);
-    if (onHotspotSelect) onHotspotSelect(hotspot);
-  };
+export default function CrabOrangeFallback({
+  selectedEvidenceId = null,
+  modelMode = 'historical',
+  exploded = false,
+  onEvidenceSelect,
+  onModelModeChange,
+  onExplodedChange,
+}) {
+  const selected = crabOrangeEvidence.hotspots.find((item) => item.id === selectedEvidenceId) || null;
 
   return (
-    <div className="crab-orange-fallback" role="figure" aria-label="蟹酿橙分层结构示意（2.5D 备用视图）">
-      <svg className="crab-orange-fallback-svg" viewBox="0 0 220 240" aria-hidden="true">
-        {/* 蒸盏 */}
-        <ellipse cx="110" cy="200" rx="95" ry="20" fill="#3a4a55" />
-        <path d="M15 200 Q110 245 205 200" fill="#2a3742" stroke="#5a6a75" strokeWidth="1.5" />
-        {/* 橙壳 */}
-        <path d="M30 160 Q30 92 110 92 Q190 92 190 160 Z" fill="#d4842a" opacity="0.92" />
-        <ellipse cx="110" cy="160" rx="80" ry="13" fill="#b56a1a" />
-        {/* 蟹馅 */}
-        <ellipse cx="110" cy="150" rx="60" ry="20" fill="#e8d28a" />
-        <ellipse cx="110" cy="146" rx="48" ry="10" fill="#f0dd9a" />
-        {/* 顶盖 */}
-        <path d="M40 92 Q110 52 180 92 Z" fill="#c06a1a" opacity="0.92" />
-        <ellipse cx="110" cy="92" rx="70" ry="9" fill="#a05a18" />
-        <line x1="110" y1="62" x2="110" y2="48" stroke="#6a3a1a" strokeWidth="2" />
+    <div
+      className={`crab-orange-fallback${exploded ? ' is-exploded' : ''}${modelMode === 'modern' ? ' is-modern' : ' is-historical'}`}
+      role="figure"
+      aria-label="蟹酿橙分层结构示意（2.5D 备用视图）"
+    >
+      <p className="fallback-status">当前设备使用 2.5D 证据视图</p>
+      <svg className="crab-orange-fallback-svg" viewBox="0 0 280 260" aria-hidden="true">
+        <g className="fallback-layer fallback-layer-steamer">
+          <ellipse cx="140" cy="220" rx="112" ry="22" fill="#6f593d" />
+          <path d="M28 220 Q140 264 252 220" fill="#384b47" stroke="#52796f" strokeWidth="2" />
+        </g>
+        <g className="fallback-layer fallback-layer-serving-base">
+          <ellipse cx="140" cy="223" rx="112" ry="22" fill="#d9d0be" />
+          <path d="M28 223 Q140 248 252 223" fill="#bcb19d" />
+        </g>
+        <g className="fallback-layer fallback-layer-shell">
+          <path d="M48 178 Q48 94 140 94 Q232 94 232 178 Z" fill="#d9822b" />
+          <ellipse cx="140" cy="178" rx="92" ry="15" fill="#b8611e" />
+          <path d="M60 163 Q140 190 220 163" fill="none" stroke="#f0d9a5" strokeWidth="7" opacity="0.65" />
+        </g>
+        <g className="fallback-layer fallback-layer-filling">
+          <circle cx="105" cy="157" r="16" fill="#f0ddad" />
+          <circle cx="134" cy="145" r="19" fill="#c95732" />
+          <circle cx="165" cy="156" r="17" fill="#f0ddad" />
+          <circle cx="145" cy="170" r="15" fill="#f6e4bb" />
+        </g>
+        <g className="fallback-layer fallback-layer-lid">
+          <path d="M60 94 Q140 42 220 94 Z" fill="#c76c1c" />
+          <ellipse cx="140" cy="94" rx="80" ry="10" fill="#a95718" />
+          <path d="M140 55 Q143 37 151 28" fill="none" stroke="#526b45" strokeWidth="5" />
+        </g>
       </svg>
-      <ul className="crab-orange-fallback-layers" aria-label="分层结构标注">
-        <li className="crab-orange-fallback-layer crab-orange-fallback-layer-lid">
-          <span className="crab-orange-fallback-layer-name">顶盖</span>
-          <span className="crab-orange-fallback-layer-desc">覆橙顶</span>
-        </li>
-        <li className="crab-orange-fallback-layer crab-orange-fallback-layer-shell">
-          <span className="crab-orange-fallback-layer-name">橙壳</span>
-          <span className="crab-orange-fallback-layer-desc">以橙为器</span>
-        </li>
-        <li className="crab-orange-fallback-layer crab-orange-fallback-layer-filling">
-          <span className="crab-orange-fallback-layer-name">蟹馅</span>
-          <span className="crab-orange-fallback-layer-desc">以蟹膏肉实其内</span>
-        </li>
-        <li className="crab-orange-fallback-layer crab-orange-fallback-layer-bowl">
-          <span className="crab-orange-fallback-layer-name">蒸盏</span>
-          <span className="crab-orange-fallback-layer-desc">入甑蒸熟</span>
-        </li>
-      </ul>
+
+      <div className="crab-orange-fallback-controls" role="toolbar" aria-label="备用模型控件">
+        <button
+          type="button"
+          className={exploded ? 'is-active' : ''}
+          onClick={() => onExplodedChange?.(!exploded)}
+          aria-pressed={exploded}
+        >
+          <Layers3 aria-hidden="true" size={18} />
+          <span>拆解结构</span>
+        </button>
+        <button
+          type="button"
+          className={modelMode === 'historical' ? 'is-active' : ''}
+          onClick={() => onModelModeChange?.('historical')}
+          aria-pressed={modelMode === 'historical'}
+        >
+          <History aria-hidden="true" size={18} />
+          <span>历史结构</span>
+        </button>
+        <button
+          type="button"
+          className={modelMode === 'modern' ? 'is-active' : ''}
+          onClick={() => onModelModeChange?.('modern')}
+          aria-pressed={modelMode === 'modern'}
+        >
+          <ChefHat aria-hidden="true" size={18} />
+          <span>现代成品</span>
+        </button>
+      </div>
+
       <div className="crab-orange-fallback-hotspots" role="group" aria-label="证据热点">
-        {crabOrangeEvidence.hotspots.map((hotspot) => (
+        {crabOrangeEvidence.hotspots.map((hotspot, index) => (
           <button
             key={hotspot.id}
             type="button"
-            className={`crab-orange-hotspot crab-orange-fallback-hotspot${selected && selected.id === hotspot.id ? ' is-active' : ''}`}
-            onClick={() => handleSelect(hotspot)}
-            title={`${hotspot.label} · ${hotspot.quote}`}
-            aria-pressed={Boolean(selected && selected.id === hotspot.id)}
+            className={`evidence-annotation${selectedEvidenceId === hotspot.id ? ' is-active' : ''}`}
+            onClick={() => onEvidenceSelect?.(hotspot)}
+            aria-label={`${hotspot.label}：${hotspot.quote}`}
+            aria-pressed={selectedEvidenceId === hotspot.id}
           >
-            <span className="crab-orange-hotspot-label">{hotspot.label}</span>
-            <span className="crab-orange-hotspot-quote">{hotspot.quote}</span>
+            <span className="evidence-annotation-index">{String(index + 1).padStart(2, '0')}</span>
+            <span>{hotspot.label}</span>
           </button>
         ))}
       </div>
+
       {selected && (
         <dl className="crab-orange-fallback-detail">
           <dt>原文短摘</dt>
           <dd className="crab-orange-fallback-quote">{selected.quote}</dd>
           <dt>出处</dt>
-          <dd className="crab-orange-fallback-source">{selected.source}</dd>
-          <dt>推断类型</dt>
-          <dd className={`crab-orange-fallback-kind crab-orange-fallback-kind-${selected.kind}`}>{selected.kind}</dd>
-          <dt>置信状态</dt>
-          <dd className="crab-orange-fallback-confidence">可信度：{selected.confidence}</dd>
-          <dt>说明</dt>
-          <dd className="crab-orange-fallback-explanation">{selected.explanation}</dd>
+          <dd>{selected.source}</dd>
+          <dt>证据类型</dt>
+          <dd>{selected.kind}</dd>
+          <dt>可信度</dt>
+          <dd>{selected.confidence}</dd>
         </dl>
       )}
     </div>
