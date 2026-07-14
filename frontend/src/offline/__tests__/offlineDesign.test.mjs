@@ -30,3 +30,19 @@ test('offline entry imports split style files', () => {
     assert.match(source, new RegExp(file.replace('.', '\\.')));
   }
 });
+
+test('offline entry is protected by a dedicated recoverable error boundary', () => {
+  const main = read('src/offline/main.jsx');
+  const boundary = read('src/offline/components/OfflineErrorBoundary.jsx');
+  assert.match(main, /OfflineErrorBoundary/);
+  assert.match(boundary, /恢复当前展厅/);
+  assert.match(boundary, /返回首页/);
+  assert.doesNotMatch(boundary, /window\.location\.href\s*=\s*['"]\//);
+});
+
+test('responsive styles cover reduced motion, mobile safe area, and print', () => {
+  const source = read('src/offline/styles/responsive.css');
+  assert.match(source, /prefers-reduced-motion:\s*reduce/);
+  assert.match(source, /safe-area-inset-bottom/);
+  assert.match(source, /@media print/);
+});

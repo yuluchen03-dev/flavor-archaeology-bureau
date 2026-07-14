@@ -3,8 +3,9 @@ import { crabOrangeEvidence, museumDishes } from '../data/offlineMuseumData.js';
 import CrabOrangeStage from '../components/CrabOrangeStage.jsx';
 import EvidenceInspector from '../components/EvidenceInspector.jsx';
 import RestorationReport from '../components/RestorationReport.jsx';
-import WorkflowRail, { RESTORATION_STAGES } from '../components/WorkflowRail.jsx';
-import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
+import WorkflowRail from '../components/WorkflowRail.jsx';
+import { RESTORATION_STAGES } from '../state/museumSession.js';
+import { useMuseumSession } from '../state/useMuseumSession.js';
 
 const PRELOADED_CLUE = '黄熟大橙截顶去瓤，以蟹膏肉实其内，仍以带枝顶覆之，入小甑蒸熟';
 const crabDish = museumDishes.find((dish) => dish.id === 'dish_001');

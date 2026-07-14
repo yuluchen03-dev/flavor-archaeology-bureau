@@ -9,8 +9,9 @@ const read = (p) => readFileSync(resolve(root, p), 'utf8');
 test('restoration journey contains five named stages', () => {
   const restorationSource = read('src/offline/exhibits/RestorationExhibit.jsx');
   const workflowSource = read('src/offline/components/WorkflowRail.jsx');
+  const sessionSource = read('src/offline/state/museumSession.js');
   for (const label of ['装入历史线索', '古籍解码', '证据推演', '结构复原', '复原结论']) {
-    assert.match(restorationSource + workflowSource, new RegExp(label));
+    assert.match(restorationSource + workflowSource + sessionSource, new RegExp(label));
   }
 });
 

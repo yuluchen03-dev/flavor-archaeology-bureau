@@ -1,4 +1,4 @@
-export const RESTORATION_STAGES = ['装入历史线索', '古籍解码', '证据推演', '结构复原', '复原结论'];
+import { RESTORATION_STAGES } from '../state/museumSession.js';
 
 export default function WorkflowRail({ stage, completedSteps, onSelect }) {
   return (

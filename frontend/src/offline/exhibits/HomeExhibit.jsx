@@ -1,5 +1,5 @@
 import CrabOrangeStage from '../components/CrabOrangeStage.jsx';
-import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
+import { useMuseumSession } from '../state/useMuseumSession.js';
 
 export default function HomeExhibit({ onNavigate }) {
   const { state, dispatch } = useMuseumSession();

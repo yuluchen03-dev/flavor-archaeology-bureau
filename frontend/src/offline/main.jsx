@@ -10,12 +10,15 @@ import './styles/research.css';
 import './styles/partnership.css';
 import './styles/responsive.css';
 import OfflineApp from './OfflineApp.jsx';
-import { MuseumSessionProvider } from './state/MuseumSessionContext.jsx';
+import OfflineErrorBoundary from './components/OfflineErrorBoundary.jsx';
+import MuseumSessionProvider from './state/MuseumSessionProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MuseumSessionProvider>
-      <OfflineApp />
-    </MuseumSessionProvider>
+    <OfflineErrorBoundary>
+      <MuseumSessionProvider>
+        <OfflineApp />
+      </MuseumSessionProvider>
+    </OfflineErrorBoundary>
   </StrictMode>,
 );

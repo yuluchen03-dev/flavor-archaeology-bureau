@@ -1,5 +1,5 @@
 import { museumOffer } from '../data/offlineMuseumData.js';
-import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
+import { useMuseumSession } from '../state/useMuseumSession.js';
 
 const PILOT_RANGE_LABEL = '2–4 周';
 const PILOT_STEPS = [

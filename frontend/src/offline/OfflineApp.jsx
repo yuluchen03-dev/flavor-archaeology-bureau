@@ -3,7 +3,7 @@ import HomeExhibit from './exhibits/HomeExhibit.jsx';
 import RestorationExhibit from './exhibits/RestorationExhibit.jsx';
 import BusinessExhibit from './exhibits/BusinessExhibit.jsx';
 import ArchiveExhibit from './exhibits/ArchiveExhibit.jsx';
-import { useMuseumSession } from './state/MuseumSessionContext.jsx';
+import { useMuseumSession } from './state/useMuseumSession.js';
 
 export default function OfflineApp() {
   const { state, dispatch } = useMuseumSession();

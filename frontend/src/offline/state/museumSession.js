@@ -1,5 +1,7 @@
 export const EXHIBITS = new Set(['home', 'restore', 'archive', 'business']);
 
+export const RESTORATION_STAGES = ['装入历史线索', '古籍解码', '证据推演', '结构复原', '复原结论'];
+
 export const INITIAL_SESSION = Object.freeze({
   activeExhibit: 'home',
   archiveTab: 'collection',

@@ -1,7 +1,7 @@
 import MentorExhibit from './MentorExhibit.jsx';
 import EvolutionExhibit from './EvolutionExhibit.jsx';
 import PlayExhibit from './PlayExhibit.jsx';
-import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
+import { useMuseumSession } from '../state/useMuseumSession.js';
 
 const TOOLS = [
   { key: 'mentor', label: '考据问答' },

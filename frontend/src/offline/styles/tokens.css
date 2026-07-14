@@ -58,3 +58,50 @@ button {
   outline: 2px solid var(--amber-400);
   outline-offset: 3px;
 }
+
+.offline-failure {
+  display: grid;
+  width: min(100% - 2rem, 42rem);
+  min-height: 100dvh;
+  align-content: center;
+  margin: 0 auto;
+  color: var(--paper-100);
+}
+
+.offline-failure-kicker {
+  margin: 0 0 0.5rem;
+  color: var(--amber-400);
+  font-size: 0.75rem;
+}
+
+.offline-failure h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: 0;
+}
+
+.offline-failure > p:not(.offline-failure-kicker) {
+  color: var(--paper-200);
+  line-height: 1.65;
+}
+
+.offline-failure > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.offline-failure button {
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 4px;
+  color: var(--paper-100);
+  background: transparent;
+}
+
+.offline-failure button:first-child {
+  border-color: var(--cinnabar-500);
+  background: var(--cinnabar-600);
+}

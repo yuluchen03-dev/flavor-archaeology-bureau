@@ -45,3 +45,76 @@
     font-size: 0.72rem;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  :root {
+    color: #000;
+    background: #fff;
+  }
+
+  body,
+  .museum-shell,
+  .museum-viewport,
+  .museum-content,
+  .restoration-workbench,
+  .workbench-artifact,
+  .workbench-task,
+  .restoration-report {
+    min-height: 0;
+    color: #000;
+    background: #fff;
+  }
+
+  .museum-rail,
+  .museum-topbar,
+  .museum-mobile-nav,
+  .museum-skip-link,
+  .workbench-flow,
+  .workbench-artifact > .crab-orange-stage,
+  .evidence-inspector,
+  .workbench-commands,
+  .report-actions,
+  .research-tools,
+  .archive-tabs,
+  .play-tabs,
+  .crab-orange-controls,
+  .crab-orange-fallback-controls {
+    display: none !important;
+  }
+
+  .museum-viewport,
+  .workbench-artifact {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .workbench-task {
+    margin: 0;
+    padding: 0;
+  }
+
+  .restoration-report {
+    display: block;
+    width: 100%;
+    font-size: 11pt;
+  }
+
+  .report-band,
+  .report-coverage,
+  .report-disclaimer {
+    break-inside: avoid;
+    border-color: #777;
+  }
+}

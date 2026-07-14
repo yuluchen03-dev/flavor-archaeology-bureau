@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Archive, FlaskConical } from 'lucide-react';
 import { museumDishes } from '../data/offlineMuseumData.js';
-import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
+import { useMuseumSession } from '../state/useMuseumSession.js';
 import ResearchLab from './ResearchLab.jsx';
 
 const ARCHIVE_STATES = ['证据完整', '推荐考据', '资料待补'];
