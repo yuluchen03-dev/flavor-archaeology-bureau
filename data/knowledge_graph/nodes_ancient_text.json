@@ -1,0 +1,1972 @@
+[
+  {
+    "id": "text_001",
+    "title": "山家清供",
+    "author": "林洪",
+    "dynasty": "宋代",
+    "description": "南宋林洪所著饮食专书，收录104种山林素食，强调清淡自然",
+    "total_recipes": 104,
+    "significance": "现存最早的素食专著之一，体现宋代文人饮食美学"
+  },
+  {
+    "id": "text_002",
+    "title": "随园食单",
+    "author": "袁枚",
+    "dynasty": "清代",
+    "description": "清代袁枚所著烹饪经典，系统论述烹饪理论与技法",
+    "total_recipes": 326,
+    "significance": "中国古代最重要的烹饪理论著作，影响深远"
+  },
+  {
+    "id": "text_003",
+    "title": "齐民要术",
+    "author": "贾思勰",
+    "dynasty": "北魏",
+    "description": "中国现存最早的综合性农书，含大量食品加工技术",
+    "total_recipes": 280,
+    "significance": "记载了6世纪以前的食品加工技术，具有极高史料价值"
+  },
+  {
+    "id": "text_004",
+    "title": "饮膳正要",
+    "author": "忽思慧",
+    "dynasty": "元代",
+    "description": "元代宫廷饮食专著，强调食疗养生",
+    "total_recipes": 246,
+    "significance": "中国第一部营养学专著，融合蒙汉饮食文化"
+  },
+  {
+    "id": "text_005",
+    "title": "东京梦华录",
+    "author": "孟元老",
+    "dynasty": "宋代",
+    "description": "记录北宋东京汴梁的城市生活，含大量饮食记载",
+    "total_recipes": 0,
+    "significance": "反映宋代市民饮食文化的重要史料"
+  },
+  {
+    "id": "text_lit_001",
+    "title": "古代饮食文献集成·第一册",
+    "author": "详见所收各书",
+    "dynasty": "元代",
+    "description": "古代饮食文献集成·第一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "综合/食疗",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "居家必用事类全集·己集庚集",
+      "饮膳正要（一）"
+    ]
+  },
+  {
+    "id": "text_lit_002",
+    "title": "古代饮食文献集成·第二册",
+    "author": "详见所收各书",
+    "dynasty": "元代",
+    "description": "古代饮食文献集成·第二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食疗/食谱",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "饮膳正要（二）",
+      "饮食须知",
+      "云林堂饮食制度集"
+    ]
+  },
+  {
+    "id": "text_lit_003",
+    "title": "古代饮食文献集成·第三册",
+    "author": "详见所收各书",
+    "dynasty": "明清",
+    "description": "古代饮食文献集成·第三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "雅尚斋遵生八笺·饮馔服食笺",
+      "饮食绅言",
+      "钦定古今图书集成·食货典（一）"
+    ]
+  },
+  {
+    "id": "text_lit_004",
+    "title": "古代饮食文献集成·第四册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（二）"
+    ]
+  },
+  {
+    "id": "text_lit_005",
+    "title": "古代饮食文献集成·第五册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（三）"
+    ]
+  },
+  {
+    "id": "text_lit_006",
+    "title": "古代饮食文献集成·第六册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（四）"
+    ]
+  },
+  {
+    "id": "text_lit_007",
+    "title": "古代饮食文献集成·第七册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（五）"
+    ]
+  },
+  {
+    "id": "text_lit_008",
+    "title": "古代饮食文献集成·第八册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（六）"
+    ]
+  },
+  {
+    "id": "text_lit_009",
+    "title": "古代饮食文献集成·第九册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（七）"
+    ]
+  },
+  {
+    "id": "text_lit_010",
+    "title": "古代饮食文献集成·第十册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（八）"
+    ]
+  },
+  {
+    "id": "text_lit_011",
+    "title": "古代饮食文献集成·第十一册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第十一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定古今图书集成·食货典（九）"
+    ]
+  },
+  {
+    "id": "text_lit_012",
+    "title": "古代饮食文献集成·第十二册",
+    "author": "详见所收各书",
+    "dynasty": "唐宋",
+    "description": "古代饮食文献集成·第十二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "膳夫经手录",
+      "太平御览·百谷部/饮食部/果部/菜茹部（一）"
+    ]
+  },
+  {
+    "id": "text_lit_013",
+    "title": "古代饮食文献集成·第十三册",
+    "author": "详见所收各书",
+    "dynasty": "宋元",
+    "description": "古代饮食文献集成·第十三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书/素食/食谱",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "太平御览·百谷部/饮食部/果部/菜茹部（二）",
+      "本心斋蔬食谱",
+      "山家清供",
+      "饮食须知"
+    ]
+  },
+  {
+    "id": "text_lit_014",
+    "title": "古代饮食文献集成·第十四册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第十四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/家政",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "易牙遗意",
+      "食品集",
+      "多能鄙事·饮食类"
+    ]
+  },
+  {
+    "id": "text_lit_015",
+    "title": "古代饮食文献集成·第十五册",
+    "author": "详见所收各书",
+    "dynasty": "明清",
+    "description": "古代饮食文献集成·第十五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/茶饮",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "墨娥小录·饮膳集珍",
+      "汤茗品胜",
+      "食宪鸿秘",
+      "闲情偶寄·饮馔部"
+    ]
+  },
+  {
+    "id": "text_lit_016",
+    "title": "古代饮食文献集成·第十六册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第十六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "渊鉴类函·食物部（一）"
+    ]
+  },
+  {
+    "id": "text_lit_017",
+    "title": "古代饮食文献集成·第十七册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第十七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "渊鉴类函·食物部（二）"
+    ]
+  },
+  {
+    "id": "text_lit_018",
+    "title": "古代饮食文献集成·第十八册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第十八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/粥谱",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "醒园录",
+      "随园食单",
+      "听钟山房集食味杂咏",
+      "养小录",
+      "粥谱",
+      "广粥谱"
+    ]
+  },
+  {
+    "id": "text_lit_019",
+    "title": "古代饮食文献集成·第十九册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第十九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "调鼎集（一）"
+    ]
+  },
+  {
+    "id": "text_lit_020",
+    "title": "古代饮食文献集成·第二十册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第二十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "调鼎集（二）"
+    ]
+  },
+  {
+    "id": "text_lit_021",
+    "title": "古代饮食文献集成·第二十一册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第二十一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/御膳/素食",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "中馈录",
+      "乡味杂咏",
+      "御膳单",
+      "蔬食谱"
+    ]
+  },
+  {
+    "id": "text_lit_022",
+    "title": "古代饮食文献集成·第二十二册",
+    "author": "详见所收各书",
+    "dynasty": "唐清",
+    "description": "古代饮食文献集成·第二十二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食掌故/茶书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "清稗类钞·饮食类",
+      "茶经",
+      "茶具图赞",
+      "外集"
+    ]
+  },
+  {
+    "id": "text_lit_023",
+    "title": "古代饮食文献集成·第二十三册",
+    "author": "详见所收各书",
+    "dynasty": "唐清",
+    "description": "古代饮食文献集成·第二十三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "茶书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "原本茶经",
+      "续茶经",
+      "附录"
+    ]
+  },
+  {
+    "id": "text_lit_024",
+    "title": "古代饮食文献集成·第二十四册",
+    "author": "详见所收各书",
+    "dynasty": "唐明",
+    "description": "古代饮食文献集成·第二十四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "茶书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "茶书五部（一）"
+    ]
+  },
+  {
+    "id": "text_lit_025",
+    "title": "古代饮食文献集成·第二十五册",
+    "author": "详见所收各书",
+    "dynasty": "唐明",
+    "description": "古代饮食文献集成·第二十五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "茶书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "茶书五部（二）"
+    ]
+  },
+  {
+    "id": "text_lit_026",
+    "title": "古代饮食文献集成·第二十六册",
+    "author": "详见所收各书",
+    "dynasty": "唐宋明",
+    "description": "古代饮食文献集成·第二十六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "茶汤/茶书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "十六汤品",
+      "品茶要录",
+      "东溪试茶录",
+      "北苑别录",
+      "宣和北苑贡茶录",
+      "茗史",
+      "水品",
+      "煮茶小品",
+      "茶董",
+      "茶集",
+      "烹茶图集"
+    ]
+  },
+  {
+    "id": "text_lit_027",
+    "title": "古代饮食文献集成·第二十七册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第二十七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "茶书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "茶苑"
+    ]
+  },
+  {
+    "id": "text_lit_028",
+    "title": "古代饮食文献集成·第二十八册",
+    "author": "详见所收各书",
+    "dynasty": "宋明清",
+    "description": "古代饮食文献集成·第二十八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "茶书/酒书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "茶史",
+      "茶史补",
+      "北山酒经",
+      "合刻酒经觞政",
+      "酒谱",
+      "酒史"
+    ]
+  },
+  {
+    "id": "text_lit_029",
+    "title": "古代饮食文献集成·第二十九册",
+    "author": "详见所收各书",
+    "dynasty": "明清",
+    "description": "古代饮食文献集成·第二十九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "酒书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "酒概",
+      "酒史续编"
+    ]
+  },
+  {
+    "id": "text_lit_030",
+    "title": "古代饮食文献集成·第三十册",
+    "author": "详见所收各书",
+    "dynasty": "宋明清",
+    "description": "古代饮食文献集成·第三十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "酒书/谱录/野菜",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "胜饮编",
+      "酒人觞政",
+      "荔枝谱",
+      "蟹略",
+      "橘录",
+      "王西楼先生野菜谱"
+    ]
+  },
+  {
+    "id": "text_lit_031",
+    "title": "古代饮食文献集成·第三十一册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第三十一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "荒政/野菜",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "野菜博录"
+    ]
+  },
+  {
+    "id": "text_lit_032",
+    "title": "古代饮食文献集成·第三十二册",
+    "author": "详见所收各书",
+    "dynasty": "明清",
+    "description": "古代饮食文献集成·第三十二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "野菜/水产",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "茹草编",
+      "海错百一录"
+    ]
+  },
+  {
+    "id": "text_lit_033",
+    "title": "古代饮食文献集成·第三十三册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第三十三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "果品谱录",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "闽中荔支通谱"
+    ]
+  },
+  {
+    "id": "text_lit_034",
+    "title": "古代饮食文献集成·第三十四册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第三十四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "水产/方物",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "晴川蟹录",
+      "晴川后蟹录",
+      "晴川续蟹录",
+      "湖南方物志（一）"
+    ]
+  },
+  {
+    "id": "text_lit_035",
+    "title": "古代饮食文献集成·第三十五册",
+    "author": "详见所收各书",
+    "dynasty": "唐宋元清",
+    "description": "古代饮食文献集成·第三十五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "方物/菌谱/食疗/本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "湖南方物志（二）",
+      "岭南荔支谱",
+      "吴蕈谱",
+      "食医心鉴",
+      "养生月览",
+      "家传日用本草"
+    ]
+  },
+  {
+    "id": "text_lit_036",
+    "title": "古代饮食文献集成·第三十六册",
+    "author": "详见所收各书",
+    "dynasty": "元明",
+    "description": "古代饮食文献集成·第三十六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草（一）"
+    ]
+  },
+  {
+    "id": "text_lit_037",
+    "title": "古代饮食文献集成·第三十七册",
+    "author": "详见所收各书",
+    "dynasty": "元明",
+    "description": "古代饮食文献集成·第三十七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草（二）"
+    ]
+  },
+  {
+    "id": "text_lit_038",
+    "title": "古代饮食文献集成·第三十八册",
+    "author": "详见所收各书",
+    "dynasty": "元明",
+    "description": "古代饮食文献集成·第三十八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草（三）"
+    ]
+  },
+  {
+    "id": "text_lit_039",
+    "title": "古代饮食文献集成·第三十九册",
+    "author": "详见所收各书",
+    "dynasty": "元明",
+    "description": "古代饮食文献集成·第三十九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草（四）"
+    ]
+  },
+  {
+    "id": "text_lit_040",
+    "title": "古代饮食文献集成·第四十册",
+    "author": "详见所收各书",
+    "dynasty": "元明",
+    "description": "古代饮食文献集成·第四十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草（五）"
+    ]
+  },
+  {
+    "id": "text_lit_041",
+    "title": "古代饮食文献集成·第四十一册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "荒政/食用植物",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "救荒本草"
+    ]
+  },
+  {
+    "id": "text_lit_042",
+    "title": "古代饮食文献集成·第四十二册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（一）"
+    ]
+  },
+  {
+    "id": "text_lit_043",
+    "title": "古代饮食文献集成·第四十三册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（二）"
+    ]
+  },
+  {
+    "id": "text_lit_044",
+    "title": "古代饮食文献集成·第四十四册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（三）"
+    ]
+  },
+  {
+    "id": "text_lit_045",
+    "title": "古代饮食文献集成·第四十五册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（四）"
+    ]
+  },
+  {
+    "id": "text_lit_046",
+    "title": "古代饮食文献集成·第四十六册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（五）"
+    ]
+  },
+  {
+    "id": "text_lit_047",
+    "title": "古代饮食文献集成·第四十七册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（六）"
+    ]
+  },
+  {
+    "id": "text_lit_048",
+    "title": "古代饮食文献集成·第四十八册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（七）"
+    ]
+  },
+  {
+    "id": "text_lit_049",
+    "title": "古代饮食文献集成·第四十九册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第四十九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（八）"
+    ]
+  },
+  {
+    "id": "text_lit_050",
+    "title": "古代饮食文献集成·第五十册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第五十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（九）"
+    ]
+  },
+  {
+    "id": "text_lit_051",
+    "title": "古代饮食文献集成·第五十一册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第五十一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（十）"
+    ]
+  },
+  {
+    "id": "text_lit_052",
+    "title": "古代饮食文献集成·第五十二册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第五十二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（十一）"
+    ]
+  },
+  {
+    "id": "text_lit_053",
+    "title": "古代饮食文献集成·第五十三册",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "古代饮食文献集成·第五十三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "本草/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "本草纲目（十二）"
+    ]
+  },
+  {
+    "id": "text_lit_054",
+    "title": "古代饮食文献集成·第五十四册",
+    "author": "详见所收各书",
+    "dynasty": "明清",
+    "description": "古代饮食文献集成·第五十四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "园蔬/食疗/本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "学圃杂疏",
+      "蒲水斋食治广要",
+      "食鉴本草",
+      "食物本草会纂（一）"
+    ]
+  },
+  {
+    "id": "text_lit_055",
+    "title": "古代饮食文献集成·第五十五册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第五十五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草会纂（二）"
+    ]
+  },
+  {
+    "id": "text_lit_056",
+    "title": "古代饮食文献集成·第五十六册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第五十六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食物本草",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "食物本草会纂（三）"
+    ]
+  },
+  {
+    "id": "text_lit_057",
+    "title": "古代饮食文献集成·第五十七册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第五十七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食疗养生",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "调疾饮食辩（一）"
+    ]
+  },
+  {
+    "id": "text_lit_058",
+    "title": "古代饮食文献集成·第五十八册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第五十八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食疗/饮食谱",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "调疾饮食辩（二）",
+      "随息居饮食谱"
+    ]
+  },
+  {
+    "id": "text_lit_059",
+    "title": "古代饮食文献集成·第五十九册",
+    "author": "详见所收各书",
+    "dynasty": "北魏",
+    "description": "古代饮食文献集成·第五十九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/食品加工",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "齐民要术",
+      "杂说"
+    ]
+  },
+  {
+    "id": "text_lit_060",
+    "title": "古代饮食文献集成·第六十册",
+    "author": "详见所收各书",
+    "dynasty": "元代",
+    "description": "古代饮食文献集成·第六十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/时令饮食",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "农桑衣食撮要",
+      "农桑辑要"
+    ]
+  },
+  {
+    "id": "text_lit_061",
+    "title": "古代饮食文献集成·第六十一册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十一册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（一）"
+    ]
+  },
+  {
+    "id": "text_lit_062",
+    "title": "古代饮食文献集成·第六十二册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十二册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（二）"
+    ]
+  },
+  {
+    "id": "text_lit_063",
+    "title": "古代饮食文献集成·第六十三册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十三册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（三）"
+    ]
+  },
+  {
+    "id": "text_lit_064",
+    "title": "古代饮食文献集成·第六十四册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十四册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（四）"
+    ]
+  },
+  {
+    "id": "text_lit_065",
+    "title": "古代饮食文献集成·第六十五册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十五册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（五）"
+    ]
+  },
+  {
+    "id": "text_lit_066",
+    "title": "古代饮食文献集成·第六十六册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十六册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（六）"
+    ]
+  },
+  {
+    "id": "text_lit_067",
+    "title": "古代饮食文献集成·第六十七册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十七册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（七）"
+    ]
+  },
+  {
+    "id": "text_lit_068",
+    "title": "古代饮食文献集成·第六十八册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十八册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（八）"
+    ]
+  },
+  {
+    "id": "text_lit_069",
+    "title": "古代饮食文献集成·第六十九册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第六十九册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/类书",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "钦定授时通考（九）"
+    ]
+  },
+  {
+    "id": "text_lit_070",
+    "title": "古代饮食文献集成·第七十册",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "古代饮食文献集成·第七十册，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农圃/食材",
+    "collection": "古代饮食文献集成",
+    "source_url": "https://books.google.com/books/about/%E5%8F%A4%E4%BB%A3%E9%A3%AE%E9%A3%9F%E6%96%87%E7%8D%BB%E9%9B%86%E6%88%90.html?id=twnRzgEACAAJ",
+    "catalog_url": "https://luckysafe.pixnet.net/blog/posts/11405373919",
+    "authority_institution": "北京燕山出版社；主编倪建伟、罗全",
+    "verification_note": "Google Books 载明书名、编者、出版社与出版年；目录页转录70册总目录，用作条目拆分依据。",
+    "included_texts": [
+      "西石梁农圃便览"
+    ]
+  },
+  {
+    "id": "text_lit_071",
+    "title": "东京梦华录、都城纪胜、西湖老人繁胜录、梦粱录、武林旧事",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "东京梦华录、都城纪胜、西湖老人繁胜录、梦粱录、武林旧事，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "城市饮食",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "东京梦华录",
+      "都城纪胜",
+      "西湖老人繁胜录",
+      "梦粱录",
+      "武林旧事"
+    ]
+  },
+  {
+    "id": "text_lit_072",
+    "title": "吕氏春秋·本味篇",
+    "author": "详见所收各书",
+    "dynasty": "先秦",
+    "description": "吕氏春秋·本味篇，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "烹饪理论",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "吕氏春秋·本味篇"
+    ]
+  },
+  {
+    "id": "text_lit_073",
+    "title": "闲情偶寄·饮馔部",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "闲情偶寄·饮馔部，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮馔理论",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "闲情偶寄·饮馔部"
+    ]
+  },
+  {
+    "id": "text_lit_074",
+    "title": "养小录",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "养小录，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "家政食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "养小录"
+    ]
+  },
+  {
+    "id": "text_lit_075",
+    "title": "中馈录",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "中馈录，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "家庭食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "中馈录"
+    ]
+  },
+  {
+    "id": "text_lit_077",
+    "title": "云林堂饮食制度集",
+    "author": "详见所收各书",
+    "dynasty": "元代",
+    "description": "云林堂饮食制度集，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "云林堂饮食制度集"
+    ]
+  },
+  {
+    "id": "text_lit_078",
+    "title": "易牙遗意",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "易牙遗意，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "易牙遗意"
+    ]
+  },
+  {
+    "id": "text_lit_079",
+    "title": "醒园录",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "醒园录，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "川菜/食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "醒园录"
+    ]
+  },
+  {
+    "id": "text_lit_080",
+    "title": "素食说略",
+    "author": "详见所收各书",
+    "dynasty": "近代",
+    "description": "素食说略，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "素食",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "素食说略"
+    ]
+  },
+  {
+    "id": "text_lit_081",
+    "title": "齐民要术·饮食部分",
+    "author": "详见所收各书",
+    "dynasty": "北魏",
+    "description": "齐民要术·饮食部分，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "农书/食品加工",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "齐民要术·饮食部分"
+    ]
+  },
+  {
+    "id": "text_lit_082",
+    "title": "千金食治、食疗方",
+    "author": "详见所收各书",
+    "dynasty": "唐代",
+    "description": "千金食治、食疗方，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食疗",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "千金食治",
+      "食疗方"
+    ]
+  },
+  {
+    "id": "text_lit_083",
+    "title": "清异录·饮食部分",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "清异录·饮食部分，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食掌故",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "清异录·饮食部分"
+    ]
+  },
+  {
+    "id": "text_lit_085",
+    "title": "饮馔服食笺",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "饮馔服食笺，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱/养生",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "饮馔服食笺"
+    ]
+  },
+  {
+    "id": "text_lit_086",
+    "title": "食宪鸿秘",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "食宪鸿秘，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "食宪鸿秘"
+    ]
+  },
+  {
+    "id": "text_lit_087",
+    "title": "随息居饮食谱",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "随息居饮食谱，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食疗/食物谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "随息居饮食谱"
+    ]
+  },
+  {
+    "id": "text_lit_088",
+    "title": "饮食须知",
+    "author": "详见所收各书",
+    "dynasty": "元代",
+    "description": "饮食须知，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食禁忌",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "饮食须知"
+    ]
+  },
+  {
+    "id": "text_lit_089",
+    "title": "造洋饭书",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "造洋饭书，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "中西交流/西餐",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "造洋饭书"
+    ]
+  },
+  {
+    "id": "text_lit_090",
+    "title": "粥谱二种",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "粥谱二种，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "粥谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "粥谱二种"
+    ]
+  },
+  {
+    "id": "text_lit_091",
+    "title": "居家必用事类全集",
+    "author": "详见所收各书",
+    "dynasty": "元代",
+    "description": "居家必用事类全集，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "家政/食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "居家必用事类全集"
+    ]
+  },
+  {
+    "id": "text_lit_092",
+    "title": "调鼎集",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "调鼎集，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "调鼎集"
+    ]
+  },
+  {
+    "id": "text_lit_093",
+    "title": "能改斋漫录",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "能改斋漫录，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食掌故",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "能改斋漫录"
+    ]
+  },
+  {
+    "id": "text_lit_094",
+    "title": "先秦烹饪史料选注",
+    "author": "详见所收各书",
+    "dynasty": "先秦",
+    "description": "先秦烹饪史料选注，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "史料选注",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "先秦烹饪史料选注"
+    ]
+  },
+  {
+    "id": "text_lit_095",
+    "title": "吴氏中馈录、本心斋疏食谱",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "吴氏中馈录、本心斋疏食谱，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "家庭食谱/素食",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "吴氏中馈录",
+      "本心斋疏食谱"
+    ]
+  },
+  {
+    "id": "text_lit_096",
+    "title": "筵款丰馐依样调鼎新录",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "筵款丰馐依样调鼎新录，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "宴席食谱",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "筵款丰馐依样调鼎新录"
+    ]
+  },
+  {
+    "id": "text_lit_098",
+    "title": "菽园杂记·饮食部分、升庵外集·饮食部分、饮食绅言·饮食部分",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "菽园杂记·饮食部分、升庵外集·饮食部分、饮食绅言·饮食部分，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食笔记",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "菽园杂记·饮食部分",
+      "升庵外集·饮食部分",
+      "饮食绅言·饮食部分"
+    ]
+  },
+  {
+    "id": "text_lit_099",
+    "title": "陆游饮食诗选注",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "陆游饮食诗选注，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食文学",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "陆游饮食诗选注"
+    ]
+  },
+  {
+    "id": "text_lit_100",
+    "title": "清嘉录",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "清嘉录，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "岁时饮食",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "清嘉录"
+    ]
+  },
+  {
+    "id": "text_lit_101",
+    "title": "宋氏养生部·饮食部分",
+    "author": "详见所收各书",
+    "dynasty": "明代",
+    "description": "宋氏养生部·饮食部分，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "养生饮食",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "宋氏养生部·饮食部分"
+    ]
+  },
+  {
+    "id": "text_lit_102",
+    "title": "浪迹丛谈四种·饮食部分",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "浪迹丛谈四种·饮食部分，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "饮食笔记",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "浪迹丛谈四种·饮食部分"
+    ]
+  },
+  {
+    "id": "text_lit_103",
+    "title": "食疗本草",
+    "author": "详见所收各书",
+    "dynasty": "唐代",
+    "description": "食疗本草，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食疗本草",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "食疗本草"
+    ]
+  },
+  {
+    "id": "text_lit_104",
+    "title": "太平御览·饮食部",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "太平御览·饮食部，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "类书",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "太平御览·饮食部"
+    ]
+  },
+  {
+    "id": "text_lit_105",
+    "title": "东京梦华录（校注本）",
+    "author": "详见所收各书",
+    "dynasty": "宋代",
+    "description": "东京梦华录（校注本），收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "城市饮食",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "东京梦华录（校注本）"
+    ]
+  },
+  {
+    "id": "text_lit_106",
+    "title": "随园食单补证",
+    "author": "详见所收各书",
+    "dynasty": "清代",
+    "description": "随园食单补证，收录/整理与中国传统饮食、食谱、茶酒、食疗、农书或食材相关的文献。",
+    "total_recipes": null,
+    "significance": "可作为菜谱复原、食材考证、技法推断和饮食文化语境分析的权威文献来源。",
+    "category": "食谱补证",
+    "collection": "中国烹饪古籍丛刊",
+    "source_url": "https://ci.nii.ac.jp/ncid/BN13499321?l=en",
+    "catalog_url": "https://www.douban.com/note/163074955/",
+    "authority_institution": "中国商业出版社；馆藏目录见 CiNii Books，书目转录见豆瓣书目笔记",
+    "verification_note": "CiNii Books 可检索该丛刊馆藏；豆瓣书目笔记转录36种目录与出版信息，用作条目拆分依据。",
+    "included_texts": [
+      "随园食单补证"
+    ]
+  }
+]

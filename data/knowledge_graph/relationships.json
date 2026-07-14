@@ -1,0 +1,62 @@
+[
+  {"source": "dish_001", "target": "ing_006", "type": "contains", "properties": {"quantity": "适量", "role": "主料", "preparation": "取蟹膏蟹肉"}},
+  {"source": "dish_001", "target": "ing_016", "type": "contains", "properties": {"quantity": "2个", "role": "容器兼调味", "preparation": "截顶去瓤，留少液"}},
+  {"source": "dish_001", "target": "ing_010", "type": "contains", "properties": {"quantity": "少许", "role": "调料", "preparation": null}},
+  {"source": "dish_001", "target": "tech_004", "type": "uses_technique", "properties": {"step_order": 1, "description": "将蟹肉填入橙壳"}},
+  {"source": "dish_001", "target": "tech_006", "type": "uses_technique", "properties": {"step_order": 2, "description": "入甑蒸熟"}},
+  {"source": "dish_001", "target": "dynasty_004", "type": "originated_in"},
+  {"source": "dish_001", "target": "text_001", "type": "recorded_in", "properties": {"chapter": "蟹酿橙", "page_reference": "卷下"}},
+  {"source": "dish_001", "target": "region_001", "type": "popular_in", "properties": {"popularity": "高度流行"}},
+
+  {"source": "dish_002", "target": "tech_006", "type": "uses_technique", "properties": {"step_order": 1, "description": "汤焯槐叶"}},
+  {"source": "dish_002", "target": "dynasty_003", "type": "originated_in"},
+  {"source": "dish_002", "target": "text_001", "type": "recorded_in", "properties": {"chapter": "槐叶冷淘", "page_reference": "卷上"}},
+  {"source": "dish_002", "target": "season_003", "type": "seasonal_for"},
+
+  {"source": "dish_003", "target": "ing_013", "type": "contains", "properties": {"quantity": "适量", "role": "主料", "preparation": "切碎煮烂"}},
+  {"source": "dish_003", "target": "dynasty_004", "type": "originated_in"},
+  {"source": "dish_003", "target": "text_001", "type": "recorded_in", "properties": {"chapter": "玉糁羹", "page_reference": "卷上"}},
+
+  {"source": "dish_004", "target": "ing_012", "type": "contains", "properties": {"quantity": "二块", "role": "主料", "preparation": "嫩片切碎"}},
+  {"source": "dish_004", "target": "dynasty_007", "type": "originated_in"},
+  {"source": "dish_004", "target": "text_002", "type": "recorded_in", "properties": {"chapter": "小菜单", "page_reference": "杂素菜单"}},
+  {"source": "dish_004", "target": "tech_010", "type": "uses_technique", "properties": {"step_order": 1, "description": "浓鸡汁调味"}},
+
+  {"source": "dish_005", "target": "ing_012", "type": "contains", "properties": {"quantity": "二块", "role": "主料", "preparation": "去皮切片晾干"}},
+  {"source": "dish_005", "target": "dynasty_007", "type": "originated_in"},
+  {"source": "dish_005", "target": "text_002", "type": "recorded_in", "properties": {"chapter": "小菜单", "page_reference": "杂素菜单"}},
+
+  {"source": "dish_006", "target": "ing_002", "type": "contains", "properties": {"quantity": "一把", "role": "主料", "preparation": null}},
+  {"source": "dish_006", "target": "dynasty_003", "type": "originated_in"},
+  {"source": "dish_006", "target": "region_001", "type": "popular_in", "properties": {"popularity": "极高"}},
+
+  {"source": "dish_007", "target": "ing_005", "type": "contains", "properties": {"quantity": "一斤", "role": "主料", "preparation": "切大片"}},
+  {"source": "dish_007", "target": "tech_001", "type": "uses_technique", "properties": {"step_order": 1, "description": "炭火炙烤"}},
+  {"source": "dish_007", "target": "dynasty_005", "type": "originated_in"},
+  {"source": "dish_007", "target": "text_004", "type": "recorded_in", "properties": {"chapter": "聚珍异馔", "page_reference": "卷一"}},
+
+  {"source": "dish_008", "target": "tech_006", "type": "uses_technique", "properties": {"step_order": 2, "description": "煮面"}},
+  {"source": "dish_008", "target": "dynasty_004", "type": "originated_in"},
+  {"source": "dish_008", "target": "text_001", "type": "recorded_in", "properties": {"chapter": "翠缕面", "page_reference": "卷下"}},
+
+  {"source": "dish_009", "target": "tech_009", "type": "uses_technique", "properties": {"step_order": 1, "description": "整鱼去骨不破皮"}},
+  {"source": "dish_009", "target": "tech_004", "type": "uses_technique", "properties": {"step_order": 2, "description": "填入馅料"}},
+  {"source": "dish_009", "target": "tech_006", "type": "uses_technique", "properties": {"step_order": 3, "description": "蒸熟"}},
+  {"source": "dish_009", "target": "dynasty_007", "type": "originated_in"},
+  {"source": "dish_009", "target": "text_002", "type": "recorded_in", "properties": {"chapter": "水族有鳞单", "page_reference": null}},
+
+  {"source": "dish_010", "target": "ing_015", "type": "contains", "properties": {"quantity": "适量", "role": "主料", "preparation": "半开花瓣"}},
+  {"source": "dish_010", "target": "ing_010", "type": "contains", "properties": {"quantity": "适量", "role": "调料", "preparation": null}},
+  {"source": "dish_010", "target": "dynasty_004", "type": "originated_in"},
+  {"source": "dish_010", "target": "text_001", "type": "recorded_in", "properties": {"chapter": "蜜渍梅花", "page_reference": "卷下"}},
+  {"source": "dish_010", "target": "season_005", "type": "seasonal_for"},
+
+  {"source": "ing_008", "target": "ing_007", "type": "substitute_for", "properties": {"similarity": 0.6, "notes": "茱萸是辣椒传入前的辛辣调料替代品"}},
+  {"source": "ing_004", "target": "ing_005", "type": "substitute_for", "properties": {"similarity": 0.4, "notes": "现代可用牛蹄筋替代熊掌的胶质口感"}},
+  {"source": "ing_009", "target": "ing_011", "type": "substitute_for", "properties": {"similarity": 0.7, "notes": "杏仁露可替代古代杏酪的风味"}},
+
+  {"source": "tech_002", "target": "region_001", "type": "technique_from"},
+  {"source": "tech_008", "target": "region_001", "type": "technique_from"},
+  {"source": "tech_010", "target": "region_003", "type": "technique_from"},
+  {"source": "tech_001", "target": "region_003", "type": "technique_from"}
+]

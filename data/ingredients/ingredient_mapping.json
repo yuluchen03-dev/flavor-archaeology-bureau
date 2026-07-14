@@ -1,0 +1,91 @@
+{
+  "description": "食材古今对照表 - 灭绝/罕见食材与现代替代品映射",
+  "mappings": [
+    {
+      "ancient_name": "熊掌",
+      "modern_name": "牛蹄筋/猪蹄",
+      "status": "受保护动物，禁止食用",
+      "substitute_reason": "胶质丰富的口感可通过牛蹄筋或猪蹄模拟",
+      "similarity_score": 0.4,
+      "flavor_difference": "熊掌更为软糯，牛蹄筋更有嚼劲",
+      "usage_context": "古代八珍之一，现仅作文化研究用途"
+    },
+    {
+      "ancient_name": "鹿肉",
+      "modern_name": "牛肉",
+      "status": "养殖鹿可获得，但不常见",
+      "substitute_reason": "肉质细嫩程度相近",
+      "similarity_score": 0.6,
+      "flavor_difference": "鹿肉有独特的野味，牛肉更为常见",
+      "usage_context": "古代宫廷常用食材"
+    },
+    {
+      "ancient_name": "茱萸（食茱萸）",
+      "modern_name": "辣椒/花椒",
+      "status": "仍存在但不再作为主调料使用",
+      "substitute_reason": "辣椒传入后取代了茱萸的辛辣调味功能",
+      "similarity_score": 0.5,
+      "flavor_difference": "茱萸辛辣微苦，辣椒更为直接热烈",
+      "usage_context": "辣椒传入前的主要辛辣调料"
+    },
+    {
+      "ancient_name": "杏酪",
+      "modern_name": "杏仁露",
+      "status": "制法失传",
+      "substitute_reason": "杏仁露可模拟杏酪的杏香和口感",
+      "similarity_score": 0.7,
+      "flavor_difference": "古法杏酪更为醇厚，现代杏仁露偏甜",
+      "usage_context": "唐代宫廷饮品"
+    },
+    {
+      "ancient_name": "酪（酥/醍醐）",
+      "modern_name": "黄油/奶油/奶酪",
+      "status": "制法有变化",
+      "substitute_reason": "乳制品的现代形式",
+      "similarity_score": 0.8,
+      "flavor_difference": "古代制法与现代工业化产品风味有差异",
+      "usage_context": "元代蒙古饮食文化的重要组成部分"
+    },
+    {
+      "ancient_name": "蜜渍/蜜煎",
+      "modern_name": "蜜饯/果脯",
+      "status": "技法传承但有变化",
+      "substitute_reason": "同为蜂蜜腌渍保存的技法",
+      "similarity_score": 0.8,
+      "flavor_difference": "古法蜜渍更为天然，现代蜜饯添加剂较多",
+      "usage_context": "唐宋时期常见的食品加工方式"
+    },
+    {
+      "ancient_name": "菰米（雕胡米）",
+      "modern_name": "糯米/薏米",
+      "status": "野生菰米极为罕见",
+      "substitute_reason": "口感和用途相近",
+      "similarity_score": 0.5,
+      "flavor_difference": "菰米有独特的清香",
+      "usage_context": "先秦至唐代的重要谷物"
+    },
+    {
+      "ancient_name": "藕粉（古法）",
+      "modern_name": "现代藕粉",
+      "status": "古法制作技艺濒危",
+      "substitute_reason": "同为莲藕提取的淀粉",
+      "similarity_score": 0.9,
+      "flavor_difference": "古法藕粉更为细腻清香",
+      "usage_context": "清代贡品"
+    }
+  ],
+  "extinct_techniques": [
+    {
+      "technique": "古法酿酒（曲蘖法）",
+      "status": "部分失传",
+      "modern_equivalent": "现代酿酒工艺",
+      "notes": "《齐民要术》记载的制曲技术部分已失传"
+    },
+    {
+      "technique": "古法制酱（豆酱清）",
+      "status": "工艺简化",
+      "modern_equivalent": "现代酱油酿造",
+      "notes": "古代制酱周期更长，风味更为复杂"
+    }
+  ]
+}

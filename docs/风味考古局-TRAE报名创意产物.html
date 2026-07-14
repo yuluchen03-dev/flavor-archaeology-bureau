@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>风味考古局｜给我一行古书，还你一桌失传的盛宴</title>
+  <style>
+    :root {
+      --ink: #21150d;
+      --ink-soft: #5f4936;
+      --paper: #f5e5c7;
+      --paper-light: #fff7e9;
+      --paper-deep: #dfbf84;
+      --cinnabar: #a53622;
+      --rouge: #6e1f17;
+      --tea: #c88a32;
+      --moss: #2d563f;
+      --jade: #7f9f76;
+      --night: #130f0a;
+      --line: rgba(50, 30, 16, 0.18);
+      --shadow: rgba(43, 23, 12, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(200, 138, 50, 0.35), transparent 30rem),
+        radial-gradient(circle at 88% 10%, rgba(45, 86, 63, 0.24), transparent 34rem),
+        linear-gradient(135deg, #f9edd7 0%, #ecd0a0 52%, #d6ae6c 100%);
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(90deg, rgba(33, 21, 13, 0.035) 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(0deg, rgba(33, 21, 13, 0.025) 0 1px, transparent 1px 28px);
+      pointer-events: none;
+      mask-image: radial-gradient(circle at 50% 30%, black, transparent 82%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 34px 20px 68px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 247, 233, 0.72);
+      box-shadow: 0 16px 45px rgba(43, 23, 12, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .seal {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 auto;
+      border: 2px solid var(--cinnabar);
+      color: var(--cinnabar);
+      font-weight: 900;
+      line-height: 1.05;
+      transform: rotate(-4deg);
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--paper-light);
+      background: var(--cinnabar);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 680px;
+      padding: clamp(34px, 6vw, 74px);
+      border: 1px solid var(--line);
+      border-radius: 42px;
+      background:
+        linear-gradient(118deg, rgba(255, 248, 235, 0.98) 0%, rgba(244, 220, 180, 0.9) 54%, rgba(96, 56, 28, 0.16) 100%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.38), transparent);
+      box-shadow: 0 32px 110px var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "山家清供";
+      position: absolute;
+      right: -32px;
+      top: 30px;
+      z-index: -1;
+      color: rgba(165, 54, 34, 0.08);
+      font-size: clamp(98px, 18vw, 230px);
+      font-weight: 900;
+      line-height: 0.94;
+      writing-mode: vertical-rl;
+      letter-spacing: 0.08em;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 8%;
+      bottom: 7%;
+      width: clamp(210px, 26vw, 330px);
+      height: clamp(210px, 26vw, 330px);
+      border-radius: 50%;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(31, 19, 10, 0.08), rgba(31, 19, 10, 0.3)),
+        url("assets/crab-orange-hero.webp") center / cover no-repeat;
+      box-shadow:
+        inset 0 0 0 12px rgba(255, 244, 214, 0.35),
+        0 28px 74px rgba(127, 45, 18, 0.28);
+      border: 1px solid rgba(255, 244, 214, 0.54);
+      opacity: 0.96;
+      pointer-events: none;
+      animation: floatOrange 6s ease-in-out infinite;
+    }
+
+    @keyframes floatOrange {
+      0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(4deg);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 15px;
+      border: 1px solid rgba(165, 54, 34, 0.26);
+      border-radius: 999px;
+      color: var(--cinnabar);
+      background: rgba(255, 252, 244, 0.76);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    h1 {
+      max-width: 830px;
+      margin: 30px 0 22px;
+      font-size: clamp(46px, 8vw, 104px);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: #5e4631;
+      font-size: clamp(20px, 2.55vw, 30px);
+      font-weight: 800;
+    }
+
+    .lead mark {
+      color: var(--cinnabar);
+      background: linear-gradient(180deg, transparent 58%, rgba(200, 138, 50, 0.28) 58%);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 1px solid rgba(33, 21, 13, 0.12);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      color: var(--paper-light);
+      background: var(--cinnabar);
+      box-shadow: 0 12px 30px rgba(165, 54, 34, 0.28);
+    }
+
+    .button.secondary {
+      color: var(--cinnabar);
+      background: rgba(255, 252, 244, 0.72);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-flow {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 14px;
+      align-items: stretch;
+      max-width: 920px;
+      margin-top: 48px;
+      z-index: 1;
+    }
+
+    .artifact {
+      min-height: 178px;
+      padding: 22px;
+      border: 1px solid rgba(74, 45, 22, 0.15);
+      border-radius: 28px;
+      background: rgba(255, 249, 237, 0.78);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.38);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: rise 0.78s ease forwards;
+    }
+
+    .artifact:nth-child(3) {
+      animation-delay: 0.16s;
+    }
+
+    .artifact:nth-child(5) {
+      animation-delay: 0.32s;
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .artifact small {
+      display: block;
+      color: var(--cinnabar);
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .artifact b {
+      display: block;
+      margin: 8px 0;
+      font-size: 22px;
+    }
+
+    .artifact span {
+      color: var(--ink-soft);
+      font-size: 15px;
+    }
+
+    .arrow {
+      align-self: center;
+      color: var(--cinnabar);
+      font-size: 34px;
+      font-weight: 900;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: rise 0.78s ease 0.08s forwards;
+    }
+
+    .proof-strip {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .proof {
+      padding: 16px;
+      border-radius: 20px;
+      color: #fff7e8;
+      background: var(--night);
+    }
+
+    .proof:nth-child(even) {
+      background: var(--moss);
+    }
+
+    .proof b {
+      display: block;
+      color: #ffd27e;
+      font-size: 20px;
+    }
+
+    section {
+      margin-top: 28px;
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: rgba(255, 248, 236, 0.82);
+      box-shadow: 0 18px 54px rgba(43, 23, 12, 0.12);
+    }
+
+    .kicker {
+      color: var(--cinnabar);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 8px 0 14px;
+      color: var(--moss);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .dark-card {
+      min-height: 100%;
+      padding: 32px;
+      border-radius: 30px;
+      color: var(--paper-light);
+      background:
+        radial-gradient(circle at 80% 18%, rgba(200, 138, 50, 0.38), transparent 17rem),
+        linear-gradient(135deg, #1b120d, #2d563f);
+    }
+
+    .dark-card strong {
+      display: block;
+      color: #ffd27e;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .sample {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .dish-card {
+      position: relative;
+      isolation: isolate;
+      min-height: 360px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(24, 13, 7, 0.12), rgba(24, 13, 7, 0.3)),
+        linear-gradient(135deg, #1f140d, #59301d);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 26px 70px rgba(40, 20, 8, 0.24);
+    }
+
+    .dish-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.04) contrast(1.03);
+      transform: scale(1.015);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+
+    .dish-card:hover img {
+      filter: saturate(1.1) contrast(1.06);
+      transform: scale(1.055);
+    }
+
+    .dish-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      z-index: 1;
+      border: 1px solid rgba(255, 239, 194, 0.5);
+      border-radius: 23px;
+      box-shadow: inset 0 0 0 1px rgba(32, 17, 8, 0.18);
+      pointer-events: none;
+    }
+
+    .dish-card::after {
+      content: "蟹酿橙";
+      position: absolute;
+      z-index: 1;
+      right: 22px;
+      bottom: 18px;
+      color: rgba(255, 247, 233, 0.18);
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      text-shadow: 0 2px 14px rgba(20, 10, 4, 0.24);
+      pointer-events: none;
+    }
+
+    .quote {
+      padding: 20px;
+      border-left: 5px solid var(--cinnabar);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.42);
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 220px;
+      padding: 22px;
+      border-radius: 26px;
+      color: var(--paper-light);
+      background: var(--moss);
+      overflow: hidden;
+    }
+
+    .step:nth-child(even) {
+      background: var(--cinnabar);
+    }
+
+    .step::after {
+      content: attr(data-no);
+      position: absolute;
+      right: 14px;
+      bottom: -18px;
+      color: rgba(255, 255, 255, 0.12);
+      font-size: 88px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .step small {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      color: #ffd27e;
+      font-weight: 900;
+      transform: rotate(4deg);
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 8px;
+      color: #ffd27e;
+      font-size: 21px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      min-height: 250px;
+      padding: 24px;
+      border: 1px solid rgba(74, 45, 22, 0.12);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 252, 244, 0.88), rgba(246, 230, 200, 0.72));
+    }
+
+    .feature .num {
+      color: rgba(165, 54, 34, 0.42);
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .feature b {
+      display: block;
+      margin: 12px 0 8px;
+      color: var(--cinnabar);
+      font-size: 22px;
+    }
+
+    .judge-path {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .judge {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(74, 45, 22, 0.12);
+    }
+
+    .judge strong {
+      display: block;
+      color: var(--moss);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--cinnabar);
+      background: rgba(165, 54, 34, 0.1);
+      font-weight: 900;
+    }
+
+    .closing {
+      color: var(--paper-light);
+      background:
+        radial-gradient(circle at 82% 12%, rgba(200, 138, 50, 0.42), transparent 18rem),
+        linear-gradient(135deg, #1a110c, #2d563f);
+    }
+
+    .closing h2 {
+      color: var(--paper-light);
+    }
+
+    .closing .quote-line {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .closing .quote-line div {
+      padding: 22px;
+      border-left: 5px solid #ffd27e;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.32;
+    }
+
+    footer {
+      margin-top: 34px;
+      color: #5c432d;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 940px) {
+      .topbar {
+        align-items: flex-start;
+        border-radius: 24px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero::after {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        display: block;
+        width: 210px;
+        height: 210px;
+        margin: 36px auto 0;
+      }
+
+      .hero-flow,
+      .proof-strip,
+      .split,
+      .sample,
+      .timeline,
+      .feature-grid,
+      .judge-path,
+      .closing .quote-line {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        text-align: center;
+        transform: rotate(90deg);
+      }
+
+      h1 {
+        letter-spacing: -0.06em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="seal">考<br>古</div>
+        <div>
+          <strong>风味考古局</strong>
+          <span>中国风味复原计划</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#sample">蟹酿橙</a>
+        <a href="#process">考据四步</a>
+        <a href="#features">三大特色</a>
+        <a href="#judge">90 秒路径</a>
+        <a href="#landing">落地价值</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="hero">
+        <div class="eyebrow">TRAE AI 创造力大赛 · 社会服务赛道</div>
+        <h1>给我一行古书，还你一桌失传的盛宴</h1>
+        <p class="lead">
+          风味考古局不是普通 AI 菜谱生成器，而是把古籍、食材、技法和生成式 AI 放进同一条
+          <mark>可见证据链</mark>，让灭绝的中国味道重新复生。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#judge">查看 90 秒评委路径</a>
+          <a class="button secondary" href="#process">看它如何推理一道菜回来</a>
+        </div>
+
+        <div class="hero-flow" aria-label="核心流程">
+          <div class="artifact">
+            <small>CLUE</small>
+            <b>一段古籍线索</b>
+            <span>《山家清供》里的几句古文，可能藏着一道失传风味。</span>
+          </div>
+          <div class="arrow">→</div>
+          <div class="artifact">
+            <small>PROOF</small>
+            <b>一条可审计证据链</b>
+            <span>追踪食材、器皿、技法、朝代、地域和可信边界。</span>
+          </div>
+          <div class="arrow">→</div>
+          <div class="artifact">
+            <small>REVIVE</small>
+            <b>一桌可体验盛宴</b>
+            <span>输出复原菜、现代做法、数字传承人、味觉星图和分享证书。</span>
+          </div>
+        </div>
+
+        <div class="proof-strip">
+          <div class="proof"><b>不是查菜谱</b>而是从碎片推理一道菜回来</div>
+          <div class="proof"><b>不是编故事</b>每一步都对应证据和语境</div>
+          <div class="proof"><b>不是只给结果</b>把复原过程可视化给评委看</div>
+          <div class="proof"><b>不是一次性 Demo</b>可进入文博、研学、文旅、餐饮研发</div>
+        </div>
+      </article>
+
+      <section id="sample" class="sample">
+        <div>
+          <div class="kicker">Signature Sample</div>
+          <h2>南宋 · 蟹酿橙</h2>
+          <p>
+            当前 Demo 的铁打样本是南宋林洪《山家清供》中的“蟹酿橙”。系统不是简单展示菜品图，
+            而是把原文、食材、器皿、蒸制技法与现代成品图放进同一份可追溯档案。
+          </p>
+          <div class="quote">
+            “橙用黄熟大者，截顶去瓤，留少液。以蟹膏肉实其内，仍以带枝顶覆之。入甑，用酒、醋、水蒸熟。”
+            <br>——《山家清供》南宋 · 林洪
+          </div>
+        </div>
+        <figure class="dish-card" aria-label="蟹酿橙视觉化复原图">
+          <img
+            src="assets/crab-orange-hero.webp"
+            alt="盛放在深色陶碗中的蟹酿橙，橙壳中填满蟹肉与蟹膏"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+      </section>
+
+      <section id="process">
+        <div class="kicker">Process · Four Steps</div>
+        <h2>从碎片到复活：四步考据链</h2>
+        <p>
+          项目最有记忆点的地方，是把“AI 推理过程”放到屏幕上，而不是只给一个漂亮结果。
+          评委可以看到系统如何从线索一步步走向复原。
+        </p>
+        <div class="timeline">
+          <div class="step" data-no="01">
+            <small>籍</small>
+            <b>古籍解码</b>
+            从《山家清供》《随园食单》等文本抽取食材、器具、技法和语境。
+          </div>
+          <div class="step" data-no="02">
+            <small>证</small>
+            <b>食材考证</b>
+            用朝代、地域、节令和可得性约束，排除不属于那个时代的想象。
+          </div>
+          <div class="step" data-no="03">
+            <small>演</small>
+            <b>技法推演</b>
+            把蒸、酿、脍、糟、羹等古法翻译成现代厨房可执行步骤。
+          </div>
+          <div class="step" data-no="04">
+            <small>现</small>
+            <b>成品复原</b>
+            生成菜品图、证据链、复原说明和可以分享的风味档案。
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="kicker">Highlights</div>
+        <h2>不只是查菜谱，而是推理一道菜回来</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="num">01</div>
+            <b>可见考据链</b>
+            <p>每一步推理都可见：古籍、食材、技法、时代、地域和出处都进入复原过程，减少“看起来很真”的 AI 幻觉。</p>
+          </div>
+          <div class="feature">
+            <div class="num">02</div>
+            <b>数字传承人</b>
+            <p>复活的菜不只是一张图，还能召出那个朝代的“大师”，用对话式教学解释文化规则和现代做法。</p>
+          </div>
+          <div class="feature">
+            <div class="num">03</div>
+            <b>轻量玩法</b>
+            <p>拍照认祖、每日复活、真假非遗、分享证书，让硬核文化复原变成评委和观众三秒能玩的体验。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="judge">
+        <div class="kicker">Judge Mode</div>
+        <h2>90 秒评委路径：一口气看完整闭环</h2>
+        <p>
+          网站里已经准备了“现场演示 · 90 秒评委路径”：从线索输入到可信复原，再到味觉星图、轻量玩法和商业价值，
+          连续展示项目不是一个静态页面，而是一套完整产品体验。
+        </p>
+        <div class="judge-path">
+          <div class="judge"><strong>1. 线索输入</strong>一键装入蟹酿橙古籍线索</div>
+          <div class="judge"><strong>2. 可信复原</strong>流式考据、证据图谱、成品复原</div>
+          <div class="judge"><strong>3. 味觉星图</strong>让复原菜进入可探索的风味宇宙</div>
+          <div class="judge"><strong>4. 轻量玩法</strong>拍照认祖、真假非遗、分享证书</div>
+          <div class="judge"><strong>5. 商业价值</strong>文博、研学、文旅、餐饮研发落地</div>
+        </div>
+      </section>
+
+      <section class="split">
+        <div>
+          <div class="kicker">Expansion</div>
+          <h2>味觉星图与风味进化</h2>
+          <p>
+            风味考古局不止复原一道菜。味觉星图把历史风味组织成可探索的档案系统；
+            风味进化允许在真实古菜血统约束下选择两道历史菜品，生成新的非遗风味方向。
+          </p>
+          <div class="tag-list">
+            <span class="tag">南宋蟹酿橙</span>
+            <span class="tag">东坡肉</span>
+            <span class="tag">槐叶冷淘</span>
+            <span class="tag">玉糁羹</span>
+            <span class="tag">地方传统风味</span>
+          </div>
+        </div>
+        <div class="dark-card">
+          <strong>文化即规则，而非装饰。</strong>
+          <p>
+            项目的视觉有中国风，但真正的“中国风”不在花纹里，而在食材可得性、古法技艺、
+            朝代地域和文献出处这些推理约束里。
+          </p>
+        </div>
+      </section>
+
+      <section id="landing" class="closing">
+        <div class="kicker">Why It Matters</div>
+        <h2>从非遗传播到真实落地</h2>
+        <p>
+          风味考古局可以做文博互动装置，让观众输入线索复活菜品；可以做研学课程包，输出证据包、讲义、问答和实践菜谱；
+          可以做城市风味地图和节令食俗活动；也可以帮助餐饮品牌研发有历史证据和文化故事的新菜。
+        </p>
+        <div class="quote-line">
+          <div>别人生成菜谱，我们复活失传菜。</div>
+          <div>别人追求好看，我们追求可见证据链。</div>
+          <div>别人做 Demo，我们做文化基础设施。</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>风味考古局 · 一行古书，一桌失传的盛宴</footer>
+  </div>
+</body>
+</html>

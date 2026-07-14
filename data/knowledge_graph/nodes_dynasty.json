@@ -1,0 +1,51 @@
+[
+  {
+    "id": "dynasty_001",
+    "name": "先秦",
+    "start_year": -221,
+    "end_year": -221,
+    "food_culture": "以粟、黍为主食，重视祭祀饮食，八珍为最高规格宴席"
+  },
+  {
+    "id": "dynasty_002",
+    "name": "汉代",
+    "start_year": -206,
+    "end_year": 220,
+    "food_culture": "丝绸之路引入胡椒、芝麻等，豆腐发明，面食兴起"
+  },
+  {
+    "id": "dynasty_003",
+    "name": "唐代",
+    "start_year": 618,
+    "end_year": 907,
+    "food_culture": "饮食文化繁荣，胡食流行，茶道兴起，宫廷宴席讲究"
+  },
+  {
+    "id": "dynasty_004",
+    "name": "宋代",
+    "start_year": 960,
+    "end_year": 1279,
+    "food_culture": "市民饮食文化鼎盛，夜市小吃繁荣，烹饪技法精细化，《山家清供》问世"
+  },
+  {
+    "id": "dynasty_005",
+    "name": "元代",
+    "start_year": 1271,
+    "end_year": 1368,
+    "food_culture": "蒙汉饮食融合，涮羊肉等游牧饮食传入，《饮膳正要》编撰"
+  },
+  {
+    "id": "dynasty_006",
+    "name": "明代",
+    "start_year": 1368,
+    "end_year": 1644,
+    "food_culture": "美洲作物引入（辣椒、玉米、番薯），烹饪体系完善"
+  },
+  {
+    "id": "dynasty_007",
+    "name": "清代",
+    "start_year": 1644,
+    "end_year": 1912,
+    "food_culture": "满汉全席，袁枚《随园食单》集大成，四大菜系定型"
+  }
+]

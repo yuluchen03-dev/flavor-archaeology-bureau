@@ -1,0 +1,58 @@
+[
+  {
+    "id": "season_001",
+    "name": "春节",
+    "lunar_month": 1,
+    "solar_term": "立春",
+    "food_tradition": "饺子、年糕、春饼，寓意团圆吉祥",
+    "seasonal_ingredients": ["韭菜", "萝卜", "白菜"]
+  },
+  {
+    "id": "season_002",
+    "name": "上元节",
+    "lunar_month": 1,
+    "solar_term": "雨水",
+    "food_tradition": "元宵/汤圆，象征团圆",
+    "seasonal_ingredients": ["糯米", "芝麻", "花生"]
+  },
+  {
+    "id": "season_003",
+    "name": "清明",
+    "lunar_month": 3,
+    "solar_term": "清明",
+    "food_tradition": "青团、寒食，纪念先人",
+    "seasonal_ingredients": ["艾草", "鼠曲草", "春笋"]
+  },
+  {
+    "id": "season_004",
+    "name": "端午",
+    "lunar_month": 5,
+    "solar_term": "芒种",
+    "food_tradition": "粽子、雄黄酒，驱邪避疫",
+    "seasonal_ingredients": ["箬叶", "糯米", "红枣"]
+  },
+  {
+    "id": "season_005",
+    "name": "中秋",
+    "lunar_month": 8,
+    "solar_term": "秋分",
+    "food_tradition": "月饼、桂花酒，赏月团圆",
+    "seasonal_ingredients": ["桂花", "芋头", "柚子"]
+  },
+  {
+    "id": "season_006",
+    "name": "重阳",
+    "lunar_month": 9,
+    "solar_term": "霜降",
+    "food_tradition": "重阳糕、菊花酒，登高祈寿",
+    "seasonal_ingredients": ["菊花", "栗子", "重阳糕"]
+  },
+  {
+    "id": "season_007",
+    "name": "冬至",
+    "lunar_month": 11,
+    "solar_term": "冬至",
+    "food_tradition": "饺子、汤圆、羊肉汤，进补御寒",
+    "seasonal_ingredients": ["羊肉", "萝卜", "白菜"]
+  }
+]

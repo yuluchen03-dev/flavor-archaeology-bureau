@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ing_001",
+    "name": "芡实",
+    "category": "谷物",
+    "period": "宋代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "甘平，清香软糯",
+    "aliases": ["鸡头米", "鸡头实"]
+  },
+  {
+    "id": "ing_002",
+    "name": "莼菜",
+    "category": "蔬菜",
+    "period": "晋代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "滑嫩清香，鲜美无比",
+    "aliases": ["水葵", "马蹄草"]
+  },
+  {
+    "id": "ing_003",
+    "name": "河豚",
+    "category": "水产",
+    "period": "宋代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "鲜美至极，有毒需专业处理",
+    "aliases": ["鮠", "鲐"]
+  },
+  {
+    "id": "ing_004",
+    "name": "熊掌",
+    "category": "肉类",
+    "period": "先秦",
+    "is_extinct": false,
+    "modern_substitute": "牛蹄筋/猪蹄",
+    "flavor_profile": "胶质丰富，口感软糯",
+    "aliases": ["熊蹯"]
+  },
+  {
+    "id": "ing_005",
+    "name": "鹿肉",
+    "category": "肉类",
+    "period": "先秦",
+    "is_extinct": false,
+    "modern_substitute": "牛肉",
+    "flavor_profile": "细嫩鲜美，略带野味",
+    "aliases": ["鹿脯"]
+  },
+  {
+    "id": "ing_006",
+    "name": "蟹膏蟹肉",
+    "category": "水产",
+    "period": "宋代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "蟹鲜橙香，酸甜交融",
+    "aliases": ["蟹膏", "蟹肉", "蟹膏肉"]
+  },
+  {
+    "id": "ing_016",
+    "name": "橙",
+    "category": "果品",
+    "period": "宋代",
+    "is_extinct": false,
+    "modern_substitute": "甜橙",
+    "flavor_profile": "清香酸甜，可作容器兼调味",
+    "aliases": ["黄熟大橙", "大橙", "橙壳"]
+  },
+  {
+    "id": "ing_007",
+    "name": "花椒",
+    "category": "调料",
+    "period": "先秦",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "麻香浓郁",
+    "aliases": ["秦椒", "蜀椒"]
+  },
+  {
+    "id": "ing_008",
+    "name": "茱萸",
+    "category": "调料",
+    "period": "汉代",
+    "is_extinct": false,
+    "modern_substitute": "辣椒",
+    "flavor_profile": "辛辣微苦，古人常用调味",
+    "aliases": ["吴茱萸", "食茱萸"]
+  },
+  {
+    "id": "ing_009",
+    "name": "杏酪",
+    "category": "其他",
+    "period": "唐代",
+    "is_extinct": false,
+    "modern_substitute": "杏仁露",
+    "flavor_profile": "甘甜醇厚，杏香浓郁",
+    "aliases": ["杏仁酪"]
+  },
+  {
+    "id": "ing_010",
+    "name": "蜜渍",
+    "category": "调料",
+    "period": "唐代",
+    "is_extinct": false,
+    "modern_substitute": "蜂蜜腌渍",
+    "flavor_profile": "甘甜滋润",
+    "aliases": ["蜜煎"]
+  },
+  {
+    "id": "ing_011",
+    "name": "乳酪",
+    "category": "其他",
+    "period": "元代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "酸甜醇厚，奶香浓郁",
+    "aliases": ["酥", "醍醐"]
+  },
+  {
+    "id": "ing_012",
+    "name": "豆腐",
+    "category": "谷物",
+    "period": "汉代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "清淡细腻，百搭食材",
+    "aliases": ["菽乳", "黎祁"]
+  },
+  {
+    "id": "ing_013",
+    "name": "莲藕",
+    "category": "蔬菜",
+    "period": "先秦",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "清甜脆嫩",
+    "aliases": ["藕", "莲根"]
+  },
+  {
+    "id": "ing_014",
+    "name": "竹笋",
+    "category": "蔬菜",
+    "period": "先秦",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "鲜嫩清香",
+    "aliases": ["笋", "竹萌"]
+  },
+  {
+    "id": "ing_015",
+    "name": "桂花",
+    "category": "调料",
+    "period": "唐代",
+    "is_extinct": false,
+    "modern_substitute": null,
+    "flavor_profile": "幽香馥郁",
+    "aliases": ["木犀", "岩桂"]
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-07-06",
+  "scope": "Lightweight investor-readiness manifest for flagship graph nodes and citations. This is not a claim of completed external expert sign-off.",
+  "review_status_values": [
+    "internal_reviewed",
+    "pending_external_expert"
+  ],
+  "flagship_nodes": [
+    {
+      "node_id": "dish_001",
+      "node_type": "dish",
+      "reason": "Flagship demo restoration path with dish source text, passage, ingredient, technique, dynasty, and recorded_in relations.",
+      "reviewer": "Internal research lead",
+      "status": "internal_reviewed",
+      "review_date": "2026-07-06",
+      "notes": "Internal source-field and graph-link review complete; external food-history review remains pending.",
+      "citation_ids": [
+        "citation_text_lit_013"
+      ]
+    },
+    {
+      "node_id": "dish_004",
+      "node_type": "dish",
+      "reason": "Investor-facing example for Qing culinary literature and ingredient relation coverage.",
+      "reviewer": "Internal research lead",
+      "status": "internal_reviewed",
+      "review_date": "2026-07-06",
+      "notes": "Internal source-field and graph-link review complete; external food-history review remains pending.",
+      "citation_ids": [
+        "citation_text_lit_106"
+      ]
+    },
+    {
+      "node_id": "text_lit_013",
+      "node_type": "ancient_text",
+      "reason": "Authority-backed literature catalog entry that includes Shan Jia Qing Gong in the consolidated source corpus.",
+      "reviewer": "Internal research lead",
+      "status": "pending_external_expert",
+      "review_date": "2026-07-06",
+      "notes": "Catalog URL and verification note are present; needs expert validation of edition suitability.",
+      "citation_ids": [
+        "citation_text_lit_013"
+      ]
+    },
+    {
+      "node_id": "text_lit_106",
+      "node_type": "ancient_text",
+      "reason": "Authority-backed literature catalog entry for Sui Yuan Shi Dan supplement evidence.",
+      "reviewer": "Internal research lead",
+      "status": "pending_external_expert",
+      "review_date": "2026-07-06",
+      "notes": "Catalog URL and verification note are present; needs expert validation of edition suitability.",
+      "citation_ids": [
+        "citation_text_lit_106"
+      ]
+    }
+  ],
+  "flagship_citations": [
+    {
+      "citation_id": "citation_text_lit_013",
+      "ancient_text_id": "text_lit_013",
+      "reviewer": "Internal research lead",
+      "status": "pending_external_expert",
+      "review_date": "2026-07-06",
+      "notes": "Machine-readable source_url, catalog_url, authority_institution, and verification_note are present in the cited node. External scholar sign-off is still pending."
+    },
+    {
+      "citation_id": "citation_text_lit_106",
+      "ancient_text_id": "text_lit_106",
+      "reviewer": "Internal research lead",
+      "status": "pending_external_expert",
+      "review_date": "2026-07-06",
+      "notes": "Machine-readable source_url, catalog_url, authority_institution, and verification_note are present in the cited node. External scholar sign-off is still pending."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "description": "风味进化规则 - 定义菜品如何融合创造新物种",
+  "fusion_rules": {
+    "compatibility_matrix": {
+      "海鲜": {"海鲜": 0.9, "蔬菜": 0.7, "肉类": 0.5, "羹汤": 0.6, "面食": 0.7},
+      "肉类": {"肉类": 0.8, "蔬菜": 0.6, "海鲜": 0.5, "羹汤": 0.7, "面食": 0.6},
+      "羹汤": {"羹汤": 0.7, "蔬菜": 0.8, "肉类": 0.7, "海鲜": 0.6, "面食": 0.8},
+      "面食": {"面食": 0.8, "蔬菜": 0.7, "羹汤": 0.8, "肉类": 0.6, "海鲜": 0.7},
+      "豆腐": {"豆腐": 0.9, "蔬菜": 0.8, "羹汤": 0.7, "肉类": 0.6, "海鲜": 0.7}
+    },
+    "fusion_styles": [
+      {"name": "古今融合", "description": "古代技法+现代食材", "bonus": 0.1},
+      {"name": "南北交融", "description": "南方食材+北方技法", "bonus": 0.15},
+      {"name": "荤素搭配", "description": "肉类+蔬菜的平衡", "bonus": 0.1}
+    ]
+  },
+  "evolution_results": [
+    {
+      "parent1": "蟹酿橙",
+      "parent2": "槐叶冷淘",
+      "result_name": "橙香翡翠冷淘",
+      "description": "以橙汁和面，配槐叶汁制成双色冷面，蟹肉橙汁为浇头",
+      "new_flavor": {"sour": 0.7, "sweet": 0.5, "bitter": 0.1, "spicy": 0.0, "salty": 0.3, "umami": 0.8},
+      "difficulty": "困难",
+      "dynasty_inspiration": "宋唐交融"
+    },
+    {
+      "parent1": "蟹酿橙",
+      "parent2": "玉糁羹",
+      "result_name": "蟹粉橙香米羹",
+      "description": "蟹肉与橙皮丝融入米羹，酸甜鲜美，质地细腻",
+      "new_flavor": {"sour": 0.5, "sweet": 0.4, "bitter": 0.0, "spicy": 0.0, "salty": 0.4, "umami": 0.9},
+      "difficulty": "中等",
+      "dynasty_inspiration": "宋代"
+    },
+    {
+      "parent1": "驼蹄羹",
+      "parent2": "荷包鱼",
+      "result_name": "驼蹄鱼茸羹",
+      "description": "驼蹄胶质与鱼茸的完美结合，浓稠鲜美",
+      "new_flavor": {"sour": 0.1, "sweet": 0.2, "bitter": 0.0, "spicy": 0.1, "salty": 0.5, "umami": 0.95},
+      "difficulty": "极难",
+      "dynasty_inspiration": "唐清交融"
+    },
+    {
+      "parent1": "东坡肉",
+      "parent2": "槐叶冷淘",
+      "result_name": "东坡冷淘",
+      "description": "冷面上铺薄切东坡肉片，配槐叶清香解腻",
+      "new_flavor": {"sour": 0.2, "sweet": 0.3, "bitter": 0.1, "spicy": 0.0, "salty": 0.5, "umami": 0.7},
+      "difficulty": "中等",
+      "dynasty_inspiration": "宋唐交融"
+    }
+  ],
+  "flavor_dimensions": [
+    {"id": "sour", "name": "酸", "color": "#FFD700"},
+    {"id": "sweet", "name": "甜", "color": "#FF69B4"},
+    {"id": "bitter", "name": "苦", "color": "#8B4513"},
+    {"id": "spicy", "name": "辣", "color": "#FF4500"},
+    {"id": "salty", "name": "咸", "color": "#4169E1"},
+    {"id": "umami", "name": "鲜", "color": "#32CD32"}
+  ]
+}

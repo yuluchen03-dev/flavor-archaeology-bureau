@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fake_001",
+    "name": "云母月光羹",
+    "dynasty": "宋代",
+    "description": "号称以云母粉入羹、月下凝露成冻，名字很雅，但缺少可靠食方出处。",
+    "source": "饕餮现场造梗",
+    "tell": "云母入食和月露凝冻都缺少可验证食方依据。",
+    "difficulty": "easy"
+  },
+  {
+    "id": "fake_002",
+    "name": "凤凰琉璃脯",
+    "dynasty": "唐代",
+    "description": "把神鸟意象和琉璃审美硬拼成菜名，没有稳定古籍食谱支撑。",
+    "source": "AI 幻觉样本",
+    "tell": "名称堆砌华丽意象，但食材、技法、出处都不闭合。",
+    "difficulty": "easy"
+  },
+  {
+    "id": "fake_003",
+    "name": "金露荔枝炙",
+    "dynasty": "宋代",
+    "description": "宣称用金露浸荔枝再炙烤成宴席主菜，违背荔枝保鲜与炙烤常识。",
+    "source": "饕餮反例库",
+    "tell": "技法和食材状态冲突，且无明确食单来源。",
+    "difficulty": "medium"
+  },
+  {
+    "id": "fake_004",
+    "name": "龙涎雪花豆腐",
+    "dynasty": "清代",
+    "description": "把香料名、雪花口感和豆腐拼贴在一起，像菜名但没有可追溯食方。",
+    "source": "AI 幻觉样本",
+    "tell": "关键词像传统菜，组合关系却没有出处证据。",
+    "difficulty": "medium"
+  },
+  {
+    "id": "fake_005",
+    "name": "霓裳玉露面",
+    "dynasty": "唐代",
+    "description": "借用霓裳羽衣曲意象包装面食，但缺少食材、技法和文本链。",
+    "source": "饕餮反例库",
+    "tell": "文化意象不能替代食谱出处。",
+    "difficulty": "easy"
+  },
+  {
+    "id": "fake_006",
+    "name": "麒麟桂花酥",
+    "dynasty": "明代",
+    "description": "以祥瑞命名的点心设定，但没有明确古籍或地方技艺线索。",
+    "source": "AI 幻觉样本",
+    "tell": "泛化祥瑞命名是常见伪传统线索。",
+    "difficulty": "easy"
+  },
+  {
+    "id": "fake_007",
+    "name": "天香玛瑙鱼",
+    "dynasty": "清代",
+    "description": "把宝石色泽和鱼肴混合叙述，缺少可执行烹饪步骤。",
+    "source": "饕餮反例库",
+    "tell": "只有审美描述，没有来源、火候、调味结构。",
+    "difficulty": "medium"
+  },
+  {
+    "id": "fake_008",
+    "name": "银汉莲子冻",
+    "dynasty": "宋代",
+    "description": "宣称取银河意象制成宫廷冷冻甜品，时代冷冻条件和出处都可疑。",
+    "source": "AI 幻觉样本",
+    "tell": "技术条件与文本证据都不足。",
+    "difficulty": "hard"
+  },
+  {
+    "id": "fake_009",
+    "name": "紫电青霜羹",
+    "dynasty": "唐代",
+    "description": "名字来自兵器和诗性词汇，并非可信食物命名链。",
+    "source": "饕餮反例库",
+    "tell": "诗性词汇堆叠，缺少食材与技法。",
+    "difficulty": "medium"
+  },
+  {
+    "id": "fake_010",
+    "name": "琥珀云腿茶",
+    "dynasty": "明代",
+    "description": "把火腿和茶汤写成甜饮，风味逻辑和食单出处都不成立。",
+    "source": "AI 幻觉样本",
+    "tell": "跨品类混搭没有历史证据支撑。",
+    "difficulty": "hard"
+  },
+  {
+    "id": "fake_011",
+    "name": "月魄珍珠鸭",
+    "dynasty": "清代",
+    "description": "用月魄和珍珠制造宫廷感，但没有具体原料和工艺记录。",
+    "source": "饕餮反例库",
+    "tell": "宫廷感不是古籍证据。",
+    "difficulty": "easy"
+  },
+  {
+    "id": "fake_012",
+    "name": "霞影酥山粥",
+    "dynasty": "宋代",
+    "description": "把酥山和粥混成同一道热食，概念互相打架。",
+    "source": "AI 幻觉样本",
+    "tell": "历史食品概念被错误拼接。",
+    "difficulty": "hard"
+  }
+]

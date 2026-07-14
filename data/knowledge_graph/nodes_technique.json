@@ -1,0 +1,92 @@
+[
+  {
+    "id": "tech_001",
+    "name": "炙",
+    "description": "将食物直接置于火上烤制，是人类最古老的烹饪方式之一",
+    "category": "火候",
+    "difficulty": "简单",
+    "modern_equivalent": "烧烤/炙烤",
+    "is_intangible_heritage": false
+  },
+  {
+    "id": "tech_002",
+    "name": "脍",
+    "description": "将鱼或肉切成极薄的片，生食或快速汆烫",
+    "category": "刀工",
+    "difficulty": "困难",
+    "modern_equivalent": "刺身/生鱼片",
+    "is_intangible_heritage": true
+  },
+  {
+    "id": "tech_003",
+    "name": "菹",
+    "description": "用盐或醋腌渍蔬菜，古代重要的食品保存方法",
+    "category": "腌制",
+    "difficulty": "简单",
+    "modern_equivalent": "腌菜/泡菜",
+    "is_intangible_heritage": true
+  },
+  {
+    "id": "tech_004",
+    "name": "酿",
+    "description": "将馅料填入食材内部的烹饪技法",
+    "category": "成型",
+    "difficulty": "中等",
+    "modern_equivalent": "酿制",
+    "is_intangible_heritage": false
+  },
+  {
+    "id": "tech_005",
+    "name": "焙",
+    "description": "用微火慢慢烘烤，使食材干燥或产生香气",
+    "category": "火候",
+    "difficulty": "中等",
+    "modern_equivalent": "烘焙/烘干",
+    "is_intangible_heritage": false
+  },
+  {
+    "id": "tech_006",
+    "name": "蒸",
+    "description": "利用水蒸气的热量使食物成熟",
+    "category": "火候",
+    "difficulty": "简单",
+    "modern_equivalent": "蒸制",
+    "is_intangible_heritage": false
+  },
+  {
+    "id": "tech_007",
+    "name": "煨",
+    "description": "将食材密封后置于热灰中慢慢加热",
+    "category": "火候",
+    "difficulty": "中等",
+    "modern_equivalent": "慢炖/煲",
+    "is_intangible_heritage": false
+  },
+  {
+    "id": "tech_008",
+    "name": "糟",
+    "description": "用酒糟腌渍食材，赋予独特风味",
+    "category": "腌制",
+    "difficulty": "中等",
+    "modern_equivalent": "糟制",
+    "is_intangible_heritage": true
+  },
+  {
+    "id": "tech_009",
+    "name": "脍不厌细",
+    "description": "刀工追求极致精细，薄如蝉翼，细如发丝",
+    "category": "刀工",
+    "difficulty": "极难",
+    "modern_equivalent": "精细刀工",
+    "is_intangible_heritage": true
+  },
+  {
+    "id": "tech_010",
+    "name": "吊汤",
+    "description": "用多种食材长时间熬制高汤，取其精华",
+    "category": "调味",
+    "difficulty": "困难",
+    "modern_equivalent": "高汤/清汤",
+    "is_intangible_heritage": true
+  }
+]

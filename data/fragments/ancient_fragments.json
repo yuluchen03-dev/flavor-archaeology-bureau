@@ -1,0 +1,82 @@
+[
+  {
+    "id": "fragment_shanjiaqinggong_xieniangcheng",
+    "title": "蟹酿橙残句",
+    "source": "山家清供",
+    "dynasty": "宋代",
+    "passage": "橙用黄熟大者，截顶去瓤，留少液。以蟹膏肉实其内，入甑，用酒、醋、水蒸熟。",
+    "relatedDishId": "dish_001",
+    "tags": ["蟹", "橙", "蒸"],
+    "difficulty": "iron_sample"
+  },
+  {
+    "id": "fragment_shanjiaqinggong_huaiyelengtao",
+    "title": "槐叶冷淘线索",
+    "source": "山家清供",
+    "dynasty": "唐代",
+    "passage": "采槐芽嫩叶，捣汁和面，作冷淘。",
+    "relatedDishId": "dish_002",
+    "tags": ["槐叶", "面", "冷食"],
+    "difficulty": "easy"
+  },
+  {
+    "id": "fragment_shanjiaqinggong_yusengeng",
+    "title": "玉糁羹线索",
+    "source": "山家清供",
+    "dynasty": "宋代",
+    "passage": "山芋作羹，色香如玉。",
+    "relatedDishId": "dish_003",
+    "tags": ["羹", "山芋", "素食"],
+    "difficulty": "easy"
+  },
+  {
+    "id": "fragment_suiyuan_babaodoufu",
+    "title": "八宝豆腐线索",
+    "source": "随园食单",
+    "dynasty": "清代",
+    "passage": "豆腐得味，全在配料清鲜。",
+    "relatedDishId": "dish_004",
+    "tags": ["豆腐", "清代", "官府菜"],
+    "difficulty": "medium"
+  },
+  {
+    "id": "fragment_qimin_vegetable_preserve",
+    "title": "齐民要术蔬食线索",
+    "source": "齐民要术",
+    "dynasty": "北魏",
+    "passage": "作菹藏菜，各随时月。",
+    "relatedDishId": "dish_008",
+    "tags": ["菹", "蔬菜", "保存"],
+    "difficulty": "medium"
+  },
+  {
+    "id": "fragment_yinshan_zhengyang",
+    "title": "饮膳正要羊味线索",
+    "source": "饮膳正要",
+    "dynasty": "元代",
+    "passage": "羊味宜温补，调以辛香。",
+    "relatedDishId": "dish_006",
+    "tags": ["羊", "温补", "辛香"],
+    "difficulty": "medium"
+  },
+  {
+    "id": "fragment_dongjing_fish",
+    "title": "东京梦华录鱼肴线索",
+    "source": "东京梦华录",
+    "dynasty": "宋代",
+    "passage": "市肆鱼鲜，随时供卖。",
+    "relatedDishId": "dish_007",
+    "tags": ["鱼", "市肆", "宋代"],
+    "difficulty": "medium"
+  },
+  {
+    "id": "fragment_suiyuan_soup",
+    "title": "随园食单汤法线索",
+    "source": "随园食单",
+    "dynasty": "清代",
+    "passage": "汤贵清，味贵真。",
+    "relatedDishId": "dish_010",
+    "tags": ["汤", "清味", "清代"],
+    "difficulty": "easy"
+  }
+]

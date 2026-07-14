@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "description": "非遗美食知识图谱数据结构定义",
+  "node_types": {
+    "ingredient": {
+      "description": "食材节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "name": "string - 食材名称",
+        "category": "string - 分类(谷物/蔬菜/肉类/水产/调料/水果/菌菇/其他)",
+        "period": "string - 主要使用朝代",
+        "is_extinct": "boolean - 是否已灭绝/罕见",
+        "modern_substitute": "string|null - 现代替代品",
+        "flavor_profile": "string - 风味特征",
+        "nutrition": "object - 营养信息",
+        "aliases": "array - 别名列表"
+      },
+      "example": {
+        "id": "ing_001",
+        "name": "芡实",
+        "category": "谷物",
+        "period": "宋代",
+        "is_extinct": false,
+        "modern_substitute": null,
+        "flavor_profile": "甘平，清香软糯",
+        "aliases": ["鸡头米", "鸡头实"]
+      }
+    },
+    "dish": {
+      "description": "菜品节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "name": "string - 菜品名称",
+        "dynasty": "string - 所属朝代",
+        "source_text": "string - 出处古籍",
+        "source_passage": "string - 原文引用",
+        "description": "string - 描述",
+        "difficulty": "string - 复原难度(简单/中等/困难/极难)",
+        "taste_profile": "string - 口味特征",
+        "cooking_time": "string - 烹饪时间",
+        "servings": "number - 份量"
+      }
+    },
+    "technique": {
+      "description": "烹饪技法节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "name": "string - 技法名称",
+        "description": "string - 技法描述",
+        "category": "string - 分类(刀工/火候/调味/成型/发酵/腌制)",
+        "difficulty": "string - 难度等级",
+        "modern_equivalent": "string - 现代对应技法",
+        "is_intangible_heritage": "boolean - 是否为非遗技艺"
+      }
+    },
+    "dynasty": {
+      "description": "朝代节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "name": "string - 朝代名称",
+        "start_year": "number - 起始年份",
+        "end_year": "number - 结束年份",
+        "food_culture": "string - 饮食文化特征"
+      }
+    },
+    "region": {
+      "description": "地域节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "name": "string - 地域名称",
+        "province": "string - 省份",
+        "cuisine_style": "string - 菜系风格",
+        "climate": "string - 气候特征",
+        "specialties": "array - 特产食材"
+      }
+    },
+    "season": {
+      "description": "节令节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "name": "string - 节令名称",
+        "lunar_month": "number - 农历月份",
+        "solar_term": "string - 对应节气",
+        "food_tradition": "string - 饮食传统",
+        "seasonal_ingredients": "array - 应季食材"
+      }
+    },
+    "ancient_text": {
+      "description": "古籍节点",
+      "properties": {
+        "id": "string - 唯一标识",
+        "title": "string - 书名",
+        "author": "string - 作者",
+        "dynasty": "string - 成书朝代",
+        "description": "string - 简介",
+        "total_recipes": "number - 收录食方数量",
+        "significance": "string - 历史意义",
+        "category": "string - 文献类别(食谱/食疗/茶书/酒书/农书/类书等)",
+        "collection": "string - 所属权威丛书或目录",
+        "source_url": "string - 权威来源链接",
+        "catalog_url": "string - 目录或馆藏链接",
+        "authority_institution": "string - 出版、馆藏或认证机构",
+        "verification_note": "string - 权威性校验说明",
+        "included_texts": "array - 该册或该条目包含的原始文献"
+      }
+    }
+  },
+  "relationship_types": {
+    "contains": {
+      "description": "菜品-包含-食材",
+      "source": "dish",
+      "target": "ingredient",
+      "properties": {
+        "quantity": "string - 用量",
+        "role": "string - 角色(主料/辅料/调料)",
+        "preparation": "string - 预处理方式"
+      }
+    },
+    "uses_technique": {
+      "description": "菜品-使用-技法",
+      "source": "dish",
+      "target": "technique",
+      "properties": {
+        "step_order": "number - 步骤顺序",
+        "description": "string - 具体操作"
+      }
+    },
+    "originated_in": {
+      "description": "菜品-源于-朝代",
+      "source": "dish",
+      "target": "dynasty"
+    },
+    "popular_in": {
+      "description": "菜品-流行于-地域",
+      "source": "dish",
+      "target": "region",
+      "properties": {
+        "popularity": "string - 流行程度"
+      }
+    },
+    "recorded_in": {
+      "description": "菜品-记载于-古籍",
+      "source": "dish",
+      "target": "ancient_text",
+      "properties": {
+        "chapter": "string - 章节",
+        "page_reference": "string - 页码/条目"
+      }
+    },
+    "seasonal_for": {
+      "description": "菜品-适合-节令",
+      "source": "dish",
+      "target": "season"
+    },
+    "ingredient_from": {
+      "description": "食材-产于-地域",
+      "source": "ingredient",
+      "target": "region"
+    },
+    "ingredient_season": {
+      "description": "食材-应季于-节令",
+      "source": "ingredient",
+      "target": "season"
+    },
+    "technique_from": {
+      "description": "技法-传承于-地域",
+      "source": "technique",
+      "target": "region"
+    },
+    "substitute_for": {
+      "description": "食材-替代-食材",
+      "source": "ingredient",
+      "target": "ingredient",
+      "properties": {
+        "similarity": "number - 相似度(0-1)",
+        "notes": "string - 替代说明"
+      }
+    }
+  }
+}

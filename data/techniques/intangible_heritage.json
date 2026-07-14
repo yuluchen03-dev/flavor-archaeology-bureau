@@ -1,0 +1,119 @@
+{
+  "description": "非遗美食技艺数据集",
+  "categories": [
+    {
+      "id": "cat_001",
+      "name": "传统烹饪技法",
+      "techniques": [
+        {
+          "id": "ih_001",
+          "name": "刀工技艺 - 文思豆腐",
+          "origin": "清代扬州",
+          "level": "国家级非遗",
+          "description": "将嫩豆腐切成细如发丝的刀工技法，一块豆腐可切出5000根以上的细丝",
+          "key_points": ["刀要快", "手要稳", "心要静", "豆腐要嫩"],
+          "difficulty": "极难",
+          "training_time": "3-5年",
+          "representative_dishes": ["文思豆腐羹", "菊花豆腐"],
+          "current_status": "传承人稀少，濒临失传"
+        },
+        {
+          "id": "ih_002",
+          "name": "吊汤技艺",
+          "origin": "鲁菜",
+          "level": "省级非遗",
+          "description": "用老母鸡、猪骨、火腿等多种食材，经长时间熬制、撇沫、澄清，制成清澈见底的高汤",
+          "key_points": ["选料讲究", "火候精准", "撇沫彻底", "时间充足"],
+          "difficulty": "困难",
+          "training_time": "2-3年",
+          "representative_dishes": ["清汤燕菜", "奶汤蒲菜"],
+          "current_status": "部分传承"
+        },
+        {
+          "id": "ih_003",
+          "name": "糟制技艺",
+          "origin": "江浙",
+          "level": "省级非遗",
+          "description": "用酒糟腌渍食材，赋予独特酒香风味的传统技法",
+          "key_points": ["酒糟品质", "腌制时间", "温度控制", "食材选择"],
+          "difficulty": "中等",
+          "training_time": "1-2年",
+          "representative_dishes": ["糟溜鱼片", "糟鸡", "糟毛豆"],
+          "current_status": "较为活跃"
+        }
+      ]
+    },
+    {
+      "id": "cat_002",
+      "name": "传统食品制作技艺",
+      "techniques": [
+        {
+          "id": "ih_004",
+          "name": "豆腐制作技艺",
+          "origin": "淮南",
+          "level": "国家级非遗",
+          "description": "从大豆到豆腐的完整传统制作工艺，包括磨浆、滤浆、点卤、压制等工序",
+          "key_points": ["选豆", "泡豆", "磨浆细度", "点卤时机", "压制力度"],
+          "difficulty": "中等",
+          "training_time": "1年",
+          "representative_dishes": ["淮南豆腐宴", "臭豆腐"],
+          "current_status": "较为活跃，但古法制作减少"
+        },
+        {
+          "id": "ih_005",
+          "name": "龙须面制作技艺",
+          "origin": "山东",
+          "level": "国家级非遗",
+          "description": "将面团反复拉伸成细如发丝的面条，是中华面食技艺的巅峰",
+          "key_points": ["和面比例", "醒面时间", "拉伸手法", "力度控制"],
+          "difficulty": "极难",
+          "training_time": "5年以上",
+          "representative_dishes": ["龙须面", "银丝卷"],
+          "current_status": "传承人极少"
+        },
+        {
+          "id": "ih_006",
+          "name": "月饼制作技艺",
+          "origin": "广式/苏式/京式",
+          "level": "国家级非遗",
+          "description": "包括广式、苏式、京式等多种流派的传统月饼制作工艺",
+          "key_points": ["饼皮制作", "馅料调配", "模具成型", "烘烤火候"],
+          "difficulty": "中等",
+          "training_time": "1-2年",
+          "representative_dishes": ["广式莲蓉月饼", "苏式鲜肉月饼"],
+          "current_status": "活跃，但手工制作减少"
+        }
+      ]
+    },
+    {
+      "id": "cat_003",
+      "name": "传统发酵技艺",
+      "techniques": [
+        {
+          "id": "ih_007",
+          "name": "酱油酿造技艺",
+          "origin": "多地",
+          "level": "国家级非遗",
+          "description": "传统酱油酿造需要经过制曲、发酵、压榨等多道工序，周期长达数月甚至数年",
+          "key_points": ["选豆", "制曲", "发酵温度", "翻醅", "压榨取油"],
+          "difficulty": "困难",
+          "training_time": "3年",
+          "representative_dishes": [],
+          "current_status": "古法酿造减少，工业化为主"
+        },
+        {
+          "id": "ih_008",
+          "name": "醋酿造技艺",
+          "origin": "山西/镇江",
+          "level": "国家级非遗",
+          "description": "包括山西老陈醋、镇江香醋等传统酿造工艺",
+          "key_points": ["原料选择", "酒化发酵", "醋酸发酵", "陈酿"],
+          "difficulty": "困难",
+          "training_time": "3-5年",
+          "representative_dishes": [],
+          "current_status": "部分传承，古法酿造减少"
+        }
+      ]
+    }
+  ]
+}

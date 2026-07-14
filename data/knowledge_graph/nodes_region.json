@@ -1,0 +1,42 @@
+[
+  {
+    "id": "region_001",
+    "name": "江浙",
+    "province": "浙江/江苏",
+    "cuisine_style": "浙菜/苏菜，注重原味，精致细腻",
+    "climate": "亚热带季风，水网密布",
+    "specialties": ["莼菜", "笋", "蟹", "莲藕", "菱角"]
+  },
+  {
+    "id": "region_002",
+    "name": "岭南",
+    "province": "广东/广西",
+    "cuisine_style": "粤菜，清淡鲜美，注重食材本味",
+    "climate": "热带亚热带，物产丰富",
+    "specialties": ["荔枝", "龙眼", "蚝", "蛇", "禾花雀"]
+  },
+  {
+    "id": "region_003",
+    "name": "齐鲁",
+    "province": "山东",
+    "cuisine_style": "鲁菜，咸鲜为主，注重火候",
+    "climate": "温带季风，沿海物产丰富",
+    "specialties": ["海参", "鲍鱼", "大葱", "白菜"]
+  },
+  {
+    "id": "region_004",
+    "name": "巴蜀",
+    "province": "四川/重庆",
+    "cuisine_style": "川菜，麻辣鲜香，百菜百味",
+    "climate": "盆地湿润气候",
+    "specialties": ["花椒", "辣椒", "竹笋", "腊肉"]
+  },
+  {
+    "id": "region_005",
+    "name": "中原",
+    "province": "河南",
+    "cuisine_style": "豫菜，五味调和，质味适中",
+    "climate": "温带大陆性气候",
+    "specialties": ["山药", "红枣", "芝麻", "花生"]
+  }
+]

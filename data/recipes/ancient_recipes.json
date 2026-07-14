@@ -1,0 +1,130 @@
+[
+  {
+    "id": "recipe_001",
+    "dish_name": "蟹酿橙",
+    "source": "《山家清供》卷下",
+    "dynasty": "宋代",
+    "original_text": "橙用黄熟大者，截顶去瓤，留少液。以蟹膏肉实其内，仍以带枝顶覆之。入小甑，用酒、醋、水蒸熟。用醋、盐供食，香而鲜。",
+    "ingredients": [
+      {"name": "大橙", "quantity": "2个", "role": "容器兼调味", "notes": "选用黄熟大者"},
+      {"name": "蟹膏蟹肉", "quantity": "适量", "role": "主料", "notes": "取膏肉混合"},
+      {"name": "酒", "quantity": "少许", "role": "调味", "notes": "黄酒为佳"},
+      {"name": "醋", "quantity": "适量", "role": "蘸料", "notes": "米醋"},
+      {"name": "盐", "quantity": "少许", "role": "调味"}
+    ],
+    "steps": [
+      "选取黄熟大橙，截取顶部作盖，挖去橙瓤，保留少许汁液",
+      "将蟹膏蟹肉混合，填入橙壳内",
+      "将橙盖覆回，用牙签固定",
+      "放入小甑中，加入酒和少许水",
+      "大火蒸制约15-20分钟至熟透",
+      "取出后用醋和盐调蘸汁供食"
+    ],
+    "restoration_difficulty": "中等",
+    "modern_adaptation": "可用砂锅或蒸锅替代小甑，大闸蟹或梭子蟹均可",
+    "cultural_notes": "此菜体现了宋人饮食的精致与风雅，橙香与蟹鲜交融，是山林清供的代表"
+  },
+  {
+    "id": "recipe_002",
+    "dish_name": "槐叶冷淘",
+    "source": "《山家清供》卷上",
+    "dynasty": "唐代",
+    "original_text": "于夏采槐叶之高者，汤焯，漉之，研细滤清，和面作淘。以酱醋熟油拌之，供之。",
+    "ingredients": [
+      {"name": "嫩槐叶", "quantity": "一把", "role": "主料", "notes": "取高处嫩叶"},
+      {"name": "面粉", "quantity": "200g", "role": "主料"},
+      {"name": "酱", "quantity": "适量", "role": "调味", "notes": "豆酱"},
+      {"name": "醋", "quantity": "适量", "role": "调味"},
+      {"name": "熟油", "quantity": "少许", "role": "调味"}
+    ],
+    "steps": [
+      "采摘高处嫩槐叶，洗净",
+      "用沸水焯烫槐叶，捞出沥干",
+      "将槐叶研磨成细泥，过滤取汁",
+      "用槐叶汁和面，揉成绿色面团",
+      "擀面切成面条（冷淘）",
+      "煮熟后过冷水",
+      "用酱、醋、熟油拌匀即可"
+    ],
+    "restoration_difficulty": "简单",
+    "modern_adaptation": "可用菠菜汁替代槐叶汁，风味相近",
+    "cultural_notes": "唐代消暑名食，杜甫诗中亦有提及，体现古人应季而食的智慧"
+  },
+  {
+    "id": "recipe_003",
+    "dish_name": "玉糁羹",
+    "source": "《山家清供》卷上",
+    "dynasty": "宋代",
+    "original_text": "东坡一夕与子由饮，酣甚，捶萝卜烂煮，不用他料，只研白米为糁，啜之。",
+    "ingredients": [
+      {"name": "白萝卜", "quantity": "1根", "role": "主料", "notes": "捶碎"},
+      {"name": "白米", "quantity": "100g", "role": "辅料", "notes": "研成米糁"}
+    ],
+    "steps": [
+      "白萝卜去皮，用刀背捶碎",
+      "加水煮至软烂",
+      "白米研成细糁",
+      "将米糁加入萝卜汤中",
+      "小火熬煮至浓稠",
+      "不加其他调料，原味食用"
+    ],
+    "restoration_difficulty": "简单",
+    "modern_adaptation": "可加少许盐调味，用料理机打碎萝卜更细腻",
+    "cultural_notes": "苏东坡发明的简朴美食，体现'绚烂之极归于平淡'的饮食哲学"
+  },
+  {
+    "id": "recipe_004",
+    "dish_name": "王太守八宝豆腐",
+    "source": "《随园食单》杂素菜单",
+    "dynasty": "清代",
+    "original_text": "用嫩片切粉碎，加香蕈屑、蘑菇屑、松子仁屑、瓜子仁屑、鸡屑、火腿屑，同入浓鸡汁中炒滚起锅。",
+    "ingredients": [
+      {"name": "嫩豆腐", "quantity": "2块", "role": "主料", "notes": "切碎"},
+      {"name": "香蕈", "quantity": "3朵", "role": "配料", "notes": "切碎屑"},
+      {"name": "蘑菇", "quantity": "4朵", "role": "配料", "notes": "切碎屑"},
+      {"name": "松子仁", "quantity": "20g", "role": "配料", "notes": "切碎"},
+      {"name": "瓜子仁", "quantity": "20g", "role": "配料", "notes": "切碎"},
+      {"name": "鸡肉", "quantity": "50g", "role": "配料", "notes": "切碎屑"},
+      {"name": "火腿", "quantity": "30g", "role": "配料", "notes": "切碎屑"},
+      {"name": "浓鸡汁", "quantity": "一碗", "role": "调味"}
+    ],
+    "steps": [
+      "豆腐切成薄片，再切碎成泥状",
+      "香蕈、蘑菇泡发后切碎成屑",
+      "松子仁、瓜子仁切碎",
+      "鸡肉、火腿切碎成屑",
+      "浓鸡汁烧开",
+      "将所有碎料放入鸡汁中",
+      "大火快速翻炒至滚热",
+      "立即起锅装盘"
+    ],
+    "restoration_difficulty": "困难",
+    "modern_adaptation": "可用浓缩鸡汤替代自熬鸡汁，松子可用腰果替代",
+    "cultural_notes": "此菜体现了清代官府菜的精致奢华，八种配料各有风味又和谐统一"
+  },
+  {
+    "id": "recipe_005",
+    "dish_name": "炙羊肉",
+    "source": "《饮膳正要》卷一",
+    "dynasty": "元代",
+    "original_text": "羊肉带脂者，切作大片，用盐、酱、茴香拌匀，炙之。",
+    "ingredients": [
+      {"name": "带脂羊肉", "quantity": "1斤", "role": "主料", "notes": "切大片"},
+      {"name": "盐", "quantity": "适量", "role": "调味"},
+      {"name": "酱", "quantity": "适量", "role": "调味", "notes": "豆酱"},
+      {"name": "茴香", "quantity": "少许", "role": "调味", "notes": "小茴香"}
+    ],
+    "steps": [
+      "羊肉带脂切成大片",
+      "用盐、酱、茴香拌匀腌制",
+      "腌制约30分钟入味",
+      "炭火烧热",
+      "将肉片置于火上炙烤",
+      "翻面烤至两面焦香",
+      "趁热食用"
+    ],
+    "restoration_difficulty": "简单",
+    "modern_adaptation": "可用烤箱200度烤制，或用平底锅煎制",
+    "cultural_notes": "元代宫廷御膳，体现蒙古游牧饮食文化对中原的影响"
+  }
+]
