@@ -940,6 +940,318 @@
   border-color: var(--color-cinnabar);
 }
 
+/* === 蟹酿橙 3D 证据舞台 === */
+
+.crab-orange-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.crab-orange-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 8px;
+  background: radial-gradient(circle at 50% 35%, rgba(212, 160, 23, 0.1), rgba(14, 15, 18, 0.6));
+  overflow: hidden;
+}
+
+.crab-orange-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  touch-action: none;
+}
+
+/* 热点按钮固定在画布角落，不随场景缩放，桌面与手机端均不重叠。 */
+.crab-orange-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crab-orange-hotspot {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  max-width: 11rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--color-amber);
+  border-radius: 6px;
+  background: rgba(14, 15, 18, 0.82);
+  color: var(--color-warm-white);
+  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.crab-orange-hotspot:hover,
+.crab-orange-hotspot:focus-visible {
+  background: rgba(212, 160, 23, 0.18);
+  border-color: var(--color-warm-white);
+  outline: none;
+}
+
+.crab-orange-hotspot-hotspot_shell {
+  top: 0.6rem;
+  left: 0.6rem;
+}
+
+.crab-orange-hotspot-hotspot_filling {
+  top: 0.6rem;
+  right: 0.6rem;
+}
+
+.crab-orange-hotspot-hotspot_steam {
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.crab-orange-hotspot-label {
+  font-weight: 600;
+  color: var(--color-amber);
+}
+
+.crab-orange-hotspot-quote {
+  color: var(--color-warm-muted);
+  font-family: var(--font-serif);
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
+.crab-orange-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.crab-orange-control {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 6px;
+  background: rgba(245, 241, 232, 0.04);
+  color: var(--color-warm-white);
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.crab-orange-control:hover,
+.crab-orange-control:focus-visible {
+  background: rgba(245, 241, 232, 0.1);
+  border-color: var(--color-amber);
+  outline: none;
+}
+
+.crab-orange-control.is-active {
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+  background: rgba(212, 160, 23, 0.12);
+}
+
+/* === 蟹酿橙分层 2.5D 备用视图 === */
+
+.crab-orange-fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 8px;
+  background: var(--color-charcoal-card);
+}
+
+.crab-orange-fallback-svg {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.crab-orange-fallback-layers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.crab-orange-fallback-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 6px;
+  background: rgba(245, 241, 232, 0.03);
+}
+
+.crab-orange-fallback-layer-name {
+  font-weight: 600;
+  color: var(--color-warm-white);
+  font-size: 0.85rem;
+}
+
+.crab-orange-fallback-layer-desc {
+  color: var(--color-warm-muted);
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+}
+
+.crab-orange-fallback-layer-lid .crab-orange-fallback-layer-name {
+  color: var(--color-amber);
+}
+
+.crab-orange-fallback-layer-shell .crab-orange-fallback-layer-name {
+  color: var(--color-cinnabar);
+}
+
+.crab-orange-fallback-layer-filling .crab-orange-fallback-layer-name {
+  color: #e8d28a;
+}
+
+.crab-orange-fallback-layer-bowl .crab-orange-fallback-layer-name {
+  color: #6a8aa0;
+}
+
+.crab-orange-fallback-hotspots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.crab-orange-fallback-hotspot {
+  position: static;
+  max-width: none;
+  flex: 1 1 9rem;
+  transform: none;
+}
+
+.crab-orange-fallback-hotspot.is-active {
+  border-color: var(--color-warm-white);
+  background: rgba(212, 160, 23, 0.2);
+}
+
+.crab-orange-fallback-detail {
+  margin: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 6px;
+  background: rgba(14, 15, 18, 0.5);
+}
+
+.crab-orange-fallback-detail dt {
+  font-size: 0.78rem;
+  color: var(--color-warm-muted);
+  margin-top: 0.5rem;
+}
+
+.crab-orange-fallback-detail dt:first-child {
+  margin-top: 0;
+}
+
+.crab-orange-fallback-detail dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.86rem;
+  color: var(--color-warm-white);
+  line-height: 1.5;
+}
+
+.crab-orange-fallback-quote {
+  font-family: var(--font-serif);
+  color: var(--color-cinnabar) !important;
+}
+
+.crab-orange-fallback-source {
+  color: var(--color-warm-muted) !important;
+  font-size: 0.82rem !important;
+}
+
+.crab-orange-fallback-kind-文献明确记载 {
+  color: var(--color-cinnabar) !important;
+  font-weight: 600;
+}
+
+.crab-orange-fallback-kind-跨资料推断 {
+  color: var(--color-amber) !important;
+  font-weight: 600;
+}
+
+.crab-orange-fallback-confidence {
+  color: var(--color-warm-muted) !important;
+}
+
+/* === 首页 3D 舞台 === */
+
+.home-stage {
+  margin: 2rem 0 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 8px;
+  background: var(--color-charcoal-light);
+  text-align: left;
+}
+
+.home-stage-hint {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  color: var(--color-warm-muted);
+  text-align: center;
+}
+
+.home-evidence-snippet {
+  margin: 0.8rem 0 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: 6px;
+  background: var(--color-charcoal-card);
+}
+
+.home-evidence-snippet dt {
+  font-size: 0.78rem;
+  color: var(--color-warm-muted);
+  margin-top: 0.5rem;
+}
+
+.home-evidence-snippet dt:first-child {
+  margin-top: 0;
+}
+
+.home-evidence-snippet dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.86rem;
+  color: var(--color-warm-white);
+  line-height: 1.5;
+}
+
+.home-evidence-quote {
+  font-family: var(--font-serif);
+  color: var(--color-cinnabar) !important;
+}
+
+.home-evidence-meta {
+  color: var(--color-warm-muted) !important;
+  font-size: 0.82rem !important;
+}
+
+.home-evidence-explanation {
+  color: var(--color-warm-muted) !important;
+  font-size: 0.84rem !important;
+}
+
 /* === 跳过动效 === */
 
 .skip-animation * {
@@ -1013,6 +1325,32 @@
 
   .business-action {
     width: 100%;
+  }
+
+  .crab-orange-canvas-wrap {
+    height: 300px;
+  }
+
+  .crab-orange-hotspot {
+    max-width: 8rem;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .crab-orange-hotspot-label {
+    font-size: 0.74rem;
+  }
+
+  .crab-orange-hotspot-quote {
+    font-size: 0.7rem;
+  }
+
+  .crab-orange-fallback-layers {
+    grid-template-columns: 1fr;
+  }
+
+  .crab-orange-fallback-hotspot {
+    flex: 1 1 100%;
   }
 
   .evidence-drawer {

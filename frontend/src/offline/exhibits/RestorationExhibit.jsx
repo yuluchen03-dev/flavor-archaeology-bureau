@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { matchClue } from '../lib/clueMatcher.js';
 import { crabOrangeEvidence, museumDishes } from '../data/offlineMuseumData.js';
 import EvidenceDrawer from '../components/EvidenceDrawer.jsx';
+import CrabOrangeStage from '../components/CrabOrangeStage.jsx';
 
 const STAGES = ['装入历史线索', '古籍解码', '证据推演', '3D 复原', '双版本结果'];
 
@@ -20,8 +21,11 @@ export default function RestorationExhibit({ onNavigate, onStepComplete }) {
   const [skipAnimation, setSkipAnimation] = useState(false);
   const [drawerEvidence, setDrawerEvidence] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [viewedHotspots, setViewedHotspots] = useState(() => new Set());
 
   const canAdvanceFromClue = Boolean(matchResult && matchResult.status === 'matched');
+  // 证据进度：已查看热点占比，驱动 3D 模型线框到材质过渡。
+  const evidenceProgress = viewedHotspots.size / crabOrangeEvidence.hotspots.length;
 
   const handleMatch = () => {
     setMatchResult(matchClue(clueText));
@@ -46,6 +50,14 @@ export default function RestorationExhibit({ onNavigate, onStepComplete }) {
   const openEvidence = (evidence) => {
     setDrawerEvidence(evidence);
     setDrawerOpen(true);
+    if (evidence && evidence.id) {
+      setViewedHotspots((prev) => {
+        if (prev.has(evidence.id)) return prev;
+        const next = new Set(prev);
+        next.add(evidence.id);
+        return next;
+      });
+    }
   };
 
   const closeDrawer = () => setDrawerOpen(false);
@@ -163,12 +175,11 @@ export default function RestorationExhibit({ onNavigate, onStepComplete }) {
         {stage === 3 && (
           <div className="restoration-stage-content">
             <h3 className="restoration-stage-title">3D 复原</h3>
-            <div className="restoration-3d-placeholder">
-              <p className="restoration-3d-note">3D 复原场景将在完整版博物馆中呈现。</p>
-              <p className="restoration-3d-structure">
-                当前离线评审模式展示结构示意：橙壳为器 → 蟹膏蟹肉填馅 → 覆顶入甑蒸制。
-              </p>
-            </div>
+            <p className="restoration-stage-desc">
+              拖拽旋转蟹酿橙模型，点击热点打开与证据抽屉相同的记录。已查看 {viewedHotspots.size}/
+              {crabOrangeEvidence.hotspots.length} 项证据，进度驱动模型材质过渡。
+            </p>
+            <CrabOrangeStage progress={evidenceProgress} onHotspotSelect={openEvidence} />
           </div>
         )}
 
