@@ -106,6 +106,12 @@ export function inspectOfflineHtml(html) {
     ? REQUIRED_LABELS.filter((label) => !html.includes(label))
     : [];
 
+  // 6. Check for fetch() calls in the raw HTML (network dependency).
+  //    A fully offline single-file bundle must not issue network requests.
+  if (/\bfetch\s*\(/.test(html)) {
+    violations.push('network-fetch');
+  }
+
   const ok = violations.length === 0 && missingLabels.length === 0;
 
   return { ok, violations, missingLabels, bytes };

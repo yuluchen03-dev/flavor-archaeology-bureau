@@ -22,6 +22,11 @@ test('offline build uses the single-file plugin', () => {
   assert.match(config, /dist-offline/);
 });
 
+test('offline build disables module preload polyfill to avoid fetch() calls', () => {
+  const config = read('vite.offline.config.js');
+  assert.match(config, /modulePreload:\s*false/);
+});
+
 test('offline shell exposes only three primary destinations', () => {
   const app = read('src/offline/OfflineApp.jsx');
   for (const label of ['可信复原', '探索馆藏', '商业合作']) {

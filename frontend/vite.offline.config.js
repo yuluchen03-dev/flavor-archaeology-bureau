@@ -10,6 +10,7 @@ export default defineConfig({
   build: {
     outDir: 'dist-offline',
     emptyOutDir: true,
+    modulePreload: false,
     rollupOptions: {
       input: resolve(import.meta.dirname, 'offline.html'),
     },
