@@ -5,7 +5,7 @@
   "registrationUrl": "",
   "traeTasks": [
     { "key": "trae-01", "sessionId": "", "screenshots": ["docs/competition/screenshots/trae-01-prompt.png", "docs/competition/screenshots/trae-01-progress.png"] },
-    { "key": "trae-02", "sessionId": "", "screenshots": [] },
-    { "key": "trae-03", "sessionId": "", "screenshots": [] }
+    { "key": "trae-02", "sessionId": "", "screenshots": ["docs/competition/screenshots/trae-02-prompt.png"] },
+    { "key": "trae-03", "sessionId": "", "screenshots": ["docs/competition/screenshots/trae-03-prompt.png"] }
   ]
 }
