@@ -8,21 +8,20 @@ const read = (p) => readFileSync(resolve(root, p), 'utf8');
 
 test('restoration journey contains five named stages', () => {
   const restorationSource = read('src/offline/exhibits/RestorationExhibit.jsx');
-  for (const label of ['装入历史线索', '古籍解码', '证据推演', '3D 复原', '双版本结果']) {
-    assert.match(restorationSource, new RegExp(label));
+  const workflowSource = read('src/offline/components/WorkflowRail.jsx');
+  for (const label of ['装入历史线索', '古籍解码', '证据推演', '结构复原', '复原结论']) {
+    assert.match(restorationSource + workflowSource, new RegExp(label));
   }
 });
 
 test('restoration journey shows evidence kinds and required labels', () => {
   const restorationSource = read('src/offline/exhibits/RestorationExhibit.jsx');
+  const reportSource = read('src/offline/components/RestorationReport.jsx');
   const evidenceSource = read('src/offline/data/offlineMuseumData.js');
   for (const label of ['文献明确记载', '跨资料推断', '现代转译', '证据不足', '待专家复核']) {
     assert.match(evidenceSource + restorationSource, new RegExp(label));
   }
-  assert.match(restorationSource, /跳过动效/);
-  assert.match(restorationSource, /历史复原档案/);
-  assert.match(restorationSource, /现代厨房转译/);
-  assert.match(restorationSource, /研究性复原，不替代学术定论/);
+  assert.match(restorationSource + reportSource, /研究性复原/);
 });
 
 test('home presents one primary action, archive access, and first-view evidence signals', () => {
@@ -40,4 +39,27 @@ test('business exhibit contains museum pilot offer', () => {
   const businessSource = read('src/offline/exhibits/BusinessExhibit.jsx');
   assert.match(businessSource, /博物馆互动展项/);
   assert.match(businessSource, /商业合作/);
+});
+
+test('restoration is composed as a persistent workbench', () => {
+  const source = read('src/offline/exhibits/RestorationExhibit.jsx');
+  for (const component of ['WorkflowRail', 'CrabOrangeStage', 'EvidenceInspector', 'RestorationReport']) {
+    assert.match(source, new RegExp(component));
+  }
+  assert.match(source, /restoration-workbench/);
+  assert.match(source, /data-testid="restoration-next"/);
+});
+
+test('evidence inspector carries the complete trust record', () => {
+  const source = read('src/offline/components/EvidenceInspector.jsx');
+  for (const label of ['原文短摘', '出处', '证据类型', '可信度', '争议说明']) {
+    assert.match(source, new RegExp(label));
+  }
+});
+
+test('restoration report has four approved result sections', () => {
+  const source = read('src/offline/components/RestorationReport.jsx');
+  for (const label of ['历史复原结论', '现代厨房转译', '不可确认项', '证据覆盖率']) {
+    assert.match(source, new RegExp(label));
+  }
 });
