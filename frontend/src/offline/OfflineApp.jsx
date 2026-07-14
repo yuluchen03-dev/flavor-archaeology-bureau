@@ -3,10 +3,13 @@
 
 import { useEffect, useState } from 'react';
 import MuseumHeader from './components/MuseumHeader.jsx';
-import ExhibitShell from './components/ExhibitShell.jsx';
 import HomeExhibit from './exhibits/HomeExhibit.jsx';
 import RestorationExhibit from './exhibits/RestorationExhibit.jsx';
 import BusinessExhibit from './exhibits/BusinessExhibit.jsx';
+import ArchiveExhibit from './exhibits/ArchiveExhibit.jsx';
+import MentorExhibit from './exhibits/MentorExhibit.jsx';
+import EvolutionExhibit from './exhibits/EvolutionExhibit.jsx';
+import PlayExhibit from './exhibits/PlayExhibit.jsx';
 import { loadProgress, saveProgress } from './lib/progressStore.js';
 
 // 有限展厅键集合，不使用 BrowserRouter。
@@ -18,26 +21,6 @@ const PRIMARY_NAV = [
   { key: 'explore', label: '探索馆藏' },
   { key: 'business', label: '商业合作' },
 ];
-
-const SECONDARY_TITLES = {
-  archive: '馆藏菜品',
-  mentor: '考据问答',
-  evolution: '风味进化',
-  play: '真假非遗',
-};
-
-function SecondaryExhibit({ exhibitKey, onNavigate }) {
-  return (
-    <ExhibitShell title={SECONDARY_TITLES[exhibitKey]} onBack={() => onNavigate('home')}>
-      <p className="exhibit-placeholder">
-        离线评审模式下，{SECONDARY_TITLES[exhibitKey]}展厅数据已就绪，完整交互将在后续版本呈现。
-      </p>
-      <button type="button" className="exhibit-placeholder-action" onClick={() => onNavigate('restore')}>
-        前往可信复原
-      </button>
-    </ExhibitShell>
-  );
-}
 
 export default function OfflineApp() {
   const [activeExhibit, setActiveExhibit] = useState('home');
@@ -72,9 +55,10 @@ export default function OfflineApp() {
           <RestorationExhibit onNavigate={navigate} onStepComplete={markStepComplete} />
         )}
         {activeExhibit === 'business' && <BusinessExhibit onNavigate={navigate} />}
-        {['archive', 'mentor', 'evolution', 'play'].includes(activeExhibit) && (
-          <SecondaryExhibit exhibitKey={activeExhibit} onNavigate={navigate} />
-        )}
+        {activeExhibit === 'archive' && <ArchiveExhibit onNavigate={navigate} />}
+        {activeExhibit === 'mentor' && <MentorExhibit onNavigate={navigate} />}
+        {activeExhibit === 'evolution' && <EvolutionExhibit onNavigate={navigate} />}
+        {activeExhibit === 'play' && <PlayExhibit onNavigate={navigate} />}
       </main>
     </div>
   );
