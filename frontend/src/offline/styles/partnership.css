@@ -1,0 +1,248 @@
+.partnership-hall {
+  min-height: calc(100dvh - var(--topbar-height));
+  color: var(--paper-100);
+  background: var(--ink-950);
+}
+
+.partnership-heading {
+  min-height: 18rem;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid var(--line-dark);
+  background: var(--ink-900);
+}
+
+.partnership-heading > * {
+  max-width: 62rem;
+}
+
+.partnership-heading > p:first-child {
+  margin: 0 0 1rem;
+  color: var(--amber-400);
+  font-size: 0.75rem;
+}
+
+.partnership-heading h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.partnership-heading > p:last-child {
+  max-width: 48rem;
+  margin: 1.25rem 0 0;
+  color: var(--paper-200);
+  line-height: 1.7;
+}
+
+.partnership-band {
+  padding: 2rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.partnership-band > h2,
+.partnership-section-heading h2,
+.partnership-definitions h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0;
+}
+
+.specification-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.partnership-specification table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.partnership-specification th,
+.partnership-specification td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--line-dark);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.partnership-specification thead th {
+  color: var(--paper-200);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.partnership-specification tbody th {
+  color: var(--amber-400);
+  font-family: var(--font-serif);
+}
+
+.partnership-specification td {
+  color: var(--paper-200);
+}
+
+.partnership-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.partnership-section-heading p {
+  margin: 0;
+  color: var(--amber-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pilot-timeline li {
+  position: relative;
+  min-width: 0;
+  min-height: 7rem;
+  padding: 1rem;
+  border-top: 1px solid var(--bronze-500);
+  border-right: 1px solid var(--line-dark);
+}
+
+.pilot-timeline li:last-child {
+  border-right: 0;
+}
+
+.pilot-timeline li::before {
+  position: absolute;
+  top: -0.35rem;
+  left: 1rem;
+  width: 0.65rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bronze-500);
+  content: '';
+}
+
+.pilot-timeline span,
+.pilot-timeline strong {
+  display: block;
+}
+
+.pilot-timeline span {
+  margin-bottom: 0.5rem;
+  color: var(--amber-400);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-timeline strong {
+  max-width: 12rem;
+  font-family: var(--font-serif);
+  line-height: 1.55;
+}
+
+.partnership-definitions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+.partnership-definitions dl {
+  margin: 0;
+}
+
+.partnership-definitions dl > div {
+  display: grid;
+  grid-template-columns: minmax(3rem, 8rem) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line-dark);
+}
+
+.partnership-definitions dt {
+  color: var(--amber-400);
+  font-size: 0.78rem;
+}
+
+.partnership-definitions dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--paper-200);
+  line-height: 1.55;
+}
+
+.partnership-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  padding: 1.25rem 2rem;
+  background: var(--ink-900);
+}
+
+.partnership-actions button {
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 4px;
+  color: var(--paper-100);
+  background: transparent;
+}
+
+.partnership-actions button:last-child {
+  border-color: var(--cinnabar-500);
+  background: var(--cinnabar-600);
+}
+
+@media (max-width: 760px) {
+  .partnership-heading {
+    min-height: 0;
+    padding: 2rem 1rem;
+  }
+
+  .partnership-heading h1 {
+    font-size: 2rem;
+  }
+
+  .partnership-band {
+    padding: 1.25rem 1rem;
+  }
+
+  .pilot-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .pilot-timeline li {
+    min-height: 0;
+    padding: 0.9rem 0.75rem 0.9rem 1.5rem;
+    border-top: 0;
+    border-right: 0;
+    border-left: 1px solid var(--bronze-500);
+  }
+
+  .pilot-timeline li::before {
+    top: 1.2rem;
+    left: -0.35rem;
+  }
+
+  .partnership-definitions {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .partnership-definitions dl > div {
+    grid-template-columns: 5rem minmax(0, 1fr);
+  }
+
+  .partnership-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1rem;
+  }
+}

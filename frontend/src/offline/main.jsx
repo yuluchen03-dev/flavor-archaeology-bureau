@@ -7,6 +7,7 @@ import './styles/home.css';
 import './styles/workbench.css';
 import './styles/archive.css';
 import './styles/research.css';
+import './styles/partnership.css';
 import './styles/responsive.css';
 import OfflineApp from './OfflineApp.jsx';
 import { MuseumSessionProvider } from './state/MuseumSessionContext.jsx';

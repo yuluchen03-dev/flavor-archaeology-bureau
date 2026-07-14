@@ -14,7 +14,7 @@ export default function OfflineApp() {
       {state.activeExhibit === 'home' && <HomeExhibit onNavigate={navigate} />}
       {state.activeExhibit === 'restore' && <RestorationExhibit />}
       {state.activeExhibit === 'archive' && <ArchiveExhibit onNavigate={navigate} />}
-      {state.activeExhibit === 'business' && <BusinessExhibit onNavigate={navigate} />}
+      {state.activeExhibit === 'business' && <BusinessExhibit />}
     </MuseumShell>
   );
 }

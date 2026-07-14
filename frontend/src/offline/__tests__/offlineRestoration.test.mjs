@@ -37,8 +37,10 @@ test('home presents one primary action, archive access, and first-view evidence 
 
 test('business exhibit contains museum pilot offer', () => {
   const businessSource = read('src/offline/exhibits/BusinessExhibit.jsx');
-  assert.match(businessSource, /博物馆互动展项/);
-  assert.match(businessSource, /商业合作/);
+  const dataSource = read('src/offline/data/offlineMuseumData.js');
+  assert.match(businessSource, /museumOffer/);
+  assert.match(dataSource, /博物馆互动展项/);
+  assert.match(businessSource, /合作展厅|展项规格/);
 });
 
 test('restoration is composed as a persistent workbench', () => {
@@ -62,4 +64,12 @@ test('restoration report has four approved result sections', () => {
   for (const label of ['历史复原结论', '现代厨房转译', '不可确认项', '证据覆盖率']) {
     assert.match(source, new RegExp(label));
   }
+});
+
+test('partnership exhibit uses a specification and implementation timeline', () => {
+  const source = read('src/offline/exhibits/BusinessExhibit.jsx');
+  for (const label of ['展项规格', '实施时间轴', '适用设备', '交付内容', '评估指标', '2–4 周']) {
+    assert.match(source, new RegExp(label));
+  }
+  assert.doesNotMatch(source, /business-grid/);
 });

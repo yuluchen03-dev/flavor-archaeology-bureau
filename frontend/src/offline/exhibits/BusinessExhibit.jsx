@@ -1,71 +1,96 @@
-// 商业承接展厅：展示把菜品带进博物馆的试点方案，使用 museumOffer 数据。
-
 import { museumOffer } from '../data/offlineMuseumData.js';
-import ExhibitShell from '../components/ExhibitShell.jsx';
+import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
 
-export default function BusinessExhibit({ onNavigate }) {
+const PILOT_RANGE_LABEL = '2–4 周';
+const PILOT_STEPS = [
+  ['第 1 周', '标杆菜与文献范围确认'],
+  ['第 2 周', '证据档案与互动原型'],
+  ['第 3 周', '展台适配与研学内容'],
+  ['第 4 周', '现场验证与指标基线'],
+];
+
+export default function BusinessExhibit() {
+  const { dispatch } = useMuseumSession();
+  const navigate = (exhibit) => dispatch({ type: 'navigate', exhibit });
+
   return (
-    <ExhibitShell title={museumOffer.title} onBack={() => onNavigate('home')}>
-      <div className="business-exhibit">
-        <h3 className="business-pilot-title">博物馆互动展项 · 把这道菜带进博物馆</h3>
-        <p className="business-summary">{museumOffer.summary}</p>
-        <p className="business-timeline">交付周期：{museumOffer.timeline}</p>
+    <section className="partnership-hall" aria-labelledby="partnership-title">
+      <header className="partnership-heading">
+        <p>{museumOffer.title} · 标准试点 {museumOffer.timeline || PILOT_RANGE_LABEL}</p>
+        <h1 id="partnership-title">把这套复原体验带进博物馆</h1>
+        <p>{museumOffer.summary}</p>
+      </header>
 
-        <div className="business-grid">
-          <div className="business-card">
-            <h3 className="business-card-title">适用设备</h3>
-            <ul className="business-list">
+      <section className="partnership-band partnership-specification" aria-labelledby="specification-title">
+        <h2 id="specification-title">展项规格</h2>
+        <div className="specification-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">适用设备</th>
+                <th scope="col">展项用途</th>
+                <th scope="col">部署方式</th>
+                <th scope="col">内容边界</th>
+              </tr>
+            </thead>
+            <tbody>
               {museumOffer.devices.map((device) => (
-                <li key={device.name}>
-                  <strong>{device.name}</strong>
-                  <span>{device.purpose}</span>
-                </li>
+                <tr key={device.name}>
+                  <th scope="row">{device.name}</th>
+                  <td>{device.purpose}</td>
+                  <td>单机离线 · 本地资源</td>
+                  <td>研究性复原 · 证据状态明确</td>
+                </tr>
               ))}
-            </ul>
-          </div>
-
-          <div className="business-card">
-            <h3 className="business-card-title">{museumOffer.deliverables.label}</h3>
-            <ul className="business-list">
-              {museumOffer.deliverables.items.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="business-card">
-            <h3 className="business-card-title">{museumOffer.metrics.label}</h3>
-            <ul className="business-list">
-              {Object.entries(museumOffer.metrics.items).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}</strong>
-                  <span>{value}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            </tbody>
+          </table>
         </div>
+      </section>
 
-        <div className="business-extension">
-          <h3 className="business-card-title">研学扩展</h3>
-          <p>
-            可结合研学任务卡与复原证书 SVG 模板，开展馆校合作课程；
-            评估指标覆盖体验完成率、平均停留时间、证据热点点击率与研学任务完成率。
-          </p>
+      <section className="partnership-band" aria-labelledby="timeline-title">
+        <div className="partnership-section-heading">
+          <h2 id="timeline-title">实施时间轴</h2>
+          <p>{PILOT_RANGE_LABEL}</p>
         </div>
+        <ol className="pilot-timeline">
+          {PILOT_STEPS.map(([week, task]) => (
+            <li key={week}>
+              <span>{week}</span>
+              <strong>{task}</strong>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-        <div className="business-actions">
-          <button type="button" className="business-action" onClick={() => onNavigate('archive')}>
-            查看全部馆藏
-          </button>
-          <button type="button" className="business-action" onClick={() => onNavigate('restore')}>
-            查看技术可信说明
-          </button>
-          <button type="button" className="business-action business-action-primary" onClick={() => onNavigate('business')}>
-            商业合作
-          </button>
+      <section className="partnership-band partnership-definitions" aria-label="试点交付与评估">
+        <div>
+          <h2>交付内容</h2>
+          <dl>
+            {museumOffer.deliverables.items.map((item, index) => (
+              <div key={item}>
+                <dt>{String(index + 1).padStart(2, '0')}</dt>
+                <dd>{item}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-      </div>
-    </ExhibitShell>
+        <div>
+          <h2>评估指标</h2>
+          <dl>
+            {Object.entries(museumOffer.metrics.items).map(([metric, definition]) => (
+              <div key={metric}>
+                <dt>{metric}</dt>
+                <dd>{definition}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <footer className="partnership-actions">
+        <button type="button" onClick={() => navigate('restore')}>返回复原结论</button>
+        <button type="button" onClick={() => navigate('archive')}>浏览馆藏资产</button>
+      </footer>
+    </section>
   );
 }
