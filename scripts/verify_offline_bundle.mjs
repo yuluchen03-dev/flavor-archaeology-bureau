@@ -3,12 +3,13 @@ import { fileURLToPath } from 'node:url';
 
 const REQUIRED_LABELS = [
   '离线评审模式',
-  '开始 90 秒可信复原',
-  '数字传承人',
-  '味觉星图',
-  '风味进化',
-  '商业合作',
+  '开始可信复原',
+  '风味馆藏库',
+  '互动研究',
+  '合作展厅',
 ];
+
+export const MAX_OFFLINE_HTML_BYTES = 3_000_000;
 
 function isAllowedReference(value) {
   if (!value) return true;
@@ -44,6 +45,9 @@ function extractAttr(attrs, name) {
 export function inspectOfflineHtml(html) {
   const violations = [];
   const bytes = Buffer.byteLength(html, 'utf8');
+  if (bytes > MAX_OFFLINE_HTML_BYTES) {
+    violations.push('bundle-too-large');
+  }
 
   // 1. Check <script> opening tags for src (before removing script content)
   const scriptOpenRegex = /<script\b([^>]*)>/gi;
@@ -114,7 +118,7 @@ export function inspectOfflineHtml(html) {
 
   const ok = violations.length === 0 && missingLabels.length === 0;
 
-  return { ok, violations, missingLabels, bytes };
+  return { ok, violations, missingLabels, bytes, maxBytes: MAX_OFFLINE_HTML_BYTES };
 }
 
 function formatBytes(bytes) {

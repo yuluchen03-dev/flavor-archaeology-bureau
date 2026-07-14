@@ -18,13 +18,25 @@ test('accepts fully inlined html', () => {
   assert.equal(result.ok, true);
 });
 
+test('accepts a bundle at the exact byte budget', () => {
+  const result = inspectOfflineHtml('x'.repeat(3_000_000));
+  assert.equal(result.bytes, 3_000_000);
+  assert.ok(!result.violations.includes('bundle-too-large'));
+});
+
+test('rejects a bundle one byte above the byte budget', () => {
+  const result = inspectOfflineHtml('x'.repeat(3_000_001));
+  assert.equal(result.ok, false);
+  assert.ok(result.violations.includes('bundle-too-large'));
+});
+
 test('rejects file-relative stylesheet', () => {
   const result = inspectOfflineHtml('<link rel="stylesheet" href="./style.css">');
   assert.equal(result.ok, false);
 });
 
 test('requires key offline labels in built html', () => {
-  const html = '<html><body>开始 90 秒可信复原 数字传承人 味觉星图 风味进化 商业合作 离线评审模式</body></html>';
+  const html = '<html><body>开始可信复原 风味馆藏库 互动研究 合作展厅 离线评审模式</body></html>';
   const result = inspectOfflineHtml(html);
   assert.equal(result.ok, true);
 });
@@ -37,14 +49,14 @@ test('fails when key labels missing', () => {
 });
 
 test('rejects fetch() calls in script content', () => {
-  const html = '<html><body>开始 90 秒可信复原 数字传承人 味觉星图 风味进化 商业合作 离线评审模式<script>fetch("/api/data")</script></body></html>';
+  const html = '<html><body>开始可信复原 风味馆藏库 互动研究 合作展厅 离线评审模式<script>fetch("/api/data")</script></body></html>';
   const result = inspectOfflineHtml(html);
   assert.equal(result.ok, false);
   assert.ok(result.violations.includes('network-fetch'));
 });
 
 test('accepts html without any fetch() calls', () => {
-  const html = '<html><body>开始 90 秒可信复原 数字传承人 味觉星图 风味进化 商业合作 离线评审模式<script>window.APP=true</script></body></html>';
+  const html = '<html><body>开始可信复原 风味馆藏库 互动研究 合作展厅 离线评审模式<script>window.APP=true</script></body></html>';
   const result = inspectOfflineHtml(html);
   assert.equal(result.ok, true);
   assert.ok(!result.violations.includes('network-fetch'));

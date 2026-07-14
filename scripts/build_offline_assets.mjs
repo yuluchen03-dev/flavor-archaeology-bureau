@@ -12,9 +12,9 @@ const backgroundsDir = path.resolve(repoRoot, 'frontend/public/dish-backgrounds'
 const generatedDir = path.resolve(repoRoot, 'frontend/src/offline/data/generated');
 const generatedModulePath = path.resolve(repoRoot, 'frontend/src/offline/data/generatedDishImages.js');
 
-const MAX_WIDTH = 960;
-const MAX_HEIGHT = 540;
-const WEBP_QUALITY = 62;
+const MAX_WIDTH = 720;
+const MAX_HEIGHT = 405;
+const WEBP_QUALITY = 56;
 
 // 只读取已批准的 dish_001.png ... dish_040.png，不包含 candidate 或 override 图片。
 const dishIds = Array.from({ length: 40 }, (_, i) => `dish_${String(i + 1).padStart(3, '0')}`);
