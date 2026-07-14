@@ -1,0 +1,60 @@
+:root {
+  --ink-950: #0b0e0d;
+  --ink-900: #121715;
+  --ink-800: #1c2421;
+  --paper-100: #f3efe5;
+  --paper-200: #e6dfd0;
+  --paper-700: #5f5a50;
+  --cinnabar-500: #c64a3b;
+  --cinnabar-600: #a93b30;
+  --bronze-500: #52796f;
+  --amber-400: #d3a84b;
+  --line-dark: #303a36;
+  --line-paper: #cbc3b3;
+  --font-serif: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  --font-sans: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  --rail-width: 14rem;
+  --topbar-height: 4rem;
+  color: var(--paper-100);
+  background: var(--ink-950);
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 20rem;
+  background: var(--ink-950);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  letter-spacing: 0;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber-400);
+  outline-offset: 3px;
+}

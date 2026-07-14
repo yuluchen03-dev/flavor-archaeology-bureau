@@ -28,9 +28,9 @@ test('offline build disables module preload polyfill to avoid fetch() calls', ()
 });
 
 test('offline shell exposes only three primary destinations', () => {
-  const app = read('src/offline/OfflineApp.jsx');
-  for (const label of ['可信复原', '探索馆藏', '商业合作']) {
-    assert.match(app, new RegExp(label));
+  const shell = read('src/offline/components/MuseumShell.jsx');
+  for (const label of ['可信复原台', '风味馆藏库', '合作展厅']) {
+    assert.match(shell, new RegExp(label));
   }
-  assert.match(app, /离线评审模式/);
+  assert.match(shell, /离线评审模式/);
 });

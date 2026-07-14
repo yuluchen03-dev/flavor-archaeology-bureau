@@ -1,65 +1,23 @@
-// 离线博物馆应用根组件：使用有限展厅键集合代替 URL 路由。
-// 只持久化已完成的步骤和偏好，不持久化上传的图片。
-
-import { useEffect, useState } from 'react';
-import MuseumHeader from './components/MuseumHeader.jsx';
+import MuseumShell from './components/MuseumShell.jsx';
 import HomeExhibit from './exhibits/HomeExhibit.jsx';
 import RestorationExhibit from './exhibits/RestorationExhibit.jsx';
 import BusinessExhibit from './exhibits/BusinessExhibit.jsx';
 import ArchiveExhibit from './exhibits/ArchiveExhibit.jsx';
-import MentorExhibit from './exhibits/MentorExhibit.jsx';
-import EvolutionExhibit from './exhibits/EvolutionExhibit.jsx';
-import PlayExhibit from './exhibits/PlayExhibit.jsx';
-import { loadProgress, saveProgress } from './lib/progressStore.js';
-
-// 有限展厅键集合，不使用 BrowserRouter。
-const exhibits = new Set(['home', 'restore', 'archive', 'mentor', 'evolution', 'play', 'business']);
-
-// 三个主要导航操作：可信复原、探索馆藏、商业合作。
-const PRIMARY_NAV = [
-  { key: 'restore', label: '可信复原' },
-  { key: 'explore', label: '探索馆藏' },
-  { key: 'business', label: '商业合作' },
-];
+import { useMuseumSession } from './state/MuseumSessionContext.jsx';
 
 export default function OfflineApp() {
-  const [activeExhibit, setActiveExhibit] = useState('home');
-  // 惰性初始化：挂载时读取已持久化的进度（仅步骤与偏好，不含图片）。
-  const [completedSteps, setCompletedSteps] = useState(() => {
-    const progress = loadProgress();
-    return Array.isArray(progress.completedSteps) ? progress.completedSteps : [];
-  });
-
-  // 完成步骤变化时持久化。
-  useEffect(() => {
-    saveProgress({ completedSteps });
-  }, [completedSteps]);
-
-  const navigate = (exhibit) => {
-    if (exhibits.has(exhibit)) {
-      setActiveExhibit(exhibit);
-    }
-  };
-
-  const markStepComplete = (step) => {
-    setCompletedSteps((prev) => (prev.includes(step) ? prev : [...prev, step]));
-  };
+  const { state, dispatch } = useMuseumSession();
+  const navigate = (exhibit) => dispatch({ type: 'navigate', exhibit });
+  const markStepComplete = (step) => dispatch({ type: 'completeStep', step });
 
   return (
-    <div className="offline-museum">
-      <p className="offline-status">离线评审模式</p>
-      <MuseumHeader primaryNav={PRIMARY_NAV} activeExhibit={activeExhibit} onNavigate={navigate} />
-      <main className="offline-main">
-        {activeExhibit === 'home' && <HomeExhibit onNavigate={navigate} />}
-        {activeExhibit === 'restore' && (
-          <RestorationExhibit onNavigate={navigate} onStepComplete={markStepComplete} />
-        )}
-        {activeExhibit === 'business' && <BusinessExhibit onNavigate={navigate} />}
-        {activeExhibit === 'archive' && <ArchiveExhibit onNavigate={navigate} />}
-        {activeExhibit === 'mentor' && <MentorExhibit onNavigate={navigate} />}
-        {activeExhibit === 'evolution' && <EvolutionExhibit onNavigate={navigate} />}
-        {activeExhibit === 'play' && <PlayExhibit onNavigate={navigate} />}
-      </main>
-    </div>
+    <MuseumShell activeExhibit={state.activeExhibit} onNavigate={navigate}>
+      {state.activeExhibit === 'home' && <HomeExhibit onNavigate={navigate} />}
+      {state.activeExhibit === 'restore' && (
+        <RestorationExhibit onNavigate={navigate} onStepComplete={markStepComplete} />
+      )}
+      {state.activeExhibit === 'archive' && <ArchiveExhibit onNavigate={navigate} />}
+      {state.activeExhibit === 'business' && <BusinessExhibit onNavigate={navigate} />}
+    </MuseumShell>
   );
 }

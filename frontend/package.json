@@ -11,11 +11,13 @@
     "preview": "vite preview",
     "build:offline:assets": "node ../scripts/build_offline_assets.mjs",
     "build:offline": "npm run build:offline:assets && vite build --config vite.offline.config.js",
-    "test:offline": "node --test src/offline/__tests__/*.test.mjs"
+    "test:offline": "node --test src/offline/__tests__/*.test.mjs",
+    "verify:offline:bundle": "node ../scripts/verify_offline_bundle.mjs dist-offline/offline.html --enforce"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",
     "autoprefixer": "^10.5.0",
+    "lucide-react": "^0.468.0",
     "postcss": "^8.5.15",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",

@@ -1,0 +1,47 @@
+@media (max-width: 760px) {
+  .museum-rail {
+    display: none;
+  }
+
+  .museum-viewport {
+    margin-left: 0;
+  }
+
+  .museum-topbar {
+    min-height: 3.5rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .museum-topbar span:last-child {
+    display: none;
+  }
+
+  .museum-content {
+    min-height: calc(100dvh - 3.5rem);
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .museum-mobile-nav {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.25rem;
+    min-height: 4.5rem;
+    padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line-dark);
+    background: var(--ink-900);
+  }
+
+  .museum-mobile-nav .museum-destination {
+    min-width: 0;
+    min-height: 3.5rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 0.72rem;
+  }
+}
