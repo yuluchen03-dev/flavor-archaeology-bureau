@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './styles/tokens.css';
 import './offline.css';
 import './styles/shell.css';
+import './styles/home.css';
 import './styles/workbench.css';
 import './styles/responsive.css';
 import OfflineApp from './OfflineApp.jsx';
