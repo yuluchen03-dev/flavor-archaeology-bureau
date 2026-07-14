@@ -20,6 +20,14 @@ const INTENT_KEYWORDS = [
 
 const crabDish = museumDishes.find((dish) => dish.id === 'dish_001');
 
+function buildSelectedDishAnswer(dish) {
+  return {
+    question: `${dish.name}有哪些可核验信息？`,
+    answer: `${dish.name}的馆藏记录标注为${dish.archiveState}。现有字段支持朝代${dish.dynasty}、地域${dish.region}与技法${dish.technique || '待补'}；未记录内容不作确定推断。`,
+    source: dish.source ? `${dish.source} · 离线馆藏` : '离线馆藏 · 资料待补',
+  };
+}
+
 function matchIntent(question) {
   const text = (question || '').trim();
   if (!text) return null;
@@ -125,7 +133,13 @@ function getSpeechSynthesis() {
   }
 }
 
-export default function MentorExhibit({ onNavigate }) {
+export default function MentorExhibit({
+  onNavigate = () => {},
+  embedded = false,
+  selectedDishId = 'dish_001',
+}) {
+  const selectedDish = museumDishes.find((dish) => dish.id === selectedDishId) || crabDish;
+  const selectedDishAnswer = buildSelectedDishAnswer(selectedDish);
   const [history, setHistory] = useState([]);
   const [input, setInput] = useState('');
   const [spokenUtterance, setSpokenUtterance] = useState(null);
@@ -178,7 +192,9 @@ export default function MentorExhibit({ onNavigate }) {
   const askQuestion = (question) => {
     const trimmed = (question || '').trim();
     if (!trimmed) return;
-    const answer = resolveAnswer(trimmed);
+    const answer = trimmed === selectedDishAnswer.question
+      ? selectedDishAnswer
+      : resolveAnswer(trimmed);
     turnCounter.current += 1;
     const entry = {
       id: `mentor-turn-${turnCounter.current}`,
@@ -201,11 +217,10 @@ export default function MentorExhibit({ onNavigate }) {
     }
   };
 
-  return (
-    <ExhibitShell title="数字传承人 · 离线考据问答" onBack={() => onNavigate('home')}>
+  const content = (
       <div className="mentor-exhibit">
         <p className="mentor-intro">
-          数字传承人围绕标杆菜蟹酿橙提供本地多轮问答，覆盖历史背景、食材、技法与现代做法。所有答案均为离线问答，不调用网络 API。
+          当前研究对象：<strong>{selectedDish.name}</strong>。数字传承人提供本地多轮问答，所有答案均为离线问答，不调用网络 API。
         </p>
 
         <div className="mentor-speech-controls">
@@ -230,6 +245,13 @@ export default function MentorExhibit({ onNavigate }) {
         <div className="mentor-quick">
           <p className="mentor-quick-title">推荐问题：</p>
           <div className="mentor-quick-list">
+            <button
+              type="button"
+              className="mentor-quick-item"
+              onClick={() => askQuestion(selectedDishAnswer.question)}
+            >
+              {selectedDishAnswer.question}
+            </button>
             {INTENT_KEYS.map((key) => (
               <button
                 key={key}
@@ -301,6 +323,12 @@ export default function MentorExhibit({ onNavigate }) {
           默认静音。语音仅在用户主动开启后调用浏览器 speechSynthesis，字幕始终可见；音频不可用时文字问答保持完整。
         </p>
       </div>
+  );
+
+  if (embedded) return content;
+  return (
+    <ExhibitShell title="数字传承人 · 离线考据问答" onBack={() => onNavigate('home')}>
+      {content}
     </ExhibitShell>
   );
 }

@@ -5,7 +5,7 @@
 // 分享证书调用 createCertificateSvg，提供下载与打印降级方案。
 
 import { useMemo, useState } from 'react';
-import { quizData } from '../data/offlineMuseumData.js';
+import { museumDishes, quizData } from '../data/offlineMuseumData.js';
 import { matchAncestor } from '../lib/ancestorMatcher.js';
 import { getDailyRevival } from '../lib/dailyRevival.js';
 import { createCertificateSvg } from '../lib/certificate.js';
@@ -20,10 +20,12 @@ const TABS = [
 
 // === 拍照认祖 ===
 
-function AncestorTab() {
+function AncestorTab({ selectedDish }) {
   const [fileName, setFileName] = useState('');
   const [previewUrl, setPreviewUrl] = useState('');
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState(() => (
+    selectedDish ? `${selectedDish.name} ${selectedDish.region} ${selectedDish.technique}` : ''
+  ));
   const [result, setResult] = useState(null);
 
   const handleFile = (event) => {
@@ -294,8 +296,8 @@ function QuizTab() {
 
 // === 分享证书 ===
 
-function CertificateTab() {
-  const [dishName, setDishName] = useState('蟹酿橙');
+function CertificateTab({ selectedDish }) {
+  const [dishName, setDishName] = useState(selectedDish?.name || '蟹酿橙');
   const [holder, setHolder] = useState('风味考古复原官');
   const today = useMemo(() => new Date(), []);
   const dateStr = useMemo(() => {
@@ -376,12 +378,19 @@ function CertificateTab() {
   );
 }
 
-export default function PlayExhibit({ onNavigate }) {
+export default function PlayExhibit({
+  onNavigate = () => {},
+  embedded = false,
+  selectedDishId = 'dish_001',
+}) {
   const [activeTab, setActiveTab] = useState('ancestor');
+  const selectedDish = museumDishes.find((dish) => dish.id === selectedDishId) || museumDishes[0];
 
-  return (
-    <ExhibitShell title="轻量玩法 · 拍照认祖 / 每日复活 / 真假非遗 / 分享证书" onBack={() => onNavigate('home')}>
+  const content = (
       <div className="play-exhibit">
+        <p className="play-selected-dish">
+          当前馆藏：<strong>{selectedDish.name}</strong> · 互动任务和证书默认继承此菜品
+        </p>
         <nav className="play-tabs" aria-label="玩法标签页">
           {TABS.map((tab) => (
             <button
@@ -396,12 +405,18 @@ export default function PlayExhibit({ onNavigate }) {
         </nav>
 
         <div className="play-tab-content">
-          {activeTab === 'ancestor' && <AncestorTab />}
+          {activeTab === 'ancestor' && <AncestorTab selectedDish={selectedDish} />}
           {activeTab === 'revival' && <RevivalTab />}
           {activeTab === 'quiz' && <QuizTab />}
-          {activeTab === 'certificate' && <CertificateTab />}
+          {activeTab === 'certificate' && <CertificateTab selectedDish={selectedDish} />}
         </div>
       </div>
+  );
+
+  if (embedded) return content;
+  return (
+    <ExhibitShell title="轻量玩法 · 拍照认祖 / 每日复活 / 真假非遗 / 分享证书" onBack={() => onNavigate('home')}>
+      {content}
     </ExhibitShell>
   );
 }

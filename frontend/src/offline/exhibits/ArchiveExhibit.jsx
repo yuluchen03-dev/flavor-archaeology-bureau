@@ -1,151 +1,168 @@
-// 味觉星图展厅：40 道馆藏菜品的星图视图与档案详情。
-// 支持按朝代、档案状态（证据完整/推荐考据/资料待补）与文本筛选。
-// 星图为稳定的响应式网格，不使用 canvas；选中后显示已批准图片、原文短摘、风味特征与诚实的 archiveState。
-
 import { useMemo, useState } from 'react';
+import { Archive, FlaskConical } from 'lucide-react';
 import { museumDishes } from '../data/offlineMuseumData.js';
-import ExhibitShell from '../components/ExhibitShell.jsx';
+import { useMuseumSession } from '../state/MuseumSessionContext.jsx';
+import ResearchLab from './ResearchLab.jsx';
 
 const ARCHIVE_STATES = ['证据完整', '推荐考据', '资料待补'];
-
 const DYNASTY_ORDER = ['先秦', '汉', '魏晋南北朝', '唐', '宋', '元', '明', '清', '民国', '现代'];
 
 function dynastyRank(dynasty) {
-  const index = DYNASTY_ORDER.findIndex((item) => dynasty && dynasty.includes(item));
+  const index = DYNASTY_ORDER.findIndex((item) => dynasty?.includes(item));
   return index === -1 ? DYNASTY_ORDER.length : index;
 }
 
-export default function ArchiveExhibit({ onNavigate }) {
-  const [selectedDishId, setSelectedDishId] = useState(null);
+export default function ArchiveExhibit() {
+  const { state, dispatch } = useMuseumSession();
   const [dynastyFilter, setDynastyFilter] = useState('全部');
   const [archiveFilter, setArchiveFilter] = useState('全部');
   const [keyword, setKeyword] = useState('');
 
   const dynasties = useMemo(() => {
-    const set = new Set(museumDishes.map((dish) => dish.dynasty));
-    return ['全部', ...Array.from(set).sort((a, b) => dynastyRank(a) - dynastyRank(b))];
+    const values = new Set(museumDishes.map((dish) => dish.dynasty));
+    return ['全部', ...Array.from(values).sort((a, b) => dynastyRank(a) - dynastyRank(b))];
   }, []);
 
   const filteredDishes = useMemo(() => {
-    const lowerKeyword = keyword.trim().toLowerCase();
-    return museumDishes.filter((dish) => {
-      if (dynastyFilter !== '全部' && dish.dynasty !== dynastyFilter) return false;
-      if (archiveFilter !== '全部' && dish.archiveState !== archiveFilter) return false;
-      if (lowerKeyword) {
-        const haystack = `${dish.name} ${dish.dynasty} ${dish.region} ${dish.flavor} ${dish.technique} ${dish.description}`.toLowerCase();
-        if (!haystack.includes(lowerKeyword)) return false;
-      }
-      return true;
-    });
-  }, [dynastyFilter, archiveFilter, keyword]);
+    const search = keyword.trim().toLowerCase();
+    return museumDishes
+      .filter((dish) => {
+        if (dynastyFilter !== '全部' && dish.dynasty !== dynastyFilter) return false;
+        if (archiveFilter !== '全部' && dish.archiveState !== archiveFilter) return false;
+        if (!search) return true;
+        return `${dish.name} ${dish.dynasty} ${dish.region} ${dish.flavor} ${dish.technique} ${dish.description}`
+          .toLowerCase()
+          .includes(search);
+      })
+      .sort((left, right) => dynastyRank(left.dynasty) - dynastyRank(right.dynasty));
+  }, [archiveFilter, dynastyFilter, keyword]);
 
-  const selectedDish = useMemo(
-    () => museumDishes.find((dish) => dish.id === selectedDishId) || null,
-    [selectedDishId],
-  );
+  const selectedDishId = state.selectedDishId;
+  const selectedDish = museumDishes.find((dish) => dish.id === selectedDishId) || museumDishes[0];
+  const selectDish = (dishId) => dispatch({ type: 'selectDish', dishId });
+  const setArchiveTab = (tab) => dispatch({ type: 'setArchiveTab', tab });
 
   return (
-    <ExhibitShell title="味觉星图 · 馆藏菜品档案" onBack={() => onNavigate('home')}>
-      <div className="archive-exhibit">
-        <p className="archive-intro">
-          味觉星图汇集 40 道馆藏菜品，按朝代与档案状态分布。点击星点查看原文短摘、风味特征与诚实的考据状态。
-        </p>
-
-        <div className="archive-filters">
-          <label className="archive-filter">
-            <span className="archive-filter-label">朝代</span>
-            <select value={dynastyFilter} onChange={(event) => setDynastyFilter(event.target.value)}>
-              {dynasties.map((item) => (
-                <option key={item} value={item}>{item}</option>
-              ))}
-            </select>
-          </label>
-          <label className="archive-filter">
-            <span className="archive-filter-label">档案状态</span>
-            <select value={archiveFilter} onChange={(event) => setArchiveFilter(event.target.value)}>
-              <option value="全部">全部</option>
-              {ARCHIVE_STATES.map((item) => (
-                <option key={item} value={item}>{item}</option>
-              ))}
-            </select>
-          </label>
-          <label className="archive-filter archive-filter-search">
-            <span className="archive-filter-label">关键词</span>
-            <input
-              type="search"
-              value={keyword}
-              onChange={(event) => setKeyword(event.target.value)}
-              placeholder="菜名、食材、技法…"
-            />
-          </label>
+    <section className="archive-hall" aria-labelledby="archive-hall-title">
+      <header className="archive-heading">
+        <div>
+          <p>数字风味博物馆 · 40 道离线馆藏</p>
+          <h1 id="archive-hall-title">风味馆藏库</h1>
         </div>
+        <nav className="segmented-control archive-tabs" aria-label="馆藏视图">
+          <button
+            type="button"
+            aria-pressed={state.archiveTab === 'collection'}
+            onClick={() => setArchiveTab('collection')}
+          >
+            <Archive aria-hidden="true" size={18} />
+            <span>馆藏档案</span>
+          </button>
+          <button
+            type="button"
+            aria-pressed={state.archiveTab === 'research'}
+            onClick={() => setArchiveTab('research')}
+          >
+            <FlaskConical aria-hidden="true" size={18} />
+            <span>互动研究</span>
+          </button>
+        </nav>
+      </header>
 
-        <div className="archive-starmap" role="grid" aria-label="味觉星图">
-          {filteredDishes.map((dish) => (
-            <button
-              key={dish.id}
-              type="button"
-              role="gridcell"
-              className={`archive-star archive-star-${dish.archiveState}${selectedDishId === dish.id ? ' is-selected' : ''}`}
-              onClick={() => setSelectedDishId(dish.id)}
-              aria-label={`${dish.name} · ${dish.dynasty} · ${dish.archiveState}`}
-            >
-              <span className="archive-star-name">{dish.name}</span>
-              <span className="archive-star-dynasty">{dish.dynasty}</span>
-              <span className="archive-star-state">{dish.archiveState}</span>
-            </button>
-          ))}
-          {filteredDishes.length === 0 && (
-            <p className="archive-empty">没有匹配的馆藏菜品，请调整筛选条件。</p>
-          )}
-        </div>
+      {state.archiveTab === 'collection' ? (
+        <>
+          <div className="archive-filters">
+            <label>
+              <span>朝代</span>
+              <select value={dynastyFilter} onChange={(event) => setDynastyFilter(event.target.value)}>
+                {dynasties.map((item) => <option key={item} value={item}>{item}</option>)}
+              </select>
+            </label>
+            <label>
+              <span>档案状态</span>
+              <select value={archiveFilter} onChange={(event) => setArchiveFilter(event.target.value)}>
+                <option value="全部">全部</option>
+                {ARCHIVE_STATES.map((item) => <option key={item} value={item}>{item}</option>)}
+              </select>
+            </label>
+            <label className="archive-search">
+              <span>关键词</span>
+              <input
+                type="search"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
+                placeholder="菜名、地域或技法"
+              />
+            </label>
+          </div>
 
-        {selectedDish && (
-          <aside className="archive-detail" aria-label="菜品档案详情">
-            <div className="archive-detail-header">
-              <h3 className="archive-detail-title">{selectedDish.name}</h3>
-              <button
-                type="button"
-                className="archive-detail-close"
-                onClick={() => setSelectedDishId(null)}
-                aria-label="关闭详情"
-              >
-                关闭
-              </button>
-            </div>
-            <img
-              className="archive-detail-image"
-              src={selectedDish.image}
-              alt={`${selectedDish.name} 复原示意图`}
-              loading="lazy"
-            />
-            <dl className="archive-detail-meta">
-              <dt>朝代</dt>
-              <dd>{selectedDish.dynasty}</dd>
-              <dt>地域</dt>
-              <dd>{selectedDish.region}</dd>
-              <dt>技法</dt>
-              <dd>{selectedDish.technique}</dd>
-              <dt>风味特征</dt>
-              <dd>{selectedDish.flavor || '暂无风味记录'}</dd>
-              <dt>档案状态</dt>
-              <dd className={`archive-detail-state archive-detail-state-${selectedDish.archiveState}`}>
-                {selectedDish.archiveState}
-              </dd>
-            </dl>
-            <div className="archive-detail-passage">
-              <p className="archive-detail-passage-title">原文短摘</p>
-              <blockquote>{selectedDish.passage || '暂无原文摘录，资料待补。'}</blockquote>
-              {selectedDish.source && (
-                <p className="archive-detail-source">出处：{selectedDish.source}</p>
+          <div className="archive-collection">
+            <div className="archive-timeline" role="list" aria-label="馆藏时间轴">
+              {filteredDishes.map((dish, index) => (
+                <button
+                  key={dish.id}
+                  type="button"
+                  role="listitem"
+                  className="archive-row"
+                  aria-pressed={selectedDishId === dish.id}
+                  onClick={() => selectDish(dish.id)}
+                >
+                  <span className="archive-marker" aria-hidden="true" />
+                  {index < 6 && (
+                    <img
+                      src={dish.image}
+                      alt=""
+                      loading="lazy"
+                      width="80"
+                      height="56"
+                    />
+                  )}
+                  {index >= 6 && <span className="archive-image-placeholder" aria-hidden="true" />}
+                  <span className="archive-row-main">
+                    <strong>{dish.name}</strong>
+                    <small>{dish.region} · {dish.technique || '技法待补'}</small>
+                  </span>
+                  <span className="archive-row-dynasty">{dish.dynasty}</span>
+                  <span className={`archive-state archive-state-${dish.archiveState}`}>{dish.archiveState}</span>
+                </button>
+              ))}
+              {filteredDishes.length === 0 && (
+                <p className="archive-empty">没有匹配的馆藏菜品，请调整筛选条件。</p>
               )}
             </div>
-            <p className="archive-detail-note">
-              档案状态为离线规则依据古籍片段与专家清单覆盖情况判定的诚实标注，研究性复原，不替代学术定论。
-            </p>
-          </aside>
-        )}
-      </div>
-    </ExhibitShell>
+
+            <aside className="archive-detail" aria-label="菜品档案详情">
+              <img
+                className="archive-detail-image"
+                src={selectedDish.image}
+                alt={`${selectedDish.name} 复原示意图`}
+                loading="lazy"
+                width="720"
+                height="405"
+              />
+              <p className="archive-detail-index">{selectedDish.id.toUpperCase()}</p>
+              <h2>{selectedDish.name}</h2>
+              <p className={`archive-state archive-state-${selectedDish.archiveState}`}>
+                {selectedDish.archiveState}
+              </p>
+              <dl className="archive-detail-meta">
+                <dt>朝代</dt><dd>{selectedDish.dynasty}</dd>
+                <dt>地域</dt><dd>{selectedDish.region}</dd>
+                <dt>技法</dt><dd>{selectedDish.technique}</dd>
+                <dt>风味</dt><dd>{selectedDish.flavor || '暂无风味记录'}</dd>
+              </dl>
+              <blockquote>{selectedDish.passage || '暂无原文摘录，资料待补。'}</blockquote>
+              <p className="archive-detail-source">出处：{selectedDish.source || '资料待补'}</p>
+              <p className="archive-detail-note">馆藏状态基于当前离线文献和专家清单覆盖情况，不替代学术定论。</p>
+              <button type="button" className="archive-research-command" onClick={() => setArchiveTab('research')}>
+                以此菜进入互动研究
+              </button>
+            </aside>
+          </div>
+        </>
+      ) : (
+        <ResearchLab selectedDishId={selectedDishId} />
+      )}
+    </section>
   );
 }

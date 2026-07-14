@@ -14,7 +14,7 @@ const allOfflineExhibitSources = [
 ].join('\n');
 
 test('all original capabilities are present in offline exhibits', () => {
-  for (const label of ['数字传承人', '味觉星图', '风味进化', '拍照认祖', '每日复活', '真假非遗', '分享证书']) {
+  for (const label of ['数字传承人', '风味馆藏库', '互动研究', '风味进化', '拍照认祖', '每日复活', '真假非遗', '分享证书']) {
     assert.match(allOfflineExhibitSources, new RegExp(label));
   }
 });
@@ -42,4 +42,27 @@ test('play exhibit uses local ancestor matcher, daily revival and certificate', 
 
 test('offline exhibits never call network APIs', () => {
   assert.doesNotMatch(allOfflineExhibitSources, /fetch\(|apiRequest|axios/);
+});
+
+test('archive provides collection and research tabs with a shared selected dish', () => {
+  const archive = read('src/offline/exhibits/ArchiveExhibit.jsx');
+  assert.match(archive, /馆藏档案/);
+  assert.match(archive, /互动研究/);
+  assert.match(archive, /selectedDishId/);
+  assert.match(archive, /ResearchLab/);
+});
+
+test('research tools inherit the selected dish', () => {
+  const mentor = read('src/offline/exhibits/MentorExhibit.jsx');
+  const evolution = read('src/offline/exhibits/EvolutionExhibit.jsx');
+  const play = read('src/offline/exhibits/PlayExhibit.jsx');
+  assert.match(mentor, /selectedDishId/);
+  assert.match(evolution, /selectedDishId/);
+  assert.match(play, /selectedDishId/);
+});
+
+test('archive images remain lazy and only render in visible list or selected detail', () => {
+  const archive = read('src/offline/exhibits/ArchiveExhibit.jsx');
+  assert.match(archive, /loading="lazy"/);
+  assert.doesNotMatch(archive, /museumDishes\.map[\s\S]*<img[\s\S]*museumDishes\.map/);
 });
