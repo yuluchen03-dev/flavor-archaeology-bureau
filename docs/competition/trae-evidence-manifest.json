@@ -1,0 +1,11 @@
+{
+  "demoHtml": "release/风味考古局-TRAE初赛/风味考古局-离线体验.html",
+  "demoZip": "release/风味考古局-TRAE初赛.zip",
+  "postDraft": "docs/competition/trae-initial-round-post.md",
+  "registrationUrl": "",
+  "traeTasks": [
+    { "key": "trae-01", "sessionId": "", "screenshots": ["docs/competition/screenshots/trae-01-prompt.png", "docs/competition/screenshots/trae-01-progress.png"] },
+    { "key": "trae-02", "sessionId": "", "screenshots": [] },
+    { "key": "trae-03", "sessionId": "", "screenshots": [] }
+  ]
+}

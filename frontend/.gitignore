@@ -10,7 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-offline
 *.local
+
+# 离线资源构建产物（由 scripts/build_offline_assets.mjs 生成）
+src/offline/data/generated/
+src/offline/data/generatedDishImages.js
 
 # Editor directories and files
 .vscode/*
