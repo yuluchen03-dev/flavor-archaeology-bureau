@@ -40,7 +40,7 @@ test('createCertificateSvg returns an SVG document', () => {
 
 test('progress store persists and clears offline progress', () => {
   clearProgress();
-  saveProgress({ revivedDishes: ['dish_001'] });
+  assert.equal(saveProgress({ revivedDishes: ['dish_001'] }), 'memory');
   assert.deepEqual(loadProgress().revivedDishes, ['dish_001']);
   clearProgress();
   assert.deepEqual(loadProgress(), {});
