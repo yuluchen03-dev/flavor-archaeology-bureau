@@ -25,15 +25,24 @@ test('restoration journey shows evidence kinds and required labels', () => {
   assert.match(restorationSource + reportSource, /研究性复原/);
 });
 
-test('home presents one primary action, archive access, and first-view evidence signals', () => {
+test('home presents a curation commission from restoration to new life', () => {
   const homeSource = read('src/offline/exhibits/HomeExhibit.jsx');
-  assert.match(homeSource, /以文献为证，复原失传中国味道/);
-  assert.match(homeSource, /开始可信复原/);
-  assert.match(homeSource, /浏览风味馆藏/);
-  assert.match(homeSource, /40 道馆藏/);
-  assert.match(homeSource, /《山家清供》/);
+  for (const label of [
+    '策展委托',
+    '风味考古局',
+    '从复原到新生',
+    '接手这宗风味案',
+    '古籍线索',
+    '证据复原',
+    '菜品融合',
+    '数字展项',
+  ]) {
+    assert.match(homeSource, new RegExp(label));
+  }
+  assert.match(homeSource, /FeaturedFusion/);
+  assert.match(homeSource, /type:\s*'openFusion'/);
   assert.match(homeSource, /variant="hero"/);
-  assert.doesNotMatch(homeSource, /home-route-primary.*home-route-secondary/s);
+  assert.doesNotMatch(homeSource, /AI平台|智能助手|浏览风味馆藏/);
 });
 
 test('business exhibit contains museum pilot offer', () => {

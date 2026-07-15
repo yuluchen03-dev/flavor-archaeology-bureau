@@ -1,5 +1,9 @@
+import { ArrowRight, FileSearch } from 'lucide-react';
 import CrabOrangeStage from '../components/CrabOrangeStage.jsx';
+import FeaturedFusion from '../components/FeaturedFusion.jsx';
 import { useMuseumSession } from '../state/useMuseumSession.js';
+
+const OUTCOME_STEPS = ['古籍线索', '证据复原', '菜品融合', '数字展项'];
 
 export default function HomeExhibit({ onNavigate }) {
   const { state, dispatch } = useMuseumSession();
@@ -20,27 +24,40 @@ export default function HomeExhibit({ onNavigate }) {
           onExplodedChange={(value) => dispatch({ type: 'setExploded', value })}
         />
       </div>
-      <div className="home-overlay">
-        <p className="home-kicker">南宋食谱 · 数字风味藏品 001</p>
+
+      <article className="home-commission">
+        <header className="home-commission-heading">
+          <span><FileSearch aria-hidden="true" size={16} /> 策展委托</span>
+          <strong>CASE · SC-001</strong>
+        </header>
+        <p className="home-kicker">南宋饮食文化数字展项</p>
         <h1 id="museum-home-title">风味考古局</h1>
-        <p className="home-proposition">以文献为证，复原失传中国味道</p>
-        <div className="home-actions">
-          <button type="button" className="command-primary" onClick={() => onNavigate('restore')}>
-            开始可信复原
-          </button>
-          <button type="button" className="command-secondary" onClick={() => onNavigate('archive')}>
-            浏览风味馆藏
-          </button>
-        </div>
-      </div>
-      <div className="home-next-signal" aria-label="馆藏摘要">
+        <p className="home-proposition">从复原到新生</p>
+        <p className="home-commission-copy">
+          委托方：非遗馆策展组。依据《山家清供》复原蟹酿橙，
+          并将可信古菜转化为可互动、可衍生的数字展项。
+        </p>
+        <button type="button" className="command-primary" onClick={() => onNavigate('restore')}>
+          <span>接手这宗风味案</span>
+          <ArrowRight aria-hidden="true" size={18} />
+        </button>
+      </article>
+
+      <aside className="home-fusion-panel">
+        <FeaturedFusion onOpen={() => dispatch({ type: 'openFusion' })} />
+      </aside>
+
+      <footer className="home-outcome-chain" aria-label="策展交付流程">
         <blockquote>“以蟹膏肉实其内，仍以带枝顶覆之，入小甑蒸熟。”</blockquote>
-        <dl>
-          <div><dt>证据热点</dt><dd>3 项</dd></div>
-          <div><dt>馆藏规模</dt><dd>40 道馆藏</dd></div>
-          <div><dt>出处</dt><dd>《山家清供》</dd></div>
-        </dl>
-      </div>
+        <ol>
+          {OUTCOME_STEPS.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{step}</strong>
+            </li>
+          ))}
+        </ol>
+      </footer>
     </section>
   );
 }
