@@ -52,3 +52,23 @@ test('persistence excludes clue text and uploaded image state', () => {
   assert.equal(stored.uploadedImageUrl, undefined);
   assert.equal(stored.selectedDishId, 'dish_001');
 });
+
+test('opening the featured fusion configures the complete research destination atomically', () => {
+  const state = museumSessionReducer(INITIAL_SESSION, { type: 'openFusion' });
+  assert.deepEqual(
+    {
+      activeExhibit: state.activeExhibit,
+      archiveTab: state.archiveTab,
+      researchTool: state.researchTool,
+      selectedDishId: state.selectedDishId,
+      secondaryDishId: state.secondaryDishId,
+    },
+    {
+      activeExhibit: 'archive',
+      archiveTab: 'research',
+      researchTool: 'evolution',
+      selectedDishId: 'dish_001',
+      secondaryDishId: 'dish_003',
+    },
+  );
+});

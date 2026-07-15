@@ -66,3 +66,11 @@ test('archive images remain lazy and only render in visible list or selected det
   assert.match(archive, /loading="lazy"/);
   assert.doesNotMatch(archive, /museumDishes\.map[\s\S]*<img[\s\S]*museumDishes\.map/);
 });
+
+test('evolution keeps the second parent in the shared museum session', () => {
+  const evolution = read('src/offline/exhibits/EvolutionExhibit.jsx');
+  assert.match(evolution, /useMuseumSession/);
+  assert.match(evolution, /state\.secondaryDishId/);
+  assert.match(evolution, /type:\s*'selectSecondaryDish'/);
+  assert.doesNotMatch(evolution, /useState\(''\)/);
+});

@@ -21,6 +21,15 @@ export const INITIAL_SESSION = Object.freeze({
 
 export function museumSessionReducer(state, action) {
   switch (action.type) {
+    case 'openFusion':
+      return {
+        ...state,
+        activeExhibit: 'archive',
+        archiveTab: 'research',
+        researchTool: 'evolution',
+        selectedDishId: 'dish_001',
+        secondaryDishId: 'dish_003',
+      };
     case 'navigate':
       return EXHIBITS.has(action.exhibit)
         ? { ...state, activeExhibit: action.exhibit }

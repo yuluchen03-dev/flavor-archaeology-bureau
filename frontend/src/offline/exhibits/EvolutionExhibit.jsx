@@ -2,14 +2,20 @@ import { useMemo, useState } from 'react';
 import { museumDishes } from '../data/offlineMuseumData.js';
 import { fuseDishes } from '../lib/fusionEngine.js';
 import ExhibitShell from '../components/ExhibitShell.jsx';
+import { useMuseumSession } from '../state/useMuseumSession.js';
 
 export default function EvolutionExhibit({
   onNavigate = () => {},
   embedded = false,
   selectedDishId = 'dish_001',
 }) {
-  const [parentBId, setParentBId] = useState('');
+  const { state, dispatch } = useMuseumSession();
   const [result, setResult] = useState(null);
+  const parentBId = state.secondaryDishId || '';
+  const setParentBId = (dishId) => dispatch({
+    type: 'selectSecondaryDish',
+    dishId: dishId || null,
+  });
   const parentAId = selectedDishId;
   const canFuse = Boolean(parentAId && parentBId && parentAId !== parentBId);
   const parentA = useMemo(
@@ -38,7 +44,13 @@ export default function EvolutionExhibit({
         </div>
         <label className="evolution-selector">
           <span className="evolution-selector-label">父本 B</span>
-          <select value={parentBId} onChange={(event) => { setParentBId(event.target.value); setResult(null); }}>
+          <select
+            value={parentBId}
+            onChange={(event) => {
+              setParentBId(event.target.value);
+              setResult(null);
+            }}
+          >
             <option value="">请选择另一道菜</option>
             {museumDishes.filter((dish) => dish.id !== parentAId).map((dish) => (
               <option key={dish.id} value={dish.id}>{dish.name}（{dish.dynasty}）</option>
@@ -50,7 +62,10 @@ export default function EvolutionExhibit({
           <button
             type="button"
             className="evolution-action evolution-action-secondary"
-            onClick={() => { setParentBId(''); setResult(null); }}
+            onClick={() => {
+              setParentBId('');
+              setResult(null);
+            }}
           >
             重置父本 B
           </button>
