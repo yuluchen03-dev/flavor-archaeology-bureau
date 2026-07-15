@@ -3,10 +3,11 @@ import { fileURLToPath } from 'node:url';
 
 const REQUIRED_LABELS = [
   '离线评审模式',
-  '开始可信复原',
-  '风味馆藏库',
+  '接手这宗风味案',
+  '查看融合推演',
+  '探索馆藏',
   '互动研究',
-  '合作展厅',
+  '商业合作',
 ];
 
 export const MAX_OFFLINE_HTML_BYTES = 3_000_000;
