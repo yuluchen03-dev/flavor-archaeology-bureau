@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '../../..');
@@ -73,4 +73,20 @@ test('evolution keeps the second parent in the shared museum session', () => {
   assert.match(evolution, /state\.secondaryDishId/);
   assert.match(evolution, /type:\s*'selectSecondaryDish'/);
   assert.doesNotMatch(evolution, /useState\(''\)/);
+});
+
+test('featured fusion derives its proposal from local dishes and the fusion engine', () => {
+  const featuredPath = resolve(root, 'src/offline/components/FeaturedFusion.jsx');
+  assert.equal(existsSync(featuredPath), true, 'FeaturedFusion component must exist');
+  const featured = read('src/offline/components/FeaturedFusion.jsx');
+  for (const contract of [
+    /museumDishes/,
+    /fuseDishes\('dish_001',\s*'dish_003'\)/,
+    /查看融合推演/,
+    /待专家复核/,
+    /featured-fusion-parent/,
+  ]) {
+    assert.match(featured, contract);
+  }
+  assert.doesNotMatch(featured, /fetch\(|axios|apiRequest/);
 });
