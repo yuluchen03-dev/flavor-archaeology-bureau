@@ -84,6 +84,7 @@ export default function CrabOrangeStage({
         onEvidenceSelect={selectEvidence}
         onModelModeChange={onModelModeChange}
         onExplodedChange={onExplodedChange}
+        variant={variant}
       />
     );
   }

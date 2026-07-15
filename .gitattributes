@@ -1,0 +1,2 @@
+# Vite inlines third-party shader text into the release HTML. Preserve it byte-for-byte.
+release/*/*.html whitespace=-trailing-space,-space-before-tab

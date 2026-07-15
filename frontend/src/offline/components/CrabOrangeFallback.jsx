@@ -8,12 +8,13 @@ export default function CrabOrangeFallback({
   onEvidenceSelect,
   onModelModeChange,
   onExplodedChange,
+  variant = 'workbench',
 }) {
   const selected = crabOrangeEvidence.hotspots.find((item) => item.id === selectedEvidenceId) || null;
 
   return (
     <div
-      className={`crab-orange-fallback${exploded ? ' is-exploded' : ''}${modelMode === 'modern' ? ' is-modern' : ' is-historical'}`}
+      className={`crab-orange-fallback crab-orange-fallback-${variant}${exploded ? ' is-exploded' : ''}${modelMode === 'modern' ? ' is-modern' : ' is-historical'}`}
       role="figure"
       aria-label="蟹酿橙分层结构示意（2.5D 备用视图）"
     >

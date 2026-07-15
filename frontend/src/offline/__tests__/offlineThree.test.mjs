@@ -34,7 +34,13 @@ test('three hotspots are present with exact quotes', () => {
 
 test('stage falls back to CrabOrangeFallback when WebGL fails', () => {
   const stageSource = read('src/offline/components/CrabOrangeStage.jsx');
+  const fallbackSource = read('src/offline/components/CrabOrangeFallback.jsx');
+  const homeStyles = read('src/offline/styles/home.css');
   assert.match(stageSource, /CrabOrangeFallback/);
+  assert.match(stageSource, /<CrabOrangeFallback[\s\S]*variant=\{variant\}/);
+  assert.match(fallbackSource, /crab-orange-fallback-\$\{variant\}/);
+  assert.match(homeStyles, /\.crab-orange-fallback-hero \.crab-orange-fallback-controls/);
+  assert.match(homeStyles, /\.crab-orange-fallback-hero \.crab-orange-fallback-hotspots/);
 });
 
 test('scene exposes historical and modern modes with complete cleanup', () => {
