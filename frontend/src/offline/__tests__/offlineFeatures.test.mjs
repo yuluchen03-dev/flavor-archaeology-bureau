@@ -90,3 +90,10 @@ test('featured fusion derives its proposal from local dishes and the fusion engi
   }
   assert.doesNotMatch(featured, /fetch\(|axios|apiRequest/);
 });
+
+test('evolution renders structured fusion flavor metrics as text', () => {
+  const evolution = read('src/offline/exhibits/EvolutionExhibit.jsx');
+  assert.match(evolution, /Object\.entries\(result\?\.flavor/);
+  assert.match(evolution, /flavorText/);
+  assert.doesNotMatch(evolution, /新风味：\{result\.flavor\}/);
+});

@@ -13,6 +13,7 @@ test('museum shell exposes the three approved destinations and offline status', 
   }
   assert.match(source, /aria-current/);
   assert.match(source, /museum-mobile-nav/);
+  assert.match(source, /museum-mobile-home/);
 });
 
 test('offline styles use museum tokens and zero letter spacing', () => {
@@ -44,6 +45,7 @@ test('responsive styles cover reduced motion, mobile safe area, and print', () =
   const source = read('src/offline/styles/responsive.css');
   assert.match(source, /prefers-reduced-motion:\s*reduce/);
   assert.match(source, /safe-area-inset-bottom/);
+  assert.match(source, /\.museum-topbar > span:last-child/);
   assert.match(source, /@media print/);
 });
 
@@ -55,6 +57,7 @@ test('curation home has stable commission, fusion, motion, and mobile regions', 
     /\.featured-fusion-equation\s*{/,
     /\.home-outcome-chain\s*{/,
     /@keyframes\s+commission-arrival/,
+    /@media\s*\(max-width:\s*1320px\)/,
     /@media\s*\(max-width:\s*760px\)/,
     /grid-template-areas/,
   ]) {

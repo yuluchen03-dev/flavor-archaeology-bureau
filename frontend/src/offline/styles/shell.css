@@ -150,6 +150,10 @@
   font-size: 0.78rem;
 }
 
+.museum-mobile-home {
+  display: none;
+}
+
 .museum-content {
   min-width: 0;
   min-height: calc(100dvh - var(--topbar-height));

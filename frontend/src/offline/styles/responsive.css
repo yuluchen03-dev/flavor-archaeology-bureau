@@ -9,10 +9,24 @@
 
   .museum-topbar {
     min-height: 3.5rem;
+    justify-content: flex-start;
     padding: 0.65rem 1rem;
   }
 
-  .museum-topbar span:last-child {
+  .museum-mobile-home {
+    display: inline-flex;
+    min-height: 2.25rem;
+    gap: 0.35rem;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    color: var(--paper-100);
+    background: transparent;
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+  }
+
+  .museum-topbar > span:last-child {
     display: none;
   }
 

@@ -384,7 +384,7 @@
   font-size: 1rem;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1320px) {
   .museum-home {
     grid-template-areas:
       "commission artifact"
@@ -392,10 +392,6 @@
       "outcome outcome";
     grid-template-columns: minmax(18rem, 0.8fr) minmax(26rem, 1.2fr);
     grid-template-rows: minmax(36rem, 1fr) auto auto;
-  }
-
-  .home-commission h1 {
-    font-size: 3.2rem;
   }
 
   .home-fusion-panel {
@@ -418,6 +414,12 @@
   .featured-fusion-equation,
   .featured-fusion-result {
     margin-block: 1.25rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home-commission h1 {
+    font-size: 3.2rem;
   }
 }
 

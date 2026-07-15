@@ -4,6 +4,15 @@ import { fuseDishes } from '../lib/fusionEngine.js';
 import ExhibitShell from '../components/ExhibitShell.jsx';
 import { useMuseumSession } from '../state/useMuseumSession.js';
 
+const FLAVOR_LABELS = {
+  sour: '酸',
+  sweet: '甜',
+  bitter: '苦',
+  spicy: '辣',
+  salty: '咸',
+  umami: '鲜',
+};
+
 export default function EvolutionExhibit({
   onNavigate = () => {},
   embedded = false,
@@ -26,6 +35,12 @@ export default function EvolutionExhibit({
     () => museumDishes.find((dish) => dish.id === parentBId) || null,
     [parentBId],
   );
+  const flavorText = typeof result?.flavor === 'string'
+    ? result.flavor
+    : Object.entries(result?.flavor || {})
+      .filter(([, value]) => Number(value) > 0)
+      .map(([key, value]) => `${FLAVOR_LABELS[key] || key} ${Math.round(Number(value) * 10)}`)
+      .join(' · ');
 
   const handleFuse = () => {
     if (canFuse) setResult(fuseDishes(parentAId, parentBId));
@@ -99,7 +114,7 @@ export default function EvolutionExhibit({
             <span className="evolution-result-mode">{result.mode}</span>
           </header>
           <p className="evolution-result-desc">{result.description}</p>
-          {result.flavor && <p>新风味：{result.flavor}</p>}
+          {flavorText && <p>新风味：{flavorText}</p>}
           {result.difficulty && <p>难度：{result.difficulty}</p>}
           <div className="evolution-result-columns">
             <section>
