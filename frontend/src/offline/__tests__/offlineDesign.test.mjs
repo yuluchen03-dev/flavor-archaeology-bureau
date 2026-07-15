@@ -8,7 +8,7 @@ const read = (path) => readFileSync(resolve(root, path), 'utf8');
 
 test('museum shell exposes the three approved destinations and offline status', () => {
   const source = read('src/offline/components/MuseumShell.jsx');
-  for (const label of ['可信复原台', '风味馆藏库', '合作展厅', '离线评审模式']) {
+  for (const label of ['可信复原', '探索馆藏', '商业合作', '离线评审模式']) {
     assert.match(source, new RegExp(label));
   }
   assert.match(source, /aria-current/);
@@ -45,4 +45,19 @@ test('responsive styles cover reduced motion, mobile safe area, and print', () =
   assert.match(source, /prefers-reduced-motion:\s*reduce/);
   assert.match(source, /safe-area-inset-bottom/);
   assert.match(source, /@media print/);
+});
+
+test('curation home has stable commission, fusion, motion, and mobile regions', () => {
+  const home = read('src/offline/styles/home.css');
+  for (const contract of [
+    /\.home-commission\s*{/,
+    /\.home-fusion-panel\s*{/,
+    /\.featured-fusion-equation\s*{/,
+    /\.home-outcome-chain\s*{/,
+    /@keyframes\s+commission-arrival/,
+    /@media\s*\(max-width:\s*760px\)/,
+    /grid-template-areas/,
+  ]) {
+    assert.match(home, contract);
+  }
 });

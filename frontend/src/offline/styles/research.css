@@ -107,6 +107,11 @@
   background: #fffdf7;
 }
 
+.evolution-selector select:has(option:checked:not([value=""])) {
+  border-color: var(--bronze-500);
+  box-shadow: inset 3px 0 0 var(--bronze-500);
+}
+
 .mentor-input {
   flex: 1;
 }
@@ -292,7 +297,7 @@
 
 @media (max-width: 760px) {
   .research-lab {
-    padding: 1rem;
+    padding: 0.75rem 1rem 1rem;
   }
 
   .research-tools {
@@ -300,6 +305,7 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 0.5rem;
   }
 
   .research-tools button {
@@ -326,5 +332,20 @@
   .play-tabs {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-bottom: 0.4rem;
+  }
+
+  .play-selected-dish,
+  .play-tab-intro {
+    margin-block: 0.4rem;
+  }
+
+  .play-tab-content {
+    padding-block: 0.5rem;
+  }
+
+  .play-tab-content label,
+  .play-certificate-form {
+    margin-block: 0.4rem;
   }
 }
