@@ -4,15 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run build:offline:assets",
     "dev": "vite",
+    "prebuild": "npm run build:offline:assets",
     "build": "vite build",
+    "pretest": "npm run build:offline:assets",
     "test": "node --test src/**/*.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "build:offline:assets": "node ../scripts/build_offline_assets.mjs",
     "build:offline": "npm run build:offline:assets && vite build --config vite.offline.config.js",
+    "pretest:offline": "npm run build:offline:assets",
     "test:offline": "node --test src/offline/__tests__/*.test.mjs",
-    "verify:offline:bundle": "node ../scripts/verify_offline_bundle.mjs dist-offline/offline.html --enforce"
+    "verify:offline:bundle": "node ../scripts/verify_offline_bundle.mjs dist-offline/offline.html --enforce",
+    "verify:offline:ui": "node ../scripts/verify_offline_ui.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",
@@ -34,6 +39,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "playwright": "^1.55.0",
     "sharp": "^0.35.3",
     "vite": "^8.0.12",
     "vite-plugin-singlefile": "^2.3.3"
