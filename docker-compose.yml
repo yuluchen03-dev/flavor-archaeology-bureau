@@ -10,7 +10,8 @@ services:
       PORT: 3001
       JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET before running docker compose up}
       JWT_EXPIRES_IN: 7d
-      CORS_ORIGIN: http://localhost:5173
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      TRUST_PROXY_HOPS: "1"
       PYTHONIOENCODING: utf-8
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://ark.cn-beijing.volces.com/api/v3}
@@ -18,8 +19,19 @@ services:
       AGNES_API_KEY: ${AGNES_API_KEY:-}
       AGNES_BASE_URL: ${AGNES_BASE_URL:-https://apihub.agnes-ai.com/v1}
       AGNES_IMAGE_MODEL: ${AGNES_IMAGE_MODEL:-agnes-image-2.0-flash}
-    ports:
-      - "3001:3001"
+    expose:
+      - "3001"
+    volumes:
+      - backend_data:/app/backend/data
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
     healthcheck:
       test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))"]
       interval: 10s
@@ -32,9 +44,21 @@ services:
       context: .
       dockerfile: frontend/Dockerfile
       args:
-        VITE_API_BASE: http://localhost:3001/api
+        VITE_API_BASE: ${VITE_API_BASE:-/api}
     ports:
       - "5173:80"
     depends_on:
       backend:
         condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+
+volumes:
+  backend_data:
