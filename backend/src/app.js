@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const path = require('path');
 const fs = require('fs');
 const apiRoutes = require('./routes');
@@ -17,6 +18,8 @@ if (!fs.existsSync(dataDir)) {
 }
 
 // 中间件配置
+app.use(helmet());
+
 app.use(cors({
   origin: resolveCorsOrigin(),
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
