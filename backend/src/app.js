@@ -7,6 +7,7 @@ const fs = require('fs');
 const apiRoutes = require('./routes');
 const { createRateLimit } = require('./middleware/rateLimit');
 const { buildReadinessReport, resolveCorsOrigin } = require('./config/runtime');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -59,14 +60,7 @@ app.use((req, res) => {
 });
 
 // 错误处理中间件
-app.use((err, req, res, next) => {
-  console.error('服务器错误:', err);
-  res.status(err.status || 500).json({
-    success: false,
-    message: err.message || '服务器内部错误',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-  });
-});
+app.use(errorHandler);
 
 // 启动服务器
 app.listen(PORT, () => {
@@ -77,3 +71,5 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+

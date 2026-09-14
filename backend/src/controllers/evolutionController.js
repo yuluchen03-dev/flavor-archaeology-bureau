@@ -29,7 +29,7 @@ const evolve = async (req, res) => {
     console.error('风味进化错误:', error);
     res.status(500).json({
       success: false,
-      message: error.message || '风味进化过程中出现错误'
+      message: '进化分析失败，请稍后重试'
     });
   }
 };

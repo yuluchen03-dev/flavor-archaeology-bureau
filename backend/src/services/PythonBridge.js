@@ -4,6 +4,15 @@ const path = require('path');
 const DEFAULT_TIMEOUT_MS = 30000;
 const DEFAULT_MAX_OUTPUT_BYTES = 1024 * 1024;
 const PYTHON_BIN = () => process.env.PYTHON_BIN || 'python';
+// 脱敏错误信息 - 移除文件路径和堆栈信息
+const sanitizeError = (message) => {
+  if (!message) return message;
+  return message
+    .replace(/\/[^\/\s]+\.(js|py|ts):\d+:\d+/g, '[file]')
+    .replace(/at\s+.*\(.*\)/g, '[stack]')
+    .replace(/Error:.*$/gm, 'Error: [sanitized]');
+};
+
 
 class PythonBridge {
   static async call(action, inputData = {}, options = {}) {
@@ -72,14 +81,16 @@ class PythonBridge {
         if (code !== 0) {
           console.error(`Python script exit code: ${code}`);
           console.error(`Python stderr: ${stderr}`);
-          finish(reject, new Error(`Python script failed: ${stderr || 'unknown error'}`));
+          const sanitizedStderr = sanitizeError(stderr);
+          finish(reject, new Error(`Python script failed: ${sanitizedStderr || 'unknown error'}`));
           return;
         }
 
         try {
           const result = JSON.parse(stdout);
           if (result.error) {
-            finish(reject, new Error(result.error));
+            const sanitizedResultError = sanitizeError(result.error);
+            finish(reject, new Error(sanitizedResultError));
           } else {
             finish(resolve, result);
           }
