@@ -1,0 +1,95 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "Legal document proving that explicitly-insufficient and unknown records pass structural validation while staying unreviewed. Contract R1/R2/R3 and U1/U4.",
+    "fixture": true,
+    "not_historical_evidence": "Structural fixture only. Every record here is deliberately unsourced; nothing is presented as verified history."
+  },
+  "entities": [
+    {
+      "id": "dish_insufficient_1",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "asserted_at": null,
+        "notes": "No source backing available; declared unresolved rather than filled with a guess."
+      },
+      "name": "校验夹具·证据不足菜品",
+      "dish_kind": "heritage_practice_lead",
+      "period_id": null,
+      "description": null,
+      "unknown_fields": [
+        "period_id",
+        "description",
+        "provenance.asserted_at"
+      ]
+    },
+    {
+      "id": "period_unknown_1",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "unknown",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "Dates genuinely unknown; null plus declaration instead of invented years."
+      },
+      "name": "校验夹具·年份未知时期",
+      "start_year": null,
+      "end_year": null,
+      "calendar": "unknown",
+      "certainty": "unknown",
+      "unknown_fields": [
+        "start_year",
+        "end_year"
+      ]
+    },
+    {
+      "id": "claim_insufficient_1",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "Lead text is not authoritative evidence; kept insufficient."
+      },
+      "name": "校验夹具·线索类陈述",
+      "statement": "校验夹具陈述：来源为普通线索，不得升级为权威历史证据。",
+      "claim_type": "cultural_context",
+      "about_ids": [
+        "dish_insufficient_1"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "仅有普通线索，缺少可追溯的版本与段落。"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "type": "claim_about",
+      "source": "claim_insufficient_1",
+      "target": "dish_insufficient_1",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "Structural fixture link; no source backing."
+      }
+    }
+  ]
+}

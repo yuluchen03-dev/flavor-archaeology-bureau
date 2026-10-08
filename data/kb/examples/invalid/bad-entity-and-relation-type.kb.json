@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: invalid entity type and unknown relation type.",
+    "fixture": true,
+    "expect_errors": ["E_UNKNOWN_ENTITY_TYPE", "E_UNKNOWN_RELATION_TYPE"]
+  },
+  "entities": [
+    {
+      "id": "region_neg_1",
+      "entity_type": "Region",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "unknown",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      },
+      "name": "负例地域",
+      "region_kind": "unknown",
+      "modern_admin_codes": []
+    },
+    {
+      "id": "recipe_neg_1",
+      "entity_type": "Recipe",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "unknown",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      },
+      "name": "负例无效实体类型"
+    }
+  ],
+  "relations": [
+    {
+      "type": "region_neg_1",
+      "source": "region_neg_1",
+      "target": "region_neg_1",
+      "evidence_status": "unknown",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      }
+    }
+  ]
+}

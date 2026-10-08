@@ -1,0 +1,28 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: review_status must be one of the 5 contract values. 'verified' is deliberately excluded from the enum so that 'silently marked verified' is structurally impossible (contract R1).",
+    "fixture": true,
+    "expect_errors": ["E_ENUM_INVALID"],
+    "note": "Everything else in this document is legal on purpose, so the only reported error is the illegal review_status value."
+  },
+  "entities": [
+    {
+      "id": "region_verified_1",
+      "entity_type": "Region",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "verified",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例地域·非法评审状态",
+      "region_kind": "cultural_area",
+      "modern_admin_codes": []
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: missing required fields, wrong field types, invalid enum values, duplicate id, dangling reference, illegal relation endpoints, and an invalid time range.",
+    "fixture": true,
+    "expect_errors": [
+      "E_MISSING_FIELD",
+      "E_FIELD_TYPE",
+      "E_ENUM_INVALID",
+      "E_DUPLICATE_ID",
+      "E_DANGLING_REFERENCE",
+      "E_RELATION_ENDPOINT_TYPE",
+      "E_TIME_RANGE_INVALID"
+    ]
+  },
+  "entities": [
+    {
+      "id": "dish_neg_1",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "dish_kind": "historical_documented_dish",
+      "period_id": "period_missing_target",
+      "description": "负例：period_id 指向不存在的实体。"
+    },
+    {
+      "id": "dish_neg_2",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "unknown",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      },
+      "name": "负例缺必填字段",
+      "dish_kind": "not_a_real_dish_kind",
+      "period_id": null,
+      "description": "负例：dish_kind 枚举非法且 name 重复声明。",
+      "unknown_fields": [
+        "period_id"
+      ]
+    },
+    {
+      "id": "dish_neg_2",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "unknown",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture duplicate id"
+      },
+      "name": "负例重复 ID",
+      "dish_kind": "heritage_practice_lead",
+      "period_id": null,
+      "description": null,
+      "unknown_fields": [
+        "period_id",
+        "description"
+      ]
+    },
+    {
+      "id": "period_neg_1",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例时间区间倒置",
+      "start_year": 1500,
+      "end_year": 1000,
+      "calendar": "gregorian_astronomical",
+      "certainty": "exact"
+    },
+    {
+      "id": "period_neg_2",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例年份越界与类型错误",
+      "start_year": "not-a-number",
+      "end_year": 99999,
+      "calendar": "gregorian_astronomical",
+      "certainty": "exact"
+    }
+  ],
+  "relations": [
+    {
+      "type": "dish_contains_ingredient",
+      "source": "dish_neg_1",
+      "target": "period_neg_1",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "dish_contains_ingredient",
+      "source": "dish_neg_1",
+      "target": "ing_does_not_exist",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "properties": {
+        "unexpected_property": "负例：未允许的 properties 键"
+      }
+    }
+  ]
+}

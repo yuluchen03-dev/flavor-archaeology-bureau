@@ -1,0 +1,159 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: no-fabrication red lines. Covers fabricated measurements (ME1/ME2), unsourced heritage designation, unverifiable expert review, unsupported external_reviewed status, and fabricated provenance for primary_source.",
+    "fixture": true,
+    "expect_errors": [
+      "E_MEASUREMENT_FABRICATED",
+      "E_MEASUREMENT_INCOMPLETE",
+      "E_HERITAGE_UNSOURCED",
+      "E_REVIEW_UNVERIFIABLE",
+      "E_REVIEW_STATUS_UNSUPPORTED",
+      "E_PROVENANCE_MISSING",
+      "E_EVIDENCE_UNKNOWN_CONFLICT"
+    ],
+    "note": "dish_neg_fabricated additionally trips E_EVIDENCE_UNKNOWN_CONFLICT because contract U4 forbids evidence_status=sufficient when unknown_fields is non-empty."
+  },
+  "entities": [
+    {
+      "id": "measure_neg_1",
+      "entity_type": "Measurement",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      },
+      "name": "负例：原始表述却给出归一化数值",
+      "quantity_text": "适量",
+      "quantity_value": 12.5,
+      "unit": "to_taste",
+      "of_ingredient_id": null,
+      "used_by_dish_id": null,
+      "normalization_status": "as_recorded",
+      "unknown_fields": [
+        "of_ingredient_id",
+        "used_by_dish_id"
+      ]
+    },
+    {
+      "id": "measure_neg_2",
+      "entity_type": "Measurement",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      },
+      "name": "负例：声明 normalized 但缺数值与单位",
+      "quantity_text": null,
+      "quantity_value": null,
+      "unit": "unknown",
+      "of_ingredient_id": null,
+      "used_by_dish_id": null,
+      "normalization_status": "normalized",
+      "unknown_fields": [
+        "quantity_text",
+        "quantity_value",
+        "of_ingredient_id",
+        "used_by_dish_id"
+      ]
+    },
+    {
+      "id": "tech_neg_1",
+      "entity_type": "Technique",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture: unsourced heritage claim"
+      },
+      "name": "负例：无出处的非遗级别断言",
+      "category": "knife",
+      "description": null,
+      "heritage_designation": {
+        "level": "national",
+        "list_name": null,
+        "designation_year": null
+      },
+      "unknown_fields": [
+        "description",
+        "heritage_designation.list_name",
+        "heritage_designation.designation_year"
+      ]
+    },
+    {
+      "id": "review_neg_1",
+      "entity_type": "ExpertReview",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      },
+      "name": "负例：匿名评审人给出 approved",
+      "subject_id": "dish_neg_fabricated",
+      "reviewer_kind": "anonymous",
+      "reviewer_name": null,
+      "review_date": null,
+      "review_outcome": "approved",
+      "scope_notes": null,
+      "unknown_fields": [
+        "reviewer_name",
+        "review_date",
+        "scope_notes"
+      ]
+    },
+    {
+      "id": "dish_neg_fabricated",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "external_reviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "source_locator": null
+      },
+      "name": "负例：伪造外部专家已评审",
+      "dish_kind": "historical_documented_dish",
+      "period_id": null,
+      "description": "负例：external_reviewed 无外部专家评审支撑，且 primary_source 缺 basis_ids 与 source_locator。",
+      "unknown_fields": [
+        "period_id"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "type": "review_of",
+      "source": "review_neg_1",
+      "target": "dish_neg_fabricated",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture"
+      }
+    }
+  ]
+}

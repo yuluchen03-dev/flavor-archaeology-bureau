@@ -1,0 +1,400 @@
+{
+  "schema_version": "2.0.0",
+  "description": "KB-001 Knowledge Schema 2.0 - machine-readable contract for the flavor-archaeology knowledge layer. This file is the single source of truth for entity types, fields, enums and relation endpoint constraints; the validator must not hard-code those lists.",
+  "contract_source": "docs/kb-001/01-schema-contract.md",
+  "document_extension": ".kb.json",
+  "id_pattern": "^[a-z][a-z0-9_]*$",
+  "id_min_length": 3,
+  "id_max_length": 96,
+  "enums": {
+    "content_class": ["historical_fact", "historical_inference", "modern_adaptation", "user_experiment"],
+    "evidence_status": ["sufficient", "insufficient", "unknown"],
+    "review_status": ["unreviewed", "internal_reviewed", "pending_external_expert", "external_reviewed", "rejected"],
+    "derivation": ["primary_source", "v1_adapter", "editorial", "unresolved"],
+    "asserted_by": ["human_editor", "v1_import", "expert_review", "user_experiment", "unknown"],
+    "attribution_status": ["attributed", "disputed", "anonymous", "unknown"],
+    "work_type": ["classic_text", "food_monograph", "materia_medica", "agricultural_treatise", "encyclopedic_reference", "anthology", "collected_series", "other"],
+    "edition_type": ["modern_reprint", "scholarly_edition", "facsimile", "manuscript", "digital_surrogate", "unknown"],
+    "locator_scheme": ["volume", "page", "chapter", "entry", "shelfmark", "none"],
+    "text_origin": ["verbatim_transcription", "normalized_transcription", "paraphrase", "unknown"],
+    "edition_resolution": ["resolved", "ambiguous", "unresolved"],
+    "claim_type": ["existence", "provenance", "attribution", "technique", "ingredient_use", "geography", "chronology", "cultural_context", "other"],
+    "confidence": ["high", "medium", "low", "unknown"],
+    "dish_kind": ["historical_documented_dish", "heritage_practice_lead", "modern_adaptation"],
+    "ingredient_category": ["grain", "vegetable", "fruit", "meat", "aquatic", "seasoning", "fungus", "dairy", "other"],
+    "biological_identification_status": ["identified", "provisional", "disputed", "unknown"],
+    "availability_status": ["available", "rare", "protected", "extinct_in_wild", "historical_only", "unknown"],
+    "state_kind": ["raw", "chopped", "ground", "soaked", "fermented", "dried", "cooked", "mixed", "other"],
+    "technique_category": ["knife", "heat", "seasoning", "shaping", "fermentation", "curing", "other"],
+    "heritage_level": ["national", "provincial", "municipal", "county", "none", "unknown"],
+    "utensil_kind": ["cooking_vessel", "steamer", "stove", "cutting_tool", "serving_vessel", "storage_vessel", "other"],
+    "measurement_unit": ["gram", "milliliter", "piece", "jin", "liang", "sheng", "dou", "spoon", "dash", "pinch", "to_taste", "unknown"],
+    "normalization_status": ["as_recorded", "normalized", "unnormalizable", "unknown"],
+    "calendar": ["gregorian_astronomical", "chinese_dynastic", "reign_era", "unknown"],
+    "certainty": ["exact", "approximate", "disputed", "unknown"],
+    "region_kind": ["modern_admin", "historical_admin", "cultural_area", "physical_geography", "unknown"],
+    "season_kind": ["solar_term", "lunar_festival", "calendar_month", "growing_season", "unknown"],
+    "version_kind": ["historical_faithful", "modern_kitchen", "experimental"],
+    "reviewer_kind": ["internal_editor", "external_scholar", "institution", "anonymous", "unknown"],
+    "review_outcome": ["approved", "approved_with_conditions", "pending", "rejected", "unknown"],
+    "rule_kind": ["prohibited_species", "allergen", "toxin", "hygiene", "legal_restriction", "other"],
+    "severity": ["blocker", "high", "medium", "low"],
+    "experiment_outcome": ["success", "partial", "failure", "inconclusive", "unknown"]
+  },
+  "reviewed_statuses": ["internal_reviewed", "pending_external_expert", "external_reviewed"],
+  "unreviewed_statuses": ["unreviewed", "rejected"],
+  "heritage_sourcing_required_levels": ["national", "provincial", "municipal", "county"],
+  "provenance_fields": {
+    "derivation": {"type": "string", "required": true, "nullable": false, "enum": "derivation"},
+    "basis_ids": {"type": "array", "required": true, "nullable": false, "items": "string"},
+    "asserted_by": {"type": "string", "required": true, "nullable": false, "enum": "asserted_by"},
+    "asserted_at": {"type": "string", "required": false, "nullable": true, "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "declare_when_null": true},
+    "source_locator": {
+      "type": "object",
+      "required": false,
+      "nullable": true,
+      "members": {
+        "work_id": {"type": "string", "required": false, "nullable": true},
+        "edition_id": {"type": "string", "required": false, "nullable": true},
+        "passage_id": {"type": "string", "required": false, "nullable": true},
+        "locator": {"type": "string", "required": false, "nullable": true}
+      }
+    },
+    "notes": {"type": "string", "required": false, "nullable": true}
+  },
+  "common_fields": {
+    "id": {"type": "string", "required": true, "nullable": false},
+    "entity_type": {"type": "string", "required": true, "nullable": false},
+    "schema_version": {"type": "string", "required": true, "nullable": false, "const": "2.0.0"},
+    "content_class": {"type": "string", "required": true, "nullable": false, "enum": "content_class"},
+    "evidence_status": {"type": "string", "required": true, "nullable": false, "enum": "evidence_status"},
+    "review_status": {"type": "string", "required": true, "nullable": false, "enum": "review_status"},
+    "provenance": {"type": "object", "required": true, "nullable": false},
+    "name": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+    "unknown_fields": {"type": "array", "required": false, "nullable": false, "items": "string"},
+    "notes": {"type": "string", "required": false, "nullable": true},
+    "aliases": {"type": "array", "required": false, "nullable": false, "items": "string"}
+  },
+  "entities": {
+    "SourceWork": {
+      "id_prefix": "work_",
+      "fields": {
+        "author": {"type": "string", "required": true, "nullable": true},
+        "attribution_status": {"type": "string", "required": true, "nullable": false, "enum": "attribution_status"},
+        "work_type": {"type": "string", "required": true, "nullable": false, "enum": "work_type"},
+        "compiled_period_id": {"type": "string", "required": true, "nullable": true, "id_ref": ["TimePeriod"]}
+      }
+    },
+    "SourceEdition": {
+      "id_prefix": "edition_",
+      "fields": {
+        "work_id": {"type": "string", "required": true, "nullable": true, "id_ref": ["SourceWork"]},
+        "edition_type": {"type": "string", "required": true, "nullable": false, "enum": "edition_type"},
+        "publisher": {"type": "string", "required": true, "nullable": true},
+        "publication_year": {"type": "integer", "required": true, "nullable": true},
+        "locator_scheme": {"type": "string", "required": true, "nullable": false, "enum": "locator_scheme"},
+        "contains_work_ids": {"type": "array", "required": false, "nullable": false, "items": "string", "id_ref": ["SourceWork"]}
+      }
+    },
+    "SourcePassage": {
+      "id_prefix": "passage_",
+      "fields": {
+        "text": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+        "edition_id": {"type": "string", "required": true, "nullable": true, "id_ref": ["SourceEdition"]},
+        "locator": {
+          "type": "object",
+          "required": true,
+          "nullable": true,
+          "members": {
+            "volume": {"type": "string", "required": false, "nullable": true},
+            "chapter": {"type": "string", "required": false, "nullable": true},
+            "page": {"type": "string", "required": false, "nullable": true},
+            "entry": {"type": "string", "required": false, "nullable": true}
+          }
+        },
+        "text_origin": {"type": "string", "required": true, "nullable": false, "enum": "text_origin"},
+        "language": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+        "edition_candidates": {"type": "array", "required": true, "nullable": false, "items": "string", "id_ref": ["SourceEdition"]},
+        "edition_resolution": {"type": "string", "required": true, "nullable": false, "enum": "edition_resolution"}
+      }
+    },
+    "HistoricalClaim": {
+      "id_prefix": "claim_",
+      "fields": {
+        "statement": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+        "claim_type": {"type": "string", "required": true, "nullable": false, "enum": "claim_type"},
+        "about_ids": {"type": "array", "required": true, "nullable": false, "items": "string", "min_items": 1},
+        "confidence": {"type": "string", "required": true, "nullable": false, "enum": "confidence"},
+        "uncertainty_notes": {"type": "array", "required": false, "nullable": false, "items": "string"},
+        "counter_evidence_notes": {"type": "array", "required": false, "nullable": false, "items": "string"}
+      }
+    },
+    "Dish": {
+      "id_prefix": "dish_",
+      "fields": {
+        "dish_kind": {"type": "string", "required": true, "nullable": false, "enum": "dish_kind"},
+        "period_id": {"type": "string", "required": true, "nullable": true, "id_ref": ["TimePeriod"]},
+        "region_ids": {"type": "array", "required": false, "nullable": false, "items": "string", "id_ref": ["Region"]},
+        "season_ids": {"type": "array", "required": false, "nullable": false, "items": "string", "id_ref": ["Season"]},
+        "description": {"type": "string", "required": true, "nullable": true}
+      }
+    },
+    "Ingredient": {
+      "id_prefix": "ing_",
+      "fields": {
+        "category": {"type": "string", "required": true, "nullable": false, "enum": "ingredient_category"},
+        "biological_identification_status": {"type": "string", "required": true, "nullable": false, "enum": "biological_identification_status"},
+        "availability_status": {"type": "string", "required": true, "nullable": false, "enum": "availability_status"}
+      }
+    },
+    "IngredientState": {
+      "id_prefix": "istate_",
+      "fields": {
+        "ingredient_id": {"type": "string", "required": true, "nullable": false, "id_ref": ["Ingredient"]},
+        "preparation": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+        "state_kind": {"type": "string", "required": true, "nullable": false, "enum": "state_kind"}
+      }
+    },
+    "Technique": {
+      "id_prefix": "tech_",
+      "fields": {
+        "category": {"type": "string", "required": true, "nullable": false, "enum": "technique_category"},
+        "description": {"type": "string", "required": true, "nullable": true},
+        "heritage_designation": {
+          "type": "object",
+          "required": true,
+          "nullable": true,
+          "members": {
+            "level": {"type": "string", "required": true, "nullable": false, "enum": "heritage_level"},
+            "list_name": {"type": "string", "required": true, "nullable": true},
+            "designation_year": {"type": "integer", "required": true, "nullable": true}
+          }
+        }
+      }
+    },
+    "Utensil": {
+      "id_prefix": "utensil_",
+      "fields": {
+        "utensil_kind": {"type": "string", "required": true, "nullable": false, "enum": "utensil_kind"},
+        "material": {"type": "string", "required": true, "nullable": true},
+        "modern_equivalent": {"type": "string", "required": true, "nullable": true}
+      }
+    },
+    "Measurement": {
+      "id_prefix": "measure_",
+      "fields": {
+        "quantity_text": {"type": "string", "required": true, "nullable": true},
+        "quantity_value": {"type": "number", "required": true, "nullable": true},
+        "unit": {"type": "string", "required": true, "nullable": false, "enum": "measurement_unit"},
+        "of_ingredient_id": {"type": "string", "required": true, "nullable": true, "id_ref": ["Ingredient"]},
+        "used_by_dish_id": {"type": "string", "required": true, "nullable": true, "id_ref": ["Dish"]},
+        "normalization_status": {"type": "string", "required": true, "nullable": false, "enum": "normalization_status"}
+      }
+    },
+    "TimePeriod": {
+      "id_prefix": "period_",
+      "fields": {
+        "start_year": {"type": "integer", "required": true, "nullable": true},
+        "end_year": {"type": "integer", "required": true, "nullable": true},
+        "calendar": {"type": "string", "required": true, "nullable": false, "enum": "calendar"},
+        "certainty": {"type": "string", "required": true, "nullable": false, "enum": "certainty"},
+        "parent_period_id": {"type": "string", "required": false, "nullable": true, "id_ref": ["TimePeriod"]}
+      }
+    },
+    "Region": {
+      "id_prefix": "region_",
+      "fields": {
+        "region_kind": {"type": "string", "required": true, "nullable": false, "enum": "region_kind"},
+        "parent_region_id": {"type": "string", "required": false, "nullable": true, "id_ref": ["Region"]},
+        "modern_admin_codes": {"type": "array", "required": false, "nullable": false, "items": "string"}
+      }
+    },
+    "Season": {
+      "id_prefix": "season_",
+      "fields": {
+        "season_kind": {"type": "string", "required": true, "nullable": false, "enum": "season_kind"},
+        "lunar_month": {"type": "integer", "required": true, "nullable": true, "min": 1, "max": 12},
+        "solar_term_name": {"type": "string", "required": true, "nullable": true}
+      }
+    },
+    "RestorationVersion": {
+      "id_prefix": "resto_",
+      "fields": {
+        "dish_id": {"type": "string", "required": true, "nullable": false, "id_ref": ["Dish"]},
+        "version_kind": {"type": "string", "required": true, "nullable": false, "enum": "version_kind"},
+        "based_on_claim_ids": {"type": "array", "required": true, "nullable": false, "items": "string", "min_items": 1, "id_ref": ["HistoricalClaim"]},
+        "steps": {
+          "type": "array",
+          "required": true,
+          "nullable": false,
+          "min_items": 1,
+          "item_fields": {
+            "order": {"type": "integer", "required": true, "nullable": false, "min": 1},
+            "text": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+            "technique_ids": {"type": "array", "required": false, "nullable": false, "items": "string", "id_ref": ["Technique"]},
+            "utensil_ids": {"type": "array", "required": false, "nullable": false, "items": "string", "id_ref": ["Utensil"]},
+            "ingredient_state_ids": {"type": "array", "required": false, "nullable": false, "items": "string", "id_ref": ["IngredientState"]}
+          }
+        },
+        "adaptation_notes": {"type": "array", "required": false, "nullable": false, "items": "string"}
+      }
+    },
+    "ExpertReview": {
+      "id_prefix": "review_",
+      "fields": {
+        "subject_id": {"type": "string", "required": true, "nullable": false, "id_ref": ["*"]},
+        "reviewer_kind": {"type": "string", "required": true, "nullable": false, "enum": "reviewer_kind"},
+        "reviewer_name": {"type": "string", "required": true, "nullable": true},
+        "review_date": {"type": "string", "required": true, "nullable": true, "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "review_outcome": {"type": "string", "required": true, "nullable": false, "enum": "review_outcome"},
+        "scope_notes": {"type": "string", "required": true, "nullable": true}
+      }
+    },
+    "SafetyRule": {
+      "id_prefix": "safety_",
+      "fields": {
+        "rule_kind": {"type": "string", "required": true, "nullable": false, "enum": "rule_kind"},
+        "applies_to_ids": {"type": "array", "required": true, "nullable": false, "items": "string", "min_items": 1, "id_ref": ["*"]},
+        "severity": {"type": "string", "required": true, "nullable": false, "enum": "severity"},
+        "rule_text": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+        "jurisdiction": {"type": "string", "required": true, "nullable": true}
+      }
+    },
+    "Experiment": {
+      "id_prefix": "exp_",
+      "fields": {
+        "restoration_version_id": {"type": "string", "required": true, "nullable": false, "id_ref": ["RestorationVersion"]},
+        "performed_at": {"type": "string", "required": true, "nullable": true, "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "performed_by": {"type": "string", "required": true, "nullable": true},
+        "protocol": {"type": "string", "required": true, "nullable": false, "min_length": 1},
+        "observations": {"type": "array", "required": true, "nullable": false, "items": "string"},
+        "outcome": {"type": "string", "required": true, "nullable": false, "enum": "experiment_outcome"}
+      }
+    }
+  },
+  "relations": {
+    "passage_in_edition": {"source": ["SourcePassage"], "target": ["SourceEdition"], "properties": {}},
+    "edition_of_work": {"source": ["SourceEdition"], "target": ["SourceWork"], "properties": {}},
+    "edition_contains_work": {"source": ["SourceEdition"], "target": ["SourceWork"], "properties": {}},
+    "claim_supported_by": {"source": ["HistoricalClaim"], "target": ["SourcePassage"], "properties": {}},
+    "claim_refuted_by": {"source": ["HistoricalClaim"], "target": ["SourcePassage"], "properties": {}},
+    "claim_about": {
+      "source": ["HistoricalClaim"],
+      "target": ["Dish", "Ingredient", "IngredientState", "Technique", "Utensil", "Measurement", "TimePeriod", "Region", "Season", "RestorationVersion"],
+      "properties": {}
+    },
+    "dish_contains_ingredient": {
+      "source": ["Dish"],
+      "target": ["Ingredient"],
+      "properties": {
+        "quantity_text": {"type": "string", "nullable": true},
+        "role": {"type": "string", "nullable": true}
+      }
+    },
+    "dish_uses_technique": {
+      "source": ["Dish"],
+      "target": ["Technique"],
+      "properties": {"step_order": {"type": "integer", "nullable": true}}
+    },
+    "dish_originated_in": {"source": ["Dish"], "target": ["TimePeriod"], "properties": {}},
+    "dish_popular_in": {
+      "source": ["Dish"],
+      "target": ["Region"],
+      "properties": {"popularity": {"type": "string", "nullable": true}}
+    },
+    "dish_seasonal_for": {"source": ["Dish"], "target": ["Season"], "properties": {}},
+    "dish_recorded_in": {
+      "source": ["Dish"],
+      "target": ["SourcePassage"],
+      "properties": {
+        "chapter": {"type": "string", "nullable": true},
+        "locator_text": {"type": "string", "nullable": true}
+      }
+    },
+    "ingredient_from_region": {"source": ["Ingredient"], "target": ["Region"], "properties": {}},
+    "ingredient_season": {"source": ["Ingredient"], "target": ["Season"], "properties": {}},
+    "technique_from_region": {"source": ["Technique"], "target": ["Region"], "properties": {}},
+    "ingredient_substitutes": {
+      "source": ["Ingredient"],
+      "target": ["Ingredient"],
+      "properties": {
+        "similarity": {"type": "number", "nullable": true, "min": 0, "max": 1},
+        "notes": {"type": "string", "nullable": true}
+      }
+    },
+    "dish_uses_utensil": {"source": ["Dish"], "target": ["Utensil"], "properties": {}},
+    "ingredient_state_of": {"source": ["IngredientState"], "target": ["Ingredient"], "properties": {}},
+    "measurement_of_ingredient": {"source": ["Measurement"], "target": ["Ingredient"], "properties": {}},
+    "restoration_version_of": {"source": ["RestorationVersion"], "target": ["Dish"], "properties": {}},
+    "restoration_based_on_claim": {"source": ["RestorationVersion"], "target": ["HistoricalClaim"], "properties": {}},
+    "review_of": {"source": ["ExpertReview"], "target": ["*"], "properties": {}},
+    "safety_rule_applies_to": {
+      "source": ["SafetyRule"],
+      "target": ["Dish", "Ingredient", "IngredientState", "Technique", "Utensil", "Measurement", "RestorationVersion", "Experiment"],
+      "properties": {}
+    },
+    "experiment_tests": {"source": ["Experiment"], "target": ["RestorationVersion"], "properties": {}}
+  },
+  "mirror_fields": [
+    {"entity_type": "HistoricalClaim", "field": "about_ids", "relation": "claim_about"},
+    {"entity_type": "SourceEdition", "field": "contains_work_ids", "relation": "edition_contains_work", "optional": true},
+    {"entity_type": "RestorationVersion", "field": "based_on_claim_ids", "relation": "restoration_based_on_claim"},
+    {"entity_type": "SafetyRule", "field": "applies_to_ids", "relation": "safety_rule_applies_to"}
+  ],
+  "single_relation_cardinality": [
+    {"entity_type": "SourceEdition", "relation": "edition_of_work", "exactly": 1},
+    {"entity_type": "RestorationVersion", "relation": "restoration_version_of", "exactly": 1}
+  ],
+  "at_least_one_relation": [
+    {"entity_type": "Experiment", "relation": "experiment_tests"},
+    {"entity_type": "ExpertReview", "relation": "review_of"}
+  ],
+  "rule_codes": {
+    "P2_unresolved_requires_declaration": "E_PROVENANCE_SHAPE",
+    "P3_v1_adapter_requires_v1_import": "E_PROVENANCE_SHAPE",
+    "C4_refuted_requires_counter_notes": "E_CLAIM_UNCERTAINTY_MISSING",
+    "RV2_adaptation_notes_required": "E_CONTENT_CLASS_TYPE",
+    "RV3_weak_claim_blocks_sufficient": "E_TRACE_WEAKENS_CLAIM",
+    "DISH_LEAD_NOT_SUFFICIENT": "E_CONTENT_CLASS_TYPE",
+    "REGION_UNKNOWN_NO_CODES": "E_FIELD_TYPE",
+    "STEPS_ORDER_UNIQUE": "E_FIELD_TYPE",
+    "ID_REF_WRONG_TYPE": "E_DANGLING_REFERENCE"
+  },
+  "codes": [
+    "E_FILE_PARSE",
+    "E_DOC_SHAPE",
+    "E_SCHEMA_VERSION",
+    "E_SCHEMA_UNREADABLE",
+    "E_UNKNOWN_ENTITY_TYPE",
+    "E_ID_FORMAT",
+    "E_DUPLICATE_ID",
+    "E_MISSING_FIELD",
+    "E_FIELD_TYPE",
+    "E_NULL_NOT_ALLOWED",
+    "E_ENUM_INVALID",
+    "E_UNKNOWN_UNDECLARED",
+    "E_UNKNOWN_PATH_INVALID",
+    "E_EVIDENCE_UNKNOWN_CONFLICT",
+    "E_EVIDENCE_REVIEW_CONFLICT",
+    "E_PROVENANCE_UNRESOLVED_CONFLICT",
+    "E_PROVENANCE_MISSING",
+    "E_PROVENANCE_SHAPE",
+    "E_CONTENT_CLASS_TYPE",
+    "E_TIME_RANGE_INVALID",
+    "E_MEASUREMENT_FABRICATED",
+    "E_MEASUREMENT_INCOMPLETE",
+    "E_CLAIM_NO_EVIDENCE",
+    "E_CLAIM_UNCERTAINTY_MISSING",
+    "E_HERITAGE_UNSOURCED",
+    "E_REVIEW_UNVERIFIABLE",
+    "E_REVIEW_STATUS_UNSUPPORTED",
+    "E_RELATION_SHAPE",
+    "E_UNKNOWN_RELATION_TYPE",
+    "E_RELATION_ENDPOINT_TYPE",
+    "E_DANGLING_REFERENCE",
+    "E_TRACE_MISSING",
+    "E_TRACE_BROKEN",
+    "E_TRACE_WEAKENS_CLAIM",
+    "E_MIRROR_MISMATCH"
+  ]
+}

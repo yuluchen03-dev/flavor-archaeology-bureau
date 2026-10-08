@@ -1,0 +1,173 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: broken source trace chain and evidence conflicts. Covers TR1/TR2/TR4, R2, U1/U4, and the 'insufficient silently treated as verified' class.",
+    "fixture": true,
+    "expect_errors": [
+      "E_TRACE_MISSING",
+      "E_CLAIM_NO_EVIDENCE",
+      "E_EVIDENCE_REVIEW_CONFLICT",
+      "E_PROVENANCE_UNRESOLVED_CONFLICT",
+      "E_EVIDENCE_UNKNOWN_CONFLICT",
+      "E_REVIEW_STATUS_UNSUPPORTED",
+      "E_UNKNOWN_UNDECLARED"
+    ],
+    "note": "E_EVIDENCE_UNKNOWN_CONFLICT also fires on work_neg_1 / edition_neg_1 because contract U4 forbids evidence_status=sufficient whenever unknown_fields is non-empty. Those two entities declare required-nullable fields as unknown, so the U4 result is expected, not incidental."
+  },
+  "entities": [
+    {
+      "id": "work_neg_1",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例文献",
+      "author": "负例作者",
+      "attribution_status": "attributed",
+      "work_type": "food_monograph",
+      "compiled_period_id": null,
+      "unknown_fields": [
+        "compiled_period_id"
+      ]
+    },
+    {
+      "id": "edition_neg_1",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例版本缺 edition_of_work",
+      "work_id": "work_neg_1",
+      "edition_type": "scholarly_edition",
+      "publisher": null,
+      "publication_year": null,
+      "locator_scheme": "entry",
+      "unknown_fields": [
+        "publisher",
+        "publication_year"
+      ]
+    },
+    {
+      "id": "passage_neg_1",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例段落：声明 resolved 却无 passage_in_edition",
+      "text": "负例文本：声明 resolved 但缺少 passage_in_edition 关系。",
+      "edition_id": "edition_neg_1",
+      "locator": {
+        "volume": null,
+        "chapter": null,
+        "page": null,
+        "entry": null
+      },
+      "text_origin": "verbatim_transcription",
+      "language": "zh",
+      "edition_candidates": [
+        "edition_neg_1"
+      ],
+      "edition_resolution": "resolved"
+    },
+    {
+      "id": "claim_neg_1",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例陈述：sufficient 但无完整支撑链",
+      "statement": "负例陈述：无 claim_supported_by 却声明 sufficient。",
+      "claim_type": "existence",
+      "about_ids": [
+        "dish_neg_1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "dish_neg_1",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "external_reviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture: insufficient must not be reviewed"
+      },
+      "name": "负例：证据不足却标记已评审",
+      "dish_kind": "heritage_practice_lead",
+      "period_id": null,
+      "description": null,
+      "unknown_fields": [
+        "period_id"
+      ]
+    },
+    {
+      "id": "region_neg_2",
+      "entity_type": "Region",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例：null 未在 unknown_fields 中声明",
+      "region_kind": "cultural_area",
+      "parent_region_id": null,
+      "modern_admin_codes": []
+    }
+  ],
+  "relations": [
+    {
+      "type": "claim_about",
+      "source": "claim_neg_1",
+      "target": "dish_neg_1",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_neg_1",
+      "target": "passage_neg_1",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    }
+  ]
+}

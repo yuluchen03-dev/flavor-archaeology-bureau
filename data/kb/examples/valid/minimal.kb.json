@@ -1,0 +1,28 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "Smallest legal KB-001 document: one entity type plus an empty relation list.",
+    "fixture": true,
+    "not_historical_evidence": "Structural fixture only. Not ancient source text, expert review, or experiment data."
+  },
+  "entities": [
+    {
+      "id": "region_minimal_1",
+      "entity_type": "Region",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "unknown",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "Structural fixture with no source backing, declared rather than invented."
+      },
+      "name": "校验夹具·最小地域",
+      "region_kind": "unknown",
+      "modern_admin_codes": []
+    }
+  ],
+  "relations": []
+}

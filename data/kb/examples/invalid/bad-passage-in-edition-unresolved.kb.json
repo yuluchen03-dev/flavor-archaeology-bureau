@@ -1,0 +1,99 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: passage_in_edition attached to a SourcePassage whose edition_resolution is 'unresolved' (no candidate edition exists). Contract TR1 requires 0 such relations.",
+    "fixture": true,
+    "expect_errors": ["E_TRACE_MISSING"],
+    "note": "Everything else in this document is legal on purpose, so the only reported error is the misplaced passage_in_edition relation."
+  },
+  "entities": [
+    {
+      "id": "work_unres_1",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例文献·无法归属",
+      "author": "负例作者",
+      "attribution_status": "attributed",
+      "work_type": "food_monograph",
+      "compiled_period_id": null,
+      "unknown_fields": ["compiled_period_id"]
+    },
+    {
+      "id": "edition_unres_1",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例版本·无关版本",
+      "work_id": "work_unres_1",
+      "edition_type": "scholarly_edition",
+      "publisher": null,
+      "publication_year": null,
+      "locator_scheme": "entry",
+      "unknown_fields": ["publisher", "publication_year"]
+    },
+    {
+      "id": "passage_unres_1",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture: no candidate edition exists"
+      },
+      "name": "负例段落·无候选版本",
+      "text": "负例文本：该段没有任何候选版本，不得强行挂到某个版本上。",
+      "edition_id": null,
+      "locator": {
+        "volume": null,
+        "chapter": null,
+        "page": null,
+        "entry": null
+      },
+      "text_origin": "verbatim_transcription",
+      "language": "zh",
+      "edition_candidates": [],
+      "edition_resolution": "unresolved",
+      "unknown_fields": ["edition_id"]
+    }
+  ],
+  "relations": [
+    {
+      "type": "edition_of_work",
+      "source": "edition_unres_1",
+      "target": "work_unres_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "passage_in_edition",
+      "source": "passage_unres_1",
+      "target": "edition_unres_1",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture: illegal link from an unresolved passage"
+      }
+    }
+  ]
+}

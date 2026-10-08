@@ -1,0 +1,126 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "NEGATIVE fixture: passage_in_edition attached to a SourcePassage whose edition_resolution is 'ambiguous'. Contract TR1 and the 'no disambiguation' rule require 0 such relations for non-resolved passages.",
+    "fixture": true,
+    "expect_errors": ["E_TRACE_MISSING"],
+    "note": "Everything else in this document is legal on purpose, so the only reported error is the misplaced passage_in_edition relation."
+  },
+  "entities": [
+    {
+      "id": "work_amb_1",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例文献·歧义归属",
+      "author": "负例作者",
+      "attribution_status": "attributed",
+      "work_type": "food_monograph",
+      "compiled_period_id": null,
+      "unknown_fields": ["compiled_period_id"]
+    },
+    {
+      "id": "edition_amb_1",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例版本甲",
+      "work_id": "work_amb_1",
+      "edition_type": "scholarly_edition",
+      "publisher": null,
+      "publication_year": null,
+      "locator_scheme": "entry",
+      "unknown_fields": ["publisher", "publication_year"]
+    },
+    {
+      "id": "edition_amb_2",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "负例版本乙",
+      "work_id": "work_amb_1",
+      "edition_type": "facsimile",
+      "publisher": null,
+      "publication_year": null,
+      "locator_scheme": "entry",
+      "unknown_fields": ["publisher", "publication_year"]
+    },
+    {
+      "id": "passage_amb_1",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture: two candidate editions, attribution deliberately not disambiguated"
+      },
+      "name": "负例段落·归属歧义",
+      "text": "负例文本：该段有两个候选版本，不得任选其一作为归属。",
+      "edition_id": null,
+      "locator": {
+        "volume": null,
+        "chapter": null,
+        "page": null,
+        "entry": null
+      },
+      "text_origin": "verbatim_transcription",
+      "language": "zh",
+      "edition_candidates": ["edition_amb_1", "edition_amb_2"],
+      "edition_resolution": "ambiguous",
+      "unknown_fields": ["edition_id"]
+    }
+  ],
+  "relations": [
+    {
+      "type": "edition_of_work",
+      "source": "edition_amb_1",
+      "target": "work_amb_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "edition_of_work",
+      "source": "edition_amb_2",
+      "target": "work_amb_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "passage_in_edition",
+      "source": "passage_amb_1",
+      "target": "edition_amb_1",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "unknown",
+        "notes": "negative fixture: illegal link from an ambiguous passage"
+      }
+    }
+  ]
+}

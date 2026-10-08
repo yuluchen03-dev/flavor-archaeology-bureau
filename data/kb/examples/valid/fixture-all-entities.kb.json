@@ -1,0 +1,592 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "purpose": "Validator structural fixture. This document exercises all 17 KB-001 entity types and all 24 relation types, including the passage_in_edition positive (resolved) branch that V1 data cannot produce.",
+    "fixture": true,
+    "not_historical_evidence": "Every record in this file is a labelled structural fixture. None of it is presented as ancient source text, expert review, or experiment data.",
+    "source": "docs/kb-001/01-schema-contract.md section 13.5 item 6"
+  },
+  "entities": [
+    {
+      "id": "work_fixture_alpha",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Structural fixture, not a real bibliographic record."
+      },
+      "name": "校验夹具·示例文献",
+      "author": "Fixture Author",
+      "attribution_status": "attributed",
+      "work_type": "food_monograph",
+      "compiled_period_id": "period_fixture_1"
+    },
+    {
+      "id": "period_fixture_1",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例时期",
+      "start_year": 1000,
+      "end_year": 1100,
+      "calendar": "gregorian_astronomical",
+      "certainty": "exact"
+    },
+    {
+      "id": "edition_fixture_a1",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例版本",
+      "work_id": "work_fixture_alpha",
+      "edition_type": "scholarly_edition",
+      "publisher": "Fixture Publisher",
+      "publication_year": 2024,
+      "locator_scheme": "entry",
+      "contains_work_ids": [
+        "work_fixture_alpha"
+      ]
+    },
+    {
+      "id": "passage_fixture_p1",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例段落",
+      "text": "校验夹具文本：本段不是古籍原文，仅用于验证 SourcePassage 的字段与追踪链规则。",
+      "edition_id": "edition_fixture_a1",
+      "locator": {
+        "volume": null,
+        "chapter": null,
+        "page": null,
+        "entry": "fixture-entry-1"
+      },
+      "text_origin": "verbatim_transcription",
+      "language": "zh",
+      "edition_candidates": [
+        "edition_fixture_a1"
+      ],
+      "edition_resolution": "resolved"
+    },
+    {
+      "id": "claim_fixture_c1",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例陈述",
+      "statement": "校验夹具陈述：仅用于验证 claim_supported_by 链完整时的 sufficient 分支。",
+      "claim_type": "existence",
+      "about_ids": [
+        "dish_fixture_1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "claim_fixture_c2",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例被反驳陈述",
+      "statement": "校验夹具陈述：仅用于验证 claim_refuted_by 与 counter_evidence_notes 的联动规则。",
+      "claim_type": "attribution",
+      "about_ids": [
+        "dish_fixture_1"
+      ],
+      "confidence": "low",
+      "uncertainty_notes": [
+        "校验夹具不确定说明。"
+      ],
+      "counter_evidence_notes": [
+        "校验夹具反证说明。"
+      ]
+    },
+    {
+      "id": "dish_fixture_1",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例菜品",
+      "dish_kind": "historical_documented_dish",
+      "period_id": "period_fixture_1",
+      "region_ids": [
+        "region_fixture_1"
+      ],
+      "season_ids": [
+        "season_fixture_1"
+      ],
+      "description": "校验夹具描述。"
+    },
+    {
+      "id": "ing_fixture_1",
+      "entity_type": "Ingredient",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例食材甲",
+      "category": "grain",
+      "biological_identification_status": "identified",
+      "availability_status": "available"
+    },
+    {
+      "id": "ing_fixture_2",
+      "entity_type": "Ingredient",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例食材乙",
+      "category": "vegetable",
+      "biological_identification_status": "provisional",
+      "availability_status": "unknown"
+    },
+    {
+      "id": "istate_fixture_1",
+      "entity_type": "IngredientState",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例处理态",
+      "ingredient_id": "ing_fixture_1",
+      "preparation": "校验夹具预处理描述。",
+      "state_kind": "chopped"
+    },
+    {
+      "id": "tech_fixture_1",
+      "entity_type": "Technique",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例技法",
+      "category": "heat",
+      "description": "校验夹具技法描述。",
+      "heritage_designation": {
+        "level": "none",
+        "list_name": null,
+        "designation_year": null
+      }
+    },
+    {
+      "id": "utensil_fixture_1",
+      "entity_type": "Utensil",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例器具",
+      "utensil_kind": "steamer",
+      "material": "校验夹具材质",
+      "modern_equivalent": "校验夹具现代替代"
+    },
+    {
+      "id": "measure_fixture_1",
+      "entity_type": "Measurement",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例用量",
+      "quantity_text": "适量",
+      "quantity_value": null,
+      "unit": "to_taste",
+      "of_ingredient_id": "ing_fixture_1",
+      "used_by_dish_id": "dish_fixture_1",
+      "normalization_status": "unnormalizable",
+      "unknown_fields": [
+        "quantity_value"
+      ]
+    },
+    {
+      "id": "region_fixture_1",
+      "entity_type": "Region",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例地域",
+      "region_kind": "cultural_area",
+      "modern_admin_codes": []
+    },
+    {
+      "id": "season_fixture_1",
+      "entity_type": "Season",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例节令",
+      "season_kind": "solar_term",
+      "lunar_month": 3,
+      "solar_term_name": "校验夹具节气"
+    },
+    {
+      "id": "resto_fixture_1",
+      "entity_type": "RestorationVersion",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例复原版本",
+      "dish_id": "dish_fixture_1",
+      "version_kind": "historical_faithful",
+      "based_on_claim_ids": [
+        "claim_fixture_c1"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "text": "校验夹具步骤文本。",
+          "technique_ids": [
+            "tech_fixture_1"
+          ],
+          "utensil_ids": [
+            "utensil_fixture_1"
+          ],
+          "ingredient_state_ids": [
+            "istate_fixture_1"
+          ]
+        }
+      ],
+      "adaptation_notes": []
+    },
+    {
+      "id": "review_fixture_1",
+      "entity_type": "ExpertReview",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例评审",
+      "subject_id": "dish_fixture_1",
+      "reviewer_kind": "internal_editor",
+      "reviewer_name": "Fixture Reviewer",
+      "review_date": "2024-01-01",
+      "review_outcome": "pending",
+      "scope_notes": "校验夹具评审范围说明。"
+    },
+    {
+      "id": "safety_fixture_1",
+      "entity_type": "SafetyRule",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例安全规则",
+      "rule_kind": "allergen",
+      "applies_to_ids": [
+        "ing_fixture_1"
+      ],
+      "severity": "medium",
+      "rule_text": "校验夹具规则内容。",
+      "jurisdiction": "CN"
+    },
+    {
+      "id": "exp_fixture_1",
+      "entity_type": "Experiment",
+      "schema_version": "2.0.0",
+      "content_class": "user_experiment",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "校验夹具·示例实验记录",
+      "restoration_version_id": "resto_fixture_1",
+      "performed_at": "2024-02-02",
+      "performed_by": "Fixture Operator",
+      "protocol": "校验夹具协议：本记录仅用于验证 Experiment 的字段与关系规则，不代表任何真实实验。",
+      "observations": [
+        "校验夹具观察：非真实实验数据。"
+      ],
+      "outcome": "success"
+    }
+  ],
+  "relations": [
+    {
+      "type": "passage_in_edition",
+      "source": "passage_fixture_p1",
+      "target": "edition_fixture_a1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "edition_of_work",
+      "source": "edition_fixture_a1",
+      "target": "work_fixture_alpha",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "edition_contains_work",
+      "source": "edition_fixture_a1",
+      "target": "work_fixture_alpha",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_fixture_c1",
+      "target": "passage_fixture_p1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "claim_refuted_by",
+      "source": "claim_fixture_c2",
+      "target": "passage_fixture_p1",
+      "evidence_status": "insufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_fixture_c1",
+      "target": "dish_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_fixture_c2",
+      "target": "dish_fixture_1",
+      "evidence_status": "insufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "dish_contains_ingredient",
+      "source": "dish_fixture_1",
+      "target": "ing_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" },
+      "properties": { "quantity_text": "适量", "role": "主料" }
+    },
+    {
+      "type": "dish_uses_technique",
+      "source": "dish_fixture_1",
+      "target": "tech_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" },
+      "properties": { "step_order": 1 }
+    },
+    {
+      "type": "dish_originated_in",
+      "source": "dish_fixture_1",
+      "target": "period_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "dish_popular_in",
+      "source": "dish_fixture_1",
+      "target": "region_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" },
+      "properties": { "popularity": "校验夹具流行度" }
+    },
+    {
+      "type": "dish_seasonal_for",
+      "source": "dish_fixture_1",
+      "target": "season_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "dish_recorded_in",
+      "source": "dish_fixture_1",
+      "target": "passage_fixture_p1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" },
+      "properties": { "chapter": null, "locator_text": "fixture-entry-1" }
+    },
+    {
+      "type": "ingredient_from_region",
+      "source": "ing_fixture_1",
+      "target": "region_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "ingredient_season",
+      "source": "ing_fixture_1",
+      "target": "season_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "technique_from_region",
+      "source": "tech_fixture_1",
+      "target": "region_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "ingredient_substitutes",
+      "source": "ing_fixture_1",
+      "target": "ing_fixture_2",
+      "evidence_status": "insufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" },
+      "properties": { "similarity": null, "notes": "校验夹具替代说明。" }
+    },
+    {
+      "type": "dish_uses_utensil",
+      "source": "dish_fixture_1",
+      "target": "utensil_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "ingredient_state_of",
+      "source": "istate_fixture_1",
+      "target": "ing_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "measurement_of_ingredient",
+      "source": "measure_fixture_1",
+      "target": "ing_fixture_1",
+      "evidence_status": "insufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "restoration_version_of",
+      "source": "resto_fixture_1",
+      "target": "dish_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "restoration_based_on_claim",
+      "source": "resto_fixture_1",
+      "target": "claim_fixture_c1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "review_of",
+      "source": "review_fixture_1",
+      "target": "dish_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "safety_rule_applies_to",
+      "source": "safety_fixture_1",
+      "target": "ing_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    },
+    {
+      "type": "experiment_tests",
+      "source": "exp_fixture_1",
+      "target": "resto_fixture_1",
+      "evidence_status": "sufficient",
+      "provenance": { "derivation": "editorial", "basis_ids": [], "asserted_by": "human_editor" }
+    }
+  ]
+}
