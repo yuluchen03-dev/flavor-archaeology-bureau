@@ -244,8 +244,60 @@ V1→V2 适配器（幂等、只读、可回滚、**已加输出边界守卫**�
 
 ## Checkpoint 记录
 
-（待 Captain 执行后补录）
+| 项 | 值 |
+|---|---|
+| 状态 | ✅ **已建立** |
+| 提交哈希 | `c783262395743c0eed4efc3de865c37ba0cfaeb1`（短 `c783262`） |
+| 父提交 | `11e3654`（`test: add integration tests for core routes`） |
+| 分支 | `feat/trae-offline-museum`（未切换分支、未合并任何分支） |
+| 提交文件数 | **36**（33 项 KB-001 变更 + `12-k1-security-gate.md`、`13-k1-reviewer-gate.md`、`14-kb-001-final-status.md`） |
+| 越界文件 | **0**（`git diff --name-only HEAD~1 HEAD` 中非 KB-001 路径为 0） |
+| 提交方式 | `git add <KB-001 路径>` + `git commit --only -- <KB-001 路径>`（**pathspec 限定**） |
+
+**为何用 pathspec 限定提交**：提交前索引中已有**用户既有的 300 条 `frontend/` 暂存改动**（PNG→WebP 重命名等）。
+若不限定路径，`git commit` 会把它们一并写入。本次提交后已核验：**用户的 300 条暂存改动仍完整保留在暂存区**，未被吞入、未被撤销。
+
+**未纳入 checkpoint 的内容（有意排除）**：
+
+| 内容 | 条目数 | 原因 |
+|---|---|---|
+| `.agent-teams/**` | 8 | 团队运行时状态，非项目产物 |
+| `frontend/**` 暂存改动 | 300 | 用户既有改动，不得提交 |
+| `backend/coverage/**` | 143 | 派生构建产物（已被 `backend/.gitignore:6` 忽略） |
+| `tmp/**` | — | 成员探针（已被 `.gitignore:14` 忽略） |
+| `data/kb/generated/**` | 2 | 派生输出（已被 `.gitignore:27` 忽略） |
+
+**提交后核验**：KB-001 路径 `git status` 残留 **0** 条；KB 测试 **121** 全通过（退出 0）；校验器退出 0；非法 `--out` 仍退出 **2**。
+
+**回滚方式（如需撤销该 checkpoint）**：
+```powershell
+git reset --soft HEAD~1     # 撤销提交、保留文件与索引
+# 或
+git reset --mixed HEAD~1    # 撤销提交、保留文件、取消暂存 KB-001 路径
+```
+**约束已遵守**：未 push、未 deploy、未 merge 到任何其他分支。checkpoint 仅用于本地版本边界与回滚，
+使 KB-001 与 KB-002 的 diff 可严格分离（`git diff c783262 -- <paths>`）。
 
 ## 归档记录
 
-（待 Captain 执行后补录）
+| 项 | 值 |
+|---|---|
+| 状态 | ✅ **已归档** |
+| 团队 | `flavor-archaeology-kb001` |
+| 归档动作 | `agent_teams_delete` —— 结束团队、中断成员、将当前任务与邮箱移出活动状态以便后续查看 |
+| 前置条件 | 15 个任务**全部 terminal**（t1–t15 均 completed，无 pending/失败未处置）；7 名成员全部 idle/ready |
+| 归档产物 | AgentTeams 任务记录与邮箱（`.agent-teams/`，**不进版本控制**） |
+
+### 归档前已保存的证据（用户要求逐项核对）
+
+| 要求保存项 | 落盘位置 | 是否进入 checkpoint |
+|---|---|---|
+| task results | AgentTeams 归档（`.agent-teams/`）+ 本文件 §2、`06-kb-001-gate.md` | 任务级输出在归档中；汇总结论已提交 |
+| gate evidence | `06-kb-001-gate.md`（8/8）、本文件 §2（11/11） | ✅ |
+| Reviewer verdict | `07-final-review.md`（PASS）、`13-k1-reviewer-gate.md`（PASS） | ✅ |
+| Security verdict | `04-security-review.md`（无 blocker/high）、`12-k1-security-gate.md`（PASS） | ✅ |
+| final test summary | 本文件 §3（121 用例 + 回归 + 边界 + 零伪造） | ✅ |
+| KB-001 contract version | `01-schema-contract.md` = **2.0.3** | ✅ |
+| known non-blockers | 本文件 §5（B1–B5、K1–K6、N1–N5、O1–O5、未验证项） | ✅ |
+
+**约束已遵守**：归档后**不再**在旧团队 `flavor-archaeology-kb001` 中开发 KB-002；KB-002 使用独立团队。
