@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { isJudgeModeLocation } from '../lib/judgeMode';
+import Eyebrow from '../components/Eyebrow.jsx';
 
 const scenarios = [
   {
@@ -48,7 +49,7 @@ const BusinessValue = () => {
       <div className="mx-auto w-full max-w-[1120px]">
         <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div>
-            <p className="text-sm tracking-[0.28em] text-cinnabar">商业价值｜B 端试点</p>
+            <Eyebrow>商业价值｜B 端试点</Eyebrow>
             <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-ink md:text-6xl">
               从一次演示，到可收费的文化数字化方案
             </h1>

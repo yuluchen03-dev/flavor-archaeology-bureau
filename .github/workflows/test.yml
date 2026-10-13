@@ -27,23 +27,87 @@ jobs:
       run: |
         cd backend
         npm ci
-    
+      env:
+        NODE_ENV: test
+
     - name: Run tests
       run: |
         cd backend
         npm test
-    
+      env:
+        JWT_SECRET: test-secret-for-ci
+        JWT_EXPIRES_IN: 7d
+        NODE_ENV: test
+        PORT: 3001
+        OPENAI_API_KEY: test-openai-key-ci
+        OPENAI_BASE_URL: https://ark.cn-beijing.volces.com/api/v3
+        MODEL_NAME: doubao-pro-32k
+        OPENAI_VISION_MODEL: gpt-4.1-mini
+        AGNES_API_KEY: test-agnes-key-ci
+        AGNES_BASE_URL: https://apihub.agnes-ai.com/v1
+        AGNES_IMAGE_MODEL: agnies-image-2.0-flash
+        AI_SERVICE_URL: http://localhost:5000/api
+        AI_API_KEY: test-ai-key-ci
+        CORS_ORIGIN: http://localhost:5173
+        TRUST_PROXY_HOPS: "0"
+        RATE_LIMIT_WINDOW_MS: 60000
+        RATE_LIMIT_MAX: 120
+        RATE_LIMIT_DISABLED: "true"
+        IMAGE_GEN_API_KEY: test-image-gen-key-ci
+        IMAGE_GEN_BASE_URL: https://ark.cn-beijing.volces.com/api/v3
+        RESTORATION_PROMPT_VERSION: restoration-v1
+        RESTORATION_DATA_VERSION: local-knowledge-graph
+        DB_PATH: ./data/flavor_archaeology.db
+
     - name: Run security audit
       run: |
         cd backend
         npm audit --audit-level=high
-    
+      env:
+        JWT_SECRET: test-secret-for-ci
+        NODE_ENV: test
+        OPENAI_API_KEY: test-openai-key-ci
+        AGNES_API_KEY: test-agnes-key-ci
+
     - name: Build Docker image
       run: docker compose build
-    
+      env:
+        JWT_SECRET: test-secret-for-ci
+        NODE_ENV: production
+        PORT: 3001
+        CORS_ORIGIN: http://localhost:5173
+        TRUST_PROXY_HOPS: "1"
+        OPENAI_API_KEY: test-openai-key-ci
+        OPENAI_BASE_URL: https://ark.cn-beijing.volces.com/api/v3
+        MODEL_NAME: doubao-pro-32k
+        OPENAI_VISION_MODEL: gpt-4.1-mini
+        AGNES_API_KEY: test-agnes-key-ci
+        AGNES_BASE_URL: https://apihub.agnes-ai.com/v1
+        AGNES_IMAGE_MODEL: agnies-image-2.0-flash
+        IMAGE_GEN_API_KEY: test-image-gen-key-ci
+        IMAGE_GEN_BASE_URL: https://ark.cn-beijing.volces.com/api/v3
+
     - name: Run integration tests
+      env:
+        JWT_SECRET: test-secret-for-ci
+        NODE_ENV: production
+        PORT: 3001
+        JWT_EXPIRES_IN: 7d
+        OPENAI_API_KEY: test-openai-key-ci
+        AGNES_API_KEY: test-agnes-key-ci
+        CORS_ORIGIN: http://localhost:5173
+        TRUST_PROXY_HOPS: "1"
       run: |
         docker compose up -d
-        sleep 10
-        curl -f http://localhost:3001/health || exit 1
+        # Wait for health check with timeout
+        for i in $(seq 1 30); do
+          if curl -sf http://localhost:3001/health > /dev/null; then
+            echo "Health check passed"
+            exit 0
+          fi
+          sleep 2
+        done
+        echo "Health check failed after 60 seconds"
+        docker compose logs
         docker compose down
+        exit 1

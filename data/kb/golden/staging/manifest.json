@@ -1,0 +1,18 @@
+{
+  "manifest_version": 1,
+  "lifecycle_class": "staging",
+  "note": "Lightweight staging asset manifest (INCIDENT-E / C-4). Not an artifact database.",
+  "assets": [
+    {
+      "asset_logical_id": "golden_001",
+      "relative_path": "data/kb/golden/staging/golden_001.kb.json",
+      "status": "present",
+      "byte_size": 27036,
+      "sha256": "fa923ce875e0332220f1e125c05a7b1cf71b26f82790a2e941c690985e003964",
+      "generated_or_reconstructed_at": "2026-10-11T00:00:00Z",
+      "source_task": "t63",
+      "lifecycle_class": "staging",
+      "promotion_status": "not_promoted"
+    }
+  ]
+}

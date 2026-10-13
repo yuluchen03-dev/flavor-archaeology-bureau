@@ -4,13 +4,17 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 const fs = require('fs');
+const cookieParser = require('cookie-parser');
 const apiRoutes = require('./routes');
 const { createRateLimit } = require('./middleware/rateLimit');
-const { buildReadinessReport, resolveCorsOrigin } = require('./config/runtime');
+const { buildReadinessReport, resolveCorsOrigin, resolveTrustProxy } = require('./config/runtime');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// 信任反向代理链路（由 TRUST_PROXY_HOPS 控制，默认不信任）
+app.set('trust proxy', resolveTrustProxy());
 
 // 确保数据目录存在
 const dataDir = path.join(__dirname, '../data');
@@ -24,11 +28,15 @@ app.use(helmet());
 app.use(cors({
   origin: resolveCorsOrigin(),
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 }));
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
+
+// 解析 Cookie 中间件 - 在所有其他中间件之后，供 extractToken 读取
+app.use(cookieParser());
 
 // 静态文件服务
 app.use('/images', express.static(path.join(__dirname, '../public/images')));

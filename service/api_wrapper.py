@@ -8,9 +8,13 @@ Node.js与Python复原引擎之间的桥梁脚本
 import sys
 import os
 import json
+import logging
 
 # 确保service包可被正确导入
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# 配置日志
+logger = logging.getLogger(__name__)
 
 from service.restoration_engine import get_restoration_engine
 from service.knowledge_graph import get_knowledge_graph
@@ -189,8 +193,8 @@ def teach(input_data):
                     "suggestions": llm_answer.get("suggestions", []),
                     "llm_enhanced": True
                 }
-        except Exception:
-            pass
+        except Exception as exc:
+            logger.warning("LLM reasoning failed; using keyword matching fallback: %s", exc)
     
     # Fallback: 关键词匹配回答
     recipe = kg.get_recipe_by_dish(dish_info["name"])
@@ -445,8 +449,8 @@ def evolution(input_data):
                     "fusion_concept": llm_fusion.get("concept", ""),
                     "llm_enhanced": True
                 }
-        except Exception:
-            pass
+        except Exception as exc:
+            logger.warning("LLM fusion failed; falling back to rule-based merge: %s", exc)
     
     # Fallback: 规则合并
     merged_ingredients = []
@@ -544,7 +548,7 @@ ACTIONS = {
 
 def main():
     if len(sys.argv) < 2:
-        print(json.dumps({"error": "用法: python api_wrapper.py <action> [input_json]"}))
+        print(json.dumps({"error": "用法: python api_wrapper.py <action>"}))
         sys.exit(1)
     
     action = sys.argv[1]
@@ -553,14 +557,15 @@ def main():
         print(json.dumps({"error": f"不支持的action: {action}，支持: {', '.join(ACTIONS.keys())}"}))
         sys.exit(1)
     
-    # 解析输入JSON
+    # 解析输入JSON (从stdin读取)
     input_data = {}
-    if len(sys.argv) >= 3:
-        try:
-            input_data = json.loads(sys.argv[2])
-        except json.JSONDecodeError:
-            print(json.dumps({"error": f"无效的JSON输入: {sys.argv[2]}"}))
-            sys.exit(1)
+    try:
+        stdin_data = sys.stdin.read()
+        if stdin_data.strip():
+            input_data = json.loads(stdin_data)
+    except json.JSONDecodeError as e:
+        print(json.dumps({"error": f"无效的JSON输入: {e}"}))
+        sys.exit(1)
     
     try:
         result = ACTIONS[action](input_data)

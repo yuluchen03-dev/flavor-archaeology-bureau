@@ -7,6 +7,7 @@ const LightModeService = require('../services/LightModeService');
 const AgnesImageService = require('../services/AgnesImageService');
 const DishVisualPromptService = require('../services/DishVisualPromptService');
 const AiRunMetadata = require('../services/AiRunMetadata');
+const { authenticate } = require('../middleware/auth');
 
 const PYTHON_SCRIPT = path.join(__dirname, '../../../../service/api_wrapper.py');
 const PYTHON_BIN = () => process.env.PYTHON_BIN || 'python';
@@ -366,17 +367,14 @@ async function buildAnalysisStreamResult(clue) {
   };
 }
 
-router.get('/analyze-stream', async (req, res) => {
-  const { clue } = req.query;
-  if (!clue) return res.status(400).json({ error: '缺少线索参数' });
-
+function streamAnalysisSse(res, clue) {
   res.writeHead(200, {
     'Content-Type': 'text/event-stream',
     'Cache-Control': 'no-cache',
     Connection: 'keep-alive',
   });
 
-  try {
+  Promise.resolve().then(async () => {
     const streamResult = await buildAnalysisStreamResult(clue);
 
     streamResult.reasoningSteps.forEach((step) => {
@@ -388,17 +386,32 @@ router.get('/analyze-stream', async (req, res) => {
       dish: streamResult.dish,
       analysis: streamResult.analysis,
     })}\n\n`);
-  } catch (error) {
+  }).catch((error) => {
     res.write(`data: ${JSON.stringify({
       type: 'error',
-      message: error.message || '考据链生成失败',
+      message: '考据链生成失败',
     })}\n\n`);
-  } finally {
+  }).finally(() => {
     res.end();
-  }
+  });
+}
+
+// GET 保留给旧客户端 / 冒烟脚本；POST 供前端有界 fetch 流使用
+router.get('/analyze-stream', authenticate, (req, res) => {
+  const { clue } = req.query;
+  if (!clue) return res.status(400).json({ error: '缺少线索参数' });
+  streamAnalysisSse(res, clue);
 });
 
-router.get('/generate-image', async (req, res) => {
+router.post('/analyze-stream', authenticate, (req, res) => {
+  const clue = req.body?.clue;
+  if (!clue || typeof clue !== 'string' || !clue.trim()) {
+    return res.status(400).json({ error: '缺少线索参数' });
+  }
+  streamAnalysisSse(res, clue.trim());
+});
+
+router.get('/generate-image', authenticate, async (req, res) => {
   try {
     const startedAt = Date.now();
     const { prompt } = req.query;
@@ -415,7 +428,7 @@ router.get('/generate-image', async (req, res) => {
         res.json({ success: true, data: image });
         return;
       } catch (error) {
-        fallbackReason = `Agnes image generation failed: ${error.message}`;
+        fallbackReason = 'Agnes image generation failed; local pipeline used.';
         if (process.env.NODE_ENV !== 'test') {
           console.warn('Agnes image generation failed, falling back to local pipeline:', error.message);
         }
@@ -433,7 +446,7 @@ router.get('/generate-image', async (req, res) => {
             data: buildDegradedImagePayload({
               dishName,
               fallbackPrompt,
-              fallbackReason: fallbackReason || `Local image pipeline failed: ${error.message}`,
+              fallbackReason: fallbackReason || 'Local image pipeline failed.',
               configured: agnesImageService.isConfigured(),
               startedAt,
             }),
@@ -458,11 +471,11 @@ router.get('/generate-image', async (req, res) => {
         }
       });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({ success: false, error: '图像生成服务异常，请稍后重试。' });
   }
 });
 
-router.post('/generate-image', async (req, res) => {
+router.post('/generate-image', authenticate, async (req, res) => {
   try {
     const startedAt = Date.now();
     const { dishName: rawDishName, dishId, prompt } = req.body || {};
@@ -479,7 +492,7 @@ router.post('/generate-image', async (req, res) => {
         res.json({ success: true, data: image });
         return;
       } catch (error) {
-        fallbackReason = `Agnes image generation failed: ${error.message}`;
+        fallbackReason = 'Agnes image generation failed; local pipeline used.';
         if (process.env.NODE_ENV !== 'test') {
           console.warn('Agnes image generation failed, falling back to local pipeline:', error.message);
         }
@@ -497,7 +510,7 @@ router.post('/generate-image', async (req, res) => {
             data: buildDegradedImagePayload({
               dishName,
               fallbackPrompt,
-              fallbackReason: fallbackReason || `Local image pipeline failed: ${error.message}`,
+              fallbackReason: fallbackReason || 'Local image pipeline failed.',
               configured: agnesImageService.isConfigured(),
               startedAt,
             }),
@@ -522,7 +535,7 @@ router.post('/generate-image', async (req, res) => {
         }
       });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({ success: false, error: '图像生成服务异常，请稍后重试。' });
   }
 });
 

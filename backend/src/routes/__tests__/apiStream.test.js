@@ -1,3 +1,8 @@
+jest.mock('../../middleware/auth', () => ({
+  authenticate: (req, res, next) => next(),
+  optionalAuth: (req, res, next) => next(),
+}));
+
 const express = require('express');
 const apiRoutes = require('../api');
 

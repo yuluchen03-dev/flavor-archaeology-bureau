@@ -1,0 +1,736 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "golden_id": "GOLDEN-001",
+    "golden_dish_name": "蟹酿橙",
+    "dataset_stage": "kb-002-golden",
+    "contract_version": "kb-002.1.2",
+    "evidence_level": "E0",
+    "qualified": false
+  },
+  "entities": [
+    {
+      "id": "work_g001_shanjiaqinggong",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "text_001",
+          "lit_ccs_014"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "Repository pointers identify the title. text_001 lists 林洪 but the authorized Evidence Matrix classifies it as a lead only; attribution remains unknown. lit_ccs_014 is a collected-series catalog pointer, not proof of a specific physical copy or external L2 authenticity."
+      },
+      "name": "山家清供",
+      "author": null,
+      "attribution_status": "unknown",
+      "work_type": "food_monograph",
+      "compiled_period_id": null,
+      "unknown_fields": [
+        "author",
+        "compiled_period_id"
+      ],
+      "notes": "Repository title pointer only; no external verification."
+    },
+    {
+      "id": "edition_g001_ccs_shanjiaqinggong",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [
+          "lit_ccs_014"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "Series-level catalog metadata from the repository pointer; it does not identify or verify a specific copy."
+      },
+      "name": "中国烹饪古籍丛刊·山家清供",
+      "work_id": "work_g001_shanjiaqinggong",
+      "edition_type": "scholarly_edition",
+      "publisher": "中国商业出版社",
+      "publication_year": null,
+      "locator_scheme": "volume",
+      "unknown_fields": [
+        "publication_year"
+      ],
+      "notes": "SOURCE_GRADE=B. Evidence Matrix permits B for this collected-series record; no verifiable publication year, facsimile status, shelfmark, or specific physical-copy locator is present."
+    },
+    {
+      "id": "passage_g001_xieniangcheng_juanxia",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [
+          "recipe_001",
+          "dish_001"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_ccs_shanjiaqinggong",
+          "locator": "卷下·蟹酿橙条"
+        },
+        "notes": "Text copied from repository recipe_001.original_text / dish_001.source_passage. This is a repository transcription, not an externally checked facsimile or page image; L2 authenticity remains unverified."
+      },
+      "name": "蟹酿橙条目（仓库转录）",
+      "text": "橙用黄熟大者，截顶去瓤，留少液。以蟹膏肉实其内，仍以带枝顶覆之。入小甑，用酒、醋、水蒸熟。用醋、盐供食，香而鲜。",
+      "edition_id": "edition_g001_ccs_shanjiaqinggong",
+      "locator": {
+        "volume": "卷下",
+        "entry": "蟹酿橙条"
+      },
+      "text_origin": "verbatim_transcription",
+      "language": "zh",
+      "edition_candidates": [
+        "edition_g001_ccs_shanjiaqinggong"
+      ],
+      "edition_resolution": "resolved"
+    },
+    {
+      "id": "period_g001_song",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "dish_001",
+          "recipe_001"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "The repository labels the dish/work as Song; no absolute year or independent external verification is asserted."
+      },
+      "name": "宋代（仓库来源标签）",
+      "start_year": null,
+      "end_year": null,
+      "calendar": "chinese_dynastic",
+      "certainty": "unknown",
+      "unknown_fields": [
+        "start_year",
+        "end_year"
+      ]
+    },
+    {
+      "id": "dish_g001_xieniangcheng",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "dish_001",
+          "recipe_001"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "Candidate identity follows repository pointers only; no independent L2 verification."
+      },
+      "name": "蟹酿橙",
+      "dish_kind": "historical_documented_dish",
+      "period_id": "period_g001_song",
+      "description": "Candidate linked to repository dish_001 and recipe_001 pointers; the Song label/transcription is not externally verified.",
+      "region_ids": [],
+      "season_ids": []
+    },
+    {
+      "id": "ing_g001_orange",
+      "entity_type": "Ingredient",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "recipe_001",
+          "dish_001"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "Repository wording names 黄熟大橙 / 大橙; no taxonomic identification is inferred."
+      },
+      "name": "橙",
+      "category": "fruit",
+      "biological_identification_status": "unknown",
+      "availability_status": "unknown"
+    },
+    {
+      "id": "ing_g001_crab",
+      "entity_type": "Ingredient",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "recipe_001"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "Repository wording only; the authorized Matrix says specific species is unsupported."
+      },
+      "name": "蟹膏蟹肉",
+      "category": "aquatic",
+      "biological_identification_status": "unknown",
+      "availability_status": "unknown"
+    },
+    {
+      "id": "tech_g001_steaming",
+      "entity_type": "Technique",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "recipe_001"
+        ],
+        "asserted_by": "human_editor",
+        "notes": "Repository transcription only; no heritage designation or external verification."
+      },
+      "name": "蒸制",
+      "category": "heat",
+      "description": "Repository transcription describes steaming in a small zeng; utensil material/form and historical authenticity remain unverified.",
+      "heritage_designation": {
+        "level": "unknown",
+        "list_name": null,
+        "designation_year": null
+      },
+      "unknown_fields": [
+        "heritage_designation.list_name",
+        "heritage_designation.designation_year"
+      ]
+    },
+    {
+      "id": "claim_g001_identity",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "passage_g001_xieniangcheng_juanxia"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_ccs_shanjiaqinggong",
+          "passage_id": "passage_g001_xieniangcheng_juanxia",
+          "locator": "卷下·蟹酿橙条"
+        },
+        "notes": "Evidence Matrix C1; source grade B; calculated E2; external L2 authenticity unverified."
+      },
+      "name": "蟹酿橙身份与来源指针",
+      "statement": "仓库 dish_001 / recipe_001 指针将蟹酿橙关联到宋代及《山家清供》卷下；该仓库指针并非外部核实。",
+      "claim_type": "existence",
+      "about_ids": [
+        "dish_g001_xieniangcheng"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C1; source grade B; calculated E2; external L2 authenticity unverified.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E2"
+    },
+    {
+      "id": "claim_g001_method_steaming",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "passage_g001_xieniangcheng_juanxia"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_ccs_shanjiaqinggong",
+          "passage_id": "passage_g001_xieniangcheng_juanxia",
+          "locator": "卷下·蟹酿橙条"
+        },
+        "notes": "Evidence Matrix C2; direct repository transcription; source grade B; E2; insufficient pending external L2 verification."
+      },
+      "name": "仓库转录所述制法",
+      "statement": "仓库转录的《山家清供》卷下蟹酿橙条描述橙去瓤、填入蟹膏肉、覆顶并入小甑蒸熟。",
+      "claim_type": "technique",
+      "about_ids": [
+        "dish_g001_xieniangcheng",
+        "tech_g001_steaming"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C2; direct repository transcription; source grade B; E2; insufficient pending external L2 verification.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E2"
+    },
+    {
+      "id": "claim_g001_ingredient_use_orange",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "passage_g001_xieniangcheng_juanxia"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_ccs_shanjiaqinggong",
+          "passage_id": "passage_g001_xieniangcheng_juanxia",
+          "locator": "卷下·蟹酿橙条"
+        },
+        "notes": "Evidence Matrix C3; source grade B; E2; citrus species unknown."
+      },
+      "name": "仓库转录所载大橙用法",
+      "statement": "仓库转录称使用黄熟大橙并将橙用作容器。",
+      "claim_type": "ingredient_use",
+      "about_ids": [
+        "dish_g001_xieniangcheng",
+        "ing_g001_orange"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C3; source grade B; E2; citrus species unknown.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E2"
+    },
+    {
+      "id": "claim_g001_ingredient_use_crab",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "passage_g001_xieniangcheng_juanxia"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_ccs_shanjiaqinggong",
+          "passage_id": "passage_g001_xieniangcheng_juanxia",
+          "locator": "卷下·蟹酿橙条"
+        },
+        "notes": "Evidence Matrix C4; source grade B; E2; crab species unknown."
+      },
+      "name": "仓库转录所载蟹膏肉用法",
+      "statement": "仓库转录称以蟹膏肉填入橙内；具体蟹物种未确定。",
+      "claim_type": "ingredient_use",
+      "about_ids": [
+        "dish_g001_xieniangcheng",
+        "ing_g001_crab"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C4; source grade B; E2; crab species unknown.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E2"
+    },
+    {
+      "id": "claim_g001_technique_steaming_detail",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "passage_g001_xieniangcheng_juanxia"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_ccs_shanjiaqinggong",
+          "passage_id": "passage_g001_xieniangcheng_juanxia",
+          "locator": "卷下·蟹酿橙条"
+        },
+        "notes": "Evidence Matrix C5; source grade B; E2; utensil details and L2 authenticity remain unverified."
+      },
+      "name": "仓库转录所载蒸制技法",
+      "statement": "仓库转录记载入小甑蒸熟这一技法。",
+      "claim_type": "technique",
+      "about_ids": [
+        "dish_g001_xieniangcheng",
+        "tech_g001_steaming"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C5; source grade B; E2; utensil details and L2 authenticity remain unverified.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E2"
+    },
+    {
+      "id": "claim_g001_crab_species_unknown",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix C6 explicitly has no supporting source; no species inference."
+      },
+      "name": "蟹的具体物种未定",
+      "statement": "授权仓库来源没有确定文本所称蟹的具体物种。",
+      "claim_type": "attribution",
+      "about_ids": [
+        "dish_g001_xieniangcheng",
+        "ing_g001_crab"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C6 explicitly has no supporting source; no species inference.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E0"
+    },
+    {
+      "id": "claim_g001_geography_unknown",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix C7 explicitly has no supporting source; no regional inference from dynasty."
+      },
+      "name": "流行地域未定",
+      "statement": "授权仓库来源没有说明该菜的流行地域。",
+      "claim_type": "geography",
+      "about_ids": [
+        "dish_g001_xieniangcheng"
+      ],
+      "confidence": "unknown",
+      "uncertainty_notes": [
+        "Evidence Matrix C7 explicitly has no supporting source; no regional inference from dynasty.",
+        "Repository transcription/pointers do not establish L2 authenticity; no external verification was performed."
+      ],
+      "notes": "EVIDENCE_LEVEL=E0"
+    }
+  ],
+  "relations": [
+    {
+      "type": "edition_of_work",
+      "source": "edition_g001_ccs_shanjiaqinggong",
+      "target": "work_g001_shanjiaqinggong",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Repository series-level linkage only; external authenticity unverified."
+      }
+    },
+    {
+      "type": "passage_in_edition",
+      "source": "passage_g001_xieniangcheng_juanxia",
+      "target": "edition_g001_ccs_shanjiaqinggong",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Repository pointer associates transcription with series-level record; no specific physical copy asserted."
+      }
+    },
+    {
+      "type": "dish_recorded_in",
+      "source": "dish_g001_xieniangcheng",
+      "target": "passage_g001_xieniangcheng_juanxia",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Matrix C1 / repository source pointer; volume and entry wording only."
+      }
+    },
+    {
+      "type": "dish_originated_in",
+      "source": "dish_g001_xieniangcheng",
+      "target": "period_g001_song",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Repository dynasty label only; no independent verification."
+      }
+    },
+    {
+      "type": "dish_contains_ingredient",
+      "source": "dish_g001_xieniangcheng",
+      "target": "ing_g001_orange",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Matrix C3 / repository transcription; species unknown."
+      }
+    },
+    {
+      "type": "dish_contains_ingredient",
+      "source": "dish_g001_xieniangcheng",
+      "target": "ing_g001_crab",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Matrix C4 / repository transcription; species unknown."
+      }
+    },
+    {
+      "type": "dish_uses_technique",
+      "source": "dish_g001_xieniangcheng",
+      "target": "tech_g001_steaming",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Matrix C5 / repository transcription; no restoration claim."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_identity",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_identity",
+      "target": "passage_g001_xieniangcheng_juanxia",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix claim_g001_identity; exact repository transcription support, still marked insufficient pending external verification."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_method_steaming",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_method_steaming",
+      "target": "tech_g001_steaming",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_method_steaming",
+      "target": "passage_g001_xieniangcheng_juanxia",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix claim_g001_method_steaming; exact repository transcription support, still marked insufficient pending external verification."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_ingredient_use_orange",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_ingredient_use_orange",
+      "target": "ing_g001_orange",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_ingredient_use_orange",
+      "target": "passage_g001_xieniangcheng_juanxia",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix claim_g001_ingredient_use_orange; exact repository transcription support, still marked insufficient pending external verification."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_ingredient_use_crab",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_ingredient_use_crab",
+      "target": "ing_g001_crab",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_ingredient_use_crab",
+      "target": "passage_g001_xieniangcheng_juanxia",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix claim_g001_ingredient_use_crab; exact repository transcription support, still marked insufficient pending external verification."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_technique_steaming_detail",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_technique_steaming_detail",
+      "target": "tech_g001_steaming",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_technique_steaming_detail",
+      "target": "passage_g001_xieniangcheng_juanxia",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Evidence Matrix claim_g001_technique_steaming_detail; exact repository transcription support, still marked insufficient pending external verification."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_crab_species_unknown",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_crab_species_unknown",
+      "target": "ing_g001_crab",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_geography_unknown",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Mirror of this HistoricalClaim.about_ids; identifies the claim subject, not independent evidence."
+      }
+    }
+  ]
+}

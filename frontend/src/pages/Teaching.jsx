@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../lib/language.jsx';
+import Eyebrow from '../components/Eyebrow.jsx';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3001/api';
 
@@ -102,7 +103,7 @@ const Teaching = () => {
         {/* 标题 */}
         <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div>
-            <span className="text-sm tracking-[0.28em] text-cinnabar">{t('数字传承｜工作室', 'TEACHING | Mentor Studio')}</span>
+            <Eyebrow>{t('数字传承｜工作室', 'TEACHING | Mentor Studio')}</Eyebrow>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-ink md:text-6xl">与大师对话</h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-gray">复活的菜召出那个朝代的大师，对话式传授技艺。</p>
           </div>

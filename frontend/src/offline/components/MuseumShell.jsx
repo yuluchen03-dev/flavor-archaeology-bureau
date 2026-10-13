@@ -1,9 +1,9 @@
 import { Archive, FlaskConical, House, Landmark } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { key: 'restore', label: '可信复原', Icon: FlaskConical },
-  { key: 'archive', label: '探索馆藏', Icon: Archive },
-  { key: 'business', label: '商业合作', Icon: Landmark },
+  { key: 'restore', label: '可信复原台', Icon: FlaskConical },
+  { key: 'archive', label: '风味馆藏库', Icon: Archive },
+  { key: 'business', label: '合作展厅', Icon: Landmark },
 ];
 
 export default function MuseumShell({ activeExhibit, onNavigate, children }) {

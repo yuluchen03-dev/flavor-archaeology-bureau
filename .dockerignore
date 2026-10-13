@@ -3,6 +3,7 @@ node_modules
 backend/node_modules
 frontend/node_modules
 frontend/dist
+backend/data/
 service/__pycache__
 service/.pytest_cache
 tmp
@@ -10,4 +11,8 @@ tmp
 *.png
 !frontend/src/assets/*.png
 !frontend/public/dish-backgrounds/*.png
+**/.env
+**/.env.*
+!**/.env.example
+backend/data/
 

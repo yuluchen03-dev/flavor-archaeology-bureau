@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../lib/language.jsx';
 import { isJudgeModeLocation } from '../lib/judgeMode';
+import Eyebrow from '../components/Eyebrow.jsx';
 
 const Input = () => {
   const { t } = useLanguage();
@@ -57,7 +58,7 @@ const Input = () => {
         {/* 标题 */}
         <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div>
-            <span className="text-sm tracking-[0.28em] text-cinnabar">{t('线索输入｜档案受理', 'INPUT | Archive Intake')}</span>
+            <Eyebrow>{t('线索输入｜档案受理', 'INPUT | Archive Intake')}</Eyebrow>
             <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-ink md:text-6xl">唤醒沉睡的味道</h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-gray">把古籍、图像和口述记忆整理成可考据的线索卷宗。</p>
           </div>

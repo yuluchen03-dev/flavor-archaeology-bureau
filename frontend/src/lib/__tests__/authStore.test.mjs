@@ -8,35 +8,28 @@ import {
   setAuthSession,
 } from '../authStore.js';
 
-global.localStorage = {
-  store: {},
-  getItem(key) {
-    return this.store[key] || null;
-  },
-  setItem(key, value) {
-    this.store[key] = String(value);
-  },
-  removeItem(key) {
-    delete this.store[key];
-  },
-};
+// 不设置 global.localStorage：authStore 已迁移到 httpOnly cookie，
+// 不再依赖 localStorage；此处仅用于验证函数在浏览器/Node 环境均可调用。
 
-test('stores and clears auth token and user', () => {
-  clearAuth();
+test('getAuthToken returns empty string (no localStorage persistence)', () => {
+  assert.equal(getAuthToken(), '');
+});
+
+test('shouldLoadCurrentUser returns true (cookie path)', () => {
+  assert.equal(shouldLoadCurrentUser(), true);
+});
+
+test('getStoredUser returns null (no localStorage persistence)', () => {
+  assert.equal(getStoredUser(), null);
+});
+
+test('setAuthSession is a no-op (backward compatible)', () => {
   setAuthSession({ token: 'token-123', user: { id: 1, username: 'tester' } });
-
-  assert.equal(getAuthToken(), 'token-123');
-  assert.deepEqual(getStoredUser(), { id: 1, username: 'tester' });
-
-  clearAuth();
   assert.equal(getAuthToken(), '');
   assert.equal(getStoredUser(), null);
 });
 
-test('loads current user only when an auth token exists', () => {
-  clearAuth();
-  assert.equal(shouldLoadCurrentUser(), false);
-
-  setAuthSession({ token: 'token-123', user: null });
-  assert.equal(shouldLoadCurrentUser(), true);
+test('clearAuth is a no-op (backward compatible)', () => {
+  clearAuth(); // should not throw
+  assert.equal(getAuthToken(), '');
 });

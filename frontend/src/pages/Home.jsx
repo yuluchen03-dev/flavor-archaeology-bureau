@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../lib/language.jsx';
+import Eyebrow from '../components/Eyebrow.jsx';
 import heroImage from '../assets/hero.png';
 import crabOrangeImage from '../assets/crab-orange.png';
 
@@ -86,10 +87,8 @@ const Home = () => {
       <section className="bg-paper-warm/55 px-6 py-24">
         <div className="mx-auto w-full max-w-[1120px]">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-tea-gold"></span>
-              <span className="text-tea-gold text-sm tracking-[0.3em]">{t('考据四步', 'PROCESS · Four Steps')}</span>
-              <span className="h-px w-8 bg-tea-gold"></span>
+            <div className="mb-4">
+              <Eyebrow align="center">{t('考据四步', 'PROCESS · Four Steps')}</Eyebrow>
             </div>
             <h2 className="text-4xl font-bold text-ink">从碎片到复活</h2>
           </div>
@@ -115,10 +114,7 @@ const Home = () => {
           <div className="grid items-center gap-12 md:grid-cols-[0.92fr_1.08fr] lg:gap-16">
             <div className="mx-auto w-full max-w-md md:mx-0">
               <div className="mb-4">
-                <div className="inline-flex items-center gap-3">
-                  <span className="h-px w-8 bg-tea-gold"></span>
-                  <span className="text-tea-gold text-sm tracking-[0.3em]">{t('铁打样本', 'SIGNATURE · Proven Sample')}</span>
-                </div>
+                <Eyebrow>{t('铁打样本', 'SIGNATURE · Proven Sample')}</Eyebrow>
               </div>
               <h2 className="text-4xl font-bold text-ink mb-6">蟹酿橙</h2>
               <p className="text-ink-gray leading-relaxed mb-4">
@@ -138,7 +134,7 @@ const Home = () => {
             </div>
             <div className="relative mx-auto w-full max-w-xl">
               <div className="archive-surface signature-dish-frame aspect-[4/3] overflow-hidden p-4">
-                <img src={crabOrangeImage} alt="南宋蟹酿橙复原成品" className="signature-dish-image h-full w-full opacity-95" />
+                <img src={crabOrangeImage} alt="南宋蟹酿橙复原成品" loading="lazy" decoding="async" width={1152} height={864} className="signature-dish-image h-full w-full opacity-95" />
               </div>
               {/* 印章装饰 */}
               <div className="seal-badge absolute -right-4 -top-4 h-20 w-20 rotate-6">
@@ -153,10 +149,8 @@ const Home = () => {
       <section className="py-24 px-6 bg-ink text-paper">
         <div className="mx-auto w-full max-w-[1120px]">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-tea-gold"></span>
-              <span className="text-tea-gold text-sm tracking-[0.3em]">{t('三大特色', 'FEATURES · Three Highlights')}</span>
-              <span className="h-px w-8 bg-tea-gold"></span>
+            <div className="mb-4">
+              <Eyebrow align="center">{t('三大特色', 'FEATURES · Three Highlights')}</Eyebrow>
             </div>
             <h2 className="text-4xl font-bold">不只是查菜谱，而是推理一道菜回来</h2>
           </div>

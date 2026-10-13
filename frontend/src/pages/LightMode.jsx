@@ -222,6 +222,24 @@ const localLightModeDemo = {
   },
 };
 
+const SUPPORTED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
+const MAX_IMAGE_FILE_BYTES = 8 * 1024 * 1024;
+
+// 识别降级兜底：非外部识别/接口失败时展示，明确标注 degraded，不冒充实时识别
+const degradedRecognition = {
+  ...localLightModeDemo.ancestor,
+  confidence: 61,
+  rarity: '识别降级',
+  story: '实时识别暂不可用，当前展示本地证据兜底结果（degraded），不代表外部视觉模型输出。',
+  taotieComment: '识别服务不可达：结果来自本地规则匹配，请以现场补证为准。',
+  vision: {
+    provider: 'fallback',
+    confidence: 0.55,
+    labels: ['本地证据兜底'],
+    evidence: ['识别请求失败，降级为本地规则匹配。'],
+  },
+};
+
 const safeId = (value, language) => (language === 'zh' ? '本地证书' : value);
 const safeText = (value, language, fallback = '本地记录') => (
   language === 'zh' ? sanitizeChineseText(value, fallback) : value
@@ -508,6 +526,7 @@ const LightMode = () => {
   const [imageData, setImageData] = useState('');
   const [imagePreview, setImagePreview] = useState('');
   const [ancestor, setAncestor] = useState(null);
+  const [ancestorMode, setAncestorMode] = useState('live');
   const [daily, setDaily] = useState(null);
   const [recentDailyDishIds, setRecentDailyDishIds] = useState([]);
   const [quiz, setQuiz] = useState(null);
@@ -610,13 +629,15 @@ const LightMode = () => {
       });
       if (data.success) {
         setAncestor(data.data);
+        setAncestorMode('live');
         setDataMode('live');
       }
       else setError(data.message || copy.ancestorError);
     } catch {
-      setAncestor(localLightModeDemo.ancestor);
+      setAncestor(degradedRecognition);
+      setAncestorMode('degraded');
       setDataMode('local-demo');
-      setError('');
+      setError(copy.ancestorError);
     } finally {
       setLoading(false);
     }
@@ -625,11 +646,24 @@ const LightMode = () => {
   const handleImageSelect = (event) => {
     const file = event.target.files?.[0];
     if (!file) return;
+    if (!SUPPORTED_IMAGE_TYPES.has(file.type)) {
+      setError(language === 'zh' ? '仅支持 JPG / PNG / WebP 图片，请重新选择。' : 'Only JPG / PNG / WebP images are supported.');
+      event.target.value = '';
+      return;
+    }
+    if (file.size > MAX_IMAGE_FILE_BYTES) {
+      setError(language === 'zh' ? '图片超过 8MB，请压缩后再上传。' : 'Image exceeds 8MB, please compress it first.');
+      event.target.value = '';
+      return;
+    }
     setImageLabel(file.name);
     if (!description.trim()) {
       setDescription(language === 'zh' ? copy.emptyDescription : `I photographed ${file.name.replace(/\.[^.]+$/, '')}; identify its culinary ancestor.`);
     }
     const reader = new FileReader();
+    reader.onerror = () => {
+      setError(language === 'zh' ? '图片读取失败，请重试。' : 'Failed to read the image, please try again.');
+    };
     reader.onload = () => {
       const result = String(reader.result || '');
       setImageData(result);
@@ -721,7 +755,13 @@ const LightMode = () => {
             <div className="archive-surface p-6 md:p-8">
               <div className="mb-3 flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
                 <h3 className="text-3xl font-bold text-ink">{safeText(ancestor.ancestor.name, language)}</h3>
-                <span className="text-sm tracking-widest text-cinnabar">{safeText(ancestor.rarity, language)}</span>
+                {ancestorMode === 'degraded' ? (
+                  <span className="border border-tea-gold/40 bg-tea-gold/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-tea-gold">
+                    {language === 'zh' ? '识别降级 · 本地兜底' : 'DEGRADED · LOCAL FALLBACK'}
+                  </span>
+                ) : (
+                  <span className="text-sm tracking-widest text-cinnabar">{safeText(ancestor.rarity, language)}</span>
+                )}
               </div>
               <p className="mb-5 text-sm tracking-widest text-tea-gold">
                 {safeText(ancestor.ancestor.dynasty, language)}｜{ancestor.confidence}%

@@ -5,6 +5,7 @@ import {
   normalizeEvolutionDishes,
 } from './evolutionDishes';
 import { sanitizeChineseText, useLanguage } from '../lib/language.jsx';
+import Eyebrow from '../components/Eyebrow.jsx';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3001/api';
 
@@ -113,6 +114,9 @@ const Evolution = () => {
   const [result, setResult] = useState(null);
   const [evolvedImage, setEvolvedImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
+  const [evolutionError, setEvolutionError] = useState('');
+  const [imageError, setImageError] = useState('');
+  const [imageRetryNonce, setImageRetryNonce] = useState(0);
 
   useEffect(() => {
     fetch(`${API_BASE}/recipe/search?limit=80`)
@@ -138,6 +142,8 @@ const Evolution = () => {
     setIsEvolving(true);
     setResult(null);
     setEvolvedImage(null);
+    setEvolutionError('');
+    setImageError('');
 
     try {
       const response = await fetch(`${API_BASE}/evolution`, {
@@ -146,16 +152,20 @@ const Evolution = () => {
         body: JSON.stringify({ dishId1: dish1.id, dishId2: dish2.id }),
       });
       const data = await response.json();
-      if (data.success) {
-        setResult({
-          dish1,
-          dish2,
-          evolved: data.data.newDish,
-          concept: data.data.fusionConcept,
-          imagePrompt: data.data.imagePrompt,
-          shareCard: data.data.shareCard,
-        });
+      if (!response.ok || !data?.success) {
+        setEvolutionError(data?.message || '风味融合失败，请稍后重试。');
+        return;
       }
+      setResult({
+        dish1,
+        dish2,
+        evolved: data.data.newDish,
+        concept: data.data.fusionConcept,
+        imagePrompt: data.data.imagePrompt,
+        shareCard: data.data.shareCard,
+      });
+    } catch {
+      setEvolutionError('无法连接到服务器，请确认后端已启动后重试。');
     } finally {
       setIsEvolving(false);
     }
@@ -165,17 +175,30 @@ const Evolution = () => {
     if (!result?.evolved?.name) return;
     const loadImage = async () => {
       setImageLoading(true);
+      setImageError('');
       try {
         const prompt = result.imagePrompt || `${result.evolved.name}，一道完整可食用的融合菜，不要把两个原菜简单并排。`;
         const response = await fetch(`${API_BASE}/generate-image?dishName=${encodeURIComponent(result.evolved.name)}&prompt=${encodeURIComponent(prompt)}`);
         const data = await response.json();
-        if (data.success && data.data?.imageUrl) setEvolvedImage(data.data.imageUrl);
+        if (!response.ok || !data?.success || !data.data?.imageUrl) {
+          setImageError(data?.message || '进化成品图生成失败，可稍后重试。');
+          return;
+        }
+        setEvolvedImage(data.data.imageUrl);
+      } catch {
+        setImageError('图片生成服务暂不可用，可点击重试。');
       } finally {
         setImageLoading(false);
       }
     };
     loadImage();
-  }, [result?.evolved?.name, result?.imagePrompt]);
+  }, [result?.evolved?.name, result?.imagePrompt, imageRetryNonce]);
+
+  const handleRetryImage = () => {
+    setImageError('');
+    setEvolvedImage(null);
+    setImageRetryNonce((nonce) => nonce + 1);
+  };
 
   const evolvedFlavor = result ? Object.fromEntries(
     flavorKeys.map(([, label]) => [
@@ -221,7 +244,7 @@ const Evolution = () => {
       <div data-testid="evolution-inner" className="mx-auto w-full max-w-[1120px] min-w-0">
         <div className="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <span className="text-sm tracking-[0.24em] text-tea-gold">{t('风味进化', 'FLAVOR EVOLUTION')}</span>
+            <Eyebrow>{t('风味进化', 'FLAVOR EVOLUTION')}</Eyebrow>
             <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-ink md:text-6xl">跨时空的风味进化</h1>
             <p className="mt-4 max-w-2xl text-lg text-ink-gray">选择两道历史菜品，在真实古菜血统约束下生成全新非遗风味。</p>
           </div>
@@ -253,6 +276,11 @@ const Evolution = () => {
         )}
 
         <div className="text-center mb-16">
+          {evolutionError && (
+            <div role="alert" className="mx-auto mb-6 max-w-xl border border-rouge/35 bg-rouge/10 px-5 py-3 text-sm leading-relaxed text-rouge">
+              {evolutionError}
+            </div>
+          )}
           <button onClick={handleEvolve} disabled={!dish1 || !dish2 || dish1.id === dish2.id || isEvolving} className="museum-button px-12 py-4 text-lg tracking-[0.24em] disabled:opacity-30 md:px-16">
             {isEvolving ? '风味融合中' : '开始进化'}
           </button>
@@ -274,8 +302,24 @@ const Evolution = () => {
                   <span className="lineage-arrow" aria-hidden="true">→</span>
                   <span className="lineage-node lineage-result">{result.evolved.name}</span>
                 </div>
-                <div className="w-full aspect-[16/9] flex items-center justify-center overflow-hidden mb-8 max-w-lg mx-auto border border-ink/10 bg-paper-warm">
-                  {evolvedImage ? <img src={evolvedImage} alt={result.evolved.name} className="w-full h-full object-cover" /> : <p className="text-tea-gold">{imageLoading ? t('智能生成中...', 'AI generating...') : t('进化成品图', 'Evolution Image')}</p>}
+                <div className="w-full aspect-[16/9] flex flex-col items-center justify-center overflow-hidden mb-4 max-w-lg mx-auto border border-ink/10 bg-paper-warm">
+                  {evolvedImage ? <img src={evolvedImage} alt={result.evolved.name} className="w-full h-full object-cover" /> : (
+                    <>
+                      <p className="text-tea-gold px-4 text-center">{imageLoading ? t('智能生成中...', 'AI generating...') : t('进化成品图', 'Evolution Image')}</p>
+                      {imageError && !imageLoading && (
+                        <div role="alert" className="mt-3 flex flex-col items-center gap-2 px-4">
+                          <p className="text-center text-sm text-rouge">{imageError}</p>
+                          <button
+                            type="button"
+                            onClick={handleRetryImage}
+                            className="border border-ink/25 px-4 py-1.5 text-xs tracking-[0.2em] text-ink transition-colors hover:border-cinnabar hover:text-cinnabar"
+                          >
+                            重试生成
+                          </button>
+                        </div>
+                      )}
+                    </>
+                  )}
                 </div>
                 <p className="text-ink text-lg leading-relaxed mb-6 text-center">{result.evolved.description || result.concept}</p>
                 <div className="flex flex-wrap gap-3 justify-center">

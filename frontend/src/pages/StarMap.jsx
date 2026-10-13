@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../lib/language.jsx';
 import { isJudgeModeLocation } from '../lib/judgeMode';
+import Eyebrow from '../components/Eyebrow.jsx';
 import crabOrangeImage from '../assets/crab-orange.png';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3001/api';
@@ -234,7 +235,7 @@ const StarMap = () => {
       <div className="relative mx-auto w-full max-w-6xl">
         <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div>
-            <p className="text-sm tracking-[0.26em] text-tea-gold">{t('味觉星图｜馆藏索引', 'STAR MAP | Collection Index')}</p>
+            <Eyebrow>{t('味觉星图｜馆藏索引', 'STAR MAP | Collection Index')}</Eyebrow>
             <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-ink md:text-6xl">
               {t('每一颗星，都是本不该消失的味道', 'Every star is a flavor that should not have vanished')}
             </h1>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { apiRequest } from '../lib/apiClient';
-import { clearAuth, getStoredUser, setAuthSession, shouldLoadCurrentUser } from '../lib/authStore';
+import { clearAuth, getStoredUser, shouldLoadCurrentUser } from '../lib/authStore';
 
 const emptyForm = { username: '', email: '', password: '' };
 
@@ -39,7 +39,6 @@ const AuthPanel = () => {
         method: 'POST',
         body: JSON.stringify(body),
       });
-      setAuthSession({ token: payload.data.token, user: payload.data.user });
       setUser(payload.data.user);
       setForm(emptyForm);
     } catch (error) {
@@ -49,7 +48,12 @@ const AuthPanel = () => {
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await apiRequest('/auth/logout', { method: 'POST' });
+    } catch {
+      // 登出接口失败不影响 UI 状态更新
+    }
     clearAuth();
     setUser(null);
   };

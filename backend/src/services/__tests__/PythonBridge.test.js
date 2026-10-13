@@ -8,6 +8,9 @@ jest.mock('child_process', () => ({
 
 function createMockProcess() {
   const process = new EventEmitter();
+  process.stdin = new EventEmitter();
+  process.stdin.write = jest.fn(() => true);
+  process.stdin.end = jest.fn();
   process.stdout = new EventEmitter();
   process.stderr = new EventEmitter();
   process.kill = jest.fn();

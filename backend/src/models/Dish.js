@@ -31,13 +31,17 @@ class Dish {
     return db('dishes').where({ dynasty });
   }
 
-  /**
+/**
    * 搜索菜品
    */
   static async search(keyword) {
+    // 转义 LIKE 通配符 % 和 _
+    const escaped = keyword.replace(/%/g, '\\%').replace(/_/g, '\\_');
+    const pattern = `%${escaped}%`;
+    // 使用 ESCAPE '\' 指定转义字符，使 \_ 和 \% 被当作普通字符
     return db('dishes')
-      .where('name', 'like', `%${keyword}%`)
-      .orWhere('description', 'like', `%${keyword}%`);
+      .whereRaw("name LIKE ? ESCAPE '\\'", [pattern])
+      .orWhereRaw("description LIKE ? ESCAPE '\\'", [pattern]);
   }
 
   /**

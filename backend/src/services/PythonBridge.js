@@ -25,10 +25,17 @@ class PythonBridge {
     return new Promise((resolve, reject) => {
       const inputJson = JSON.stringify(inputData);
 
-      const python = spawn(PYTHON_BIN(), [wrapperPath, action, inputJson], {
+      const python = spawn(PYTHON_BIN(), [wrapperPath, action], {
         cwd: path.join(__dirname, '../../..'),
         env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
+        stdio: ['pipe', 'pipe', 'pipe']
       });
+
+      // Write input data to stdin
+      if (inputJson) {
+        python.stdin.write(inputJson);
+        python.stdin.end();
+      }
 
       let stdout = '';
       let stderr = '';

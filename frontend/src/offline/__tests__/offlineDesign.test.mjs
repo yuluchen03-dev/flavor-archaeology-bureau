@@ -8,7 +8,7 @@ const read = (path) => readFileSync(resolve(root, path), 'utf8');
 
 test('museum shell exposes the three approved destinations and offline status', () => {
   const source = read('src/offline/components/MuseumShell.jsx');
-  for (const label of ['可信复原', '探索馆藏', '商业合作', '离线评审模式']) {
+  for (const label of ['可信复原台', '风味馆藏库', '合作展厅', '离线评审模式']) {
     assert.match(source, new RegExp(label));
   }
   assert.match(source, /aria-current/);

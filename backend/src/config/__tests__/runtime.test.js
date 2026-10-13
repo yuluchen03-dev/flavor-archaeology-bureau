@@ -4,9 +4,13 @@ const {
 } = require('../runtime');
 
 describe('runtime config', () => {
-  test('uses wildcard CORS only for local development fallback', () => {
-    expect(resolveCorsOrigin({ NODE_ENV: 'development' })).toBe('*');
-    expect(resolveCorsOrigin({ NODE_ENV: 'test' })).toBe('*');
+  test('uses explicit origin for local development fallback (no wildcard for cookie support)', () => {
+    expect(resolveCorsOrigin({ NODE_ENV: 'development' })).toBe('http://localhost:5173');
+    expect(resolveCorsOrigin({ NODE_ENV: 'test' })).toBe('http://localhost:5173');
+    expect(resolveCorsOrigin({
+      NODE_ENV: 'test',
+      VITE_API_BASE: 'http://custom:8080',
+    })).toBe('http://custom:8080');
   });
 
   test('requires explicit CORS_ORIGIN in production', () => {

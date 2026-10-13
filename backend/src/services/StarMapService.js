@@ -4,17 +4,63 @@ const PythonBridge = require('./PythonBridge');
 
 const backgroundManifestPath = path.join(__dirname, '../../../data/visual_assets/dish_backgrounds.json');
 
+// ── Cache: background manifest (image metadata), refreshed on file change ──
+let cachedBackgroundMap = null;
+let cachedBackgroundMtime = null;
+
 function loadDishBackgrounds() {
-  if (!fs.existsSync(backgroundManifestPath)) return new Map();
+  if (!fs.existsSync(backgroundManifestPath)) {
+    cachedBackgroundMap = new Map();
+    cachedBackgroundMtime = null;
+    return cachedBackgroundMap;
+  }
 
   try {
+    const stats = fs.statSync(backgroundManifestPath);
+    const mtime = stats.mtimeMs;
+    if (cachedBackgroundMap && mtime === cachedBackgroundMtime) {
+      return cachedBackgroundMap;
+    }
     const manifest = JSON.parse(fs.readFileSync(backgroundManifestPath, 'utf8'));
-    return new Map((manifest.images || [])
+    cachedBackgroundMap = new Map((manifest.images || [])
       .filter((entry) => entry.qaStatus === 'approved' && entry.imagePath)
       .map((entry) => [entry.dishId, entry]));
+    cachedBackgroundMtime = mtime;
+    return cachedBackgroundMap;
   } catch {
-    return new Map();
+    cachedBackgroundMap = new Map();
+    cachedBackgroundMtime = null;
+    return cachedBackgroundMap;
   }
+}
+
+// ── Cache: full star-map data from PythonBridge (TTL-based) ──
+let cachedStarMapData = null;
+let cachedStarMapAt = null;
+const STAR_MAP_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+/**
+ * Return cached star-map data if still fresh; otherwise null.
+ */
+function getCachedStarMap() {
+  const now = Date.now();
+  if (cachedStarMapData && cachedStarMapAt && now - cachedStarMapAt < STAR_MAP_CACHE_TTL_MS) {
+    return cachedStarMapData;
+  }
+  return null;
+}
+
+/**
+ * Fetch star-map data from PythonBridge, caching the result.
+ */
+async function fetchStarMapWithCache() {
+  const cached = getCachedStarMap();
+  if (cached !== null) {
+    return cached;
+  }
+  cachedStarMapData = await PythonBridge.getStarMap();
+  cachedStarMapAt = Date.now();
+  return cachedStarMapData;
 }
 
 /**
@@ -25,14 +71,13 @@ class StarMapService {
    * 获取星图数据
    */
   static async getStarMapData({ dynasty, flavorRange }) {
-    // 从Python引擎获取真实数据
-    const starMapData = await PythonBridge.getStarMap();
-    
+    const starMapData = await fetchStarMapWithCache();
+
     let dishes = starMapData.dishes || [];
     let connections = starMapData.connections || [];
     const backgroundByDishId = loadDishBackgrounds();
 
-    // 按朝代筛选
+    // 按朝代筛选（有限查询：只过滤已有数组，不全表扫描）
     if (dynasty) {
       const dishIds = new Set(dishes.filter(d => d.dynasty === dynasty).map(d => d.id));
       dishes = dishes.filter(d => dishIds.has(d.id));
@@ -84,16 +129,15 @@ class StarMapService {
    * 获取菜品位置（单个）
    */
   static async getDishPosition(dishId) {
-    const starMapData = await PythonBridge.getStarMap();
+    const starMapData = await fetchStarMapWithCache();
     const dish = (starMapData.dishes || []).find(d => d.id === dishId);
     const backgroundByDishId = loadDishBackgrounds();
-    
+
     if (!dish) return null;
 
-    // 找出相关菜品（同一朝代或共享食材）
-    const relatedConnections = (starMapData.connections || []).filter(
-      c => c.from === dishId || c.to === dishId
-    );
+    // 找出相关菜品（同一朝代或共享食材）——有限查询
+    const relatedConnections = (starMapData.connections || [])
+      .filter(c => c.from === dishId || c.to === dishId);
     const relatedIds = new Set();
     relatedConnections.forEach(c => {
       if (c.from === dishId) relatedIds.add(c.to);

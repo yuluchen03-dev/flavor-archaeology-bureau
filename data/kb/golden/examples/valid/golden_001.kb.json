@@ -1,0 +1,556 @@
+{
+  "schema_version": "2.0.0",
+  "metadata": {
+    "golden_id": "GOLDEN-001",
+    "golden_dish_name": "蟹酿橙",
+    "dataset_stage": "kb-002-golden",
+    "contract_version": "kb-002.1.2",
+    "evidence_level": "E2",
+    "qualified": false,
+    "fixture": true,
+    "not_historical_evidence": "Structural fixture only. Names, editions and passages are placeholders used to exercise the KB-002 validator closure rules. None of this is asserted as real historical evidence.",
+    "purpose": "Positive fixture: complete closure at computed Evidence Level E2, with a coexisting claim_refuted_by edge proving that supporting and refuting evidence are both preserved (CF1/CF2).",
+    "fixture_only": true
+  },
+  "entities": [
+    {
+      "id": "work_g001_shanjiaqinggong",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [
+          "edition_g001_shanjiaqinggong_facsimile"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "locator": "fixture-work-locator"
+        }
+      },
+      "name": "SYNTHETIC-WORK-A (fixture; not a historical source)",
+      "author": "林洪（夹具占位）",
+      "attribution_status": "attributed",
+      "work_type": "food_monograph",
+      "compiled_period_id": "period_g001_song"
+    },
+    {
+      "id": "edition_g001_shanjiaqinggong_facsimile",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [
+          "work_g001_shanjiaqinggong"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_shanjiaqinggong_facsimile",
+          "locator": "SYNTHETIC-LOCATOR-A"
+        }
+      },
+      "name": "SYNTHETIC-WORK-A synthetic edition (fixture, not a real book)",
+      "work_id": "work_g001_shanjiaqinggong",
+      "edition_type": "unknown",
+      "publisher": "SYNTHETIC-TEST-PRESS-NOT-A-REAL-PUBLISHER",
+      "publication_year": null,
+      "locator_scheme": "chapter",
+      "notes": "SOURCE_GRADE=D",
+      "unknown_fields": [
+        "publication_year"
+      ]
+    },
+    {
+      "id": "passage_g001_method_primary",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [
+          "edition_g001_shanjiaqinggong_facsimile"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_shanjiaqinggong_facsimile",
+          "passage_id": "passage_g001_method_primary",
+          "locator": "fixture-entry-1"
+        }
+      },
+      "name": "蟹酿橙蒸制条（夹具占位）",
+      "text": "FIXTURE TEXT (placeholder, not a real quotation): 夹具用占位文本，用于验证 SourcePassage 的结构与追踪链规则。",
+      "edition_id": "edition_g001_shanjiaqinggong_facsimile",
+      "locator": {
+        "chapter": "夹具章节",
+        "entry": "fixture-entry-1"
+      },
+      "text_origin": "verbatim_transcription",
+      "language": "zh",
+      "edition_candidates": [
+        "edition_g001_shanjiaqinggong_facsimile"
+      ],
+      "edition_resolution": "resolved"
+    },
+    {
+      "id": "work_g001_yinshanzhengyao",
+      "entity_type": "SourceWork",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [
+          "edition_g001_yinshanzhengyao_reprint"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_yinshanzhengyao",
+          "locator": "fixture-work-locator-2"
+        }
+      },
+      "name": "SYNTHETIC-WORK-B (fixture; not a historical source)",
+      "author": "忽思慧（夹具占位）",
+      "attribution_status": "attributed",
+      "work_type": "materia_medica",
+      "compiled_period_id": "period_g001_yuan"
+    },
+    {
+      "id": "edition_g001_yinshanzhengyao_reprint",
+      "entity_type": "SourceEdition",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [
+          "work_g001_yinshanzhengyao"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_yinshanzhengyao",
+          "edition_id": "edition_g001_yinshanzhengyao_reprint",
+          "locator": "SYNTHETIC-LOCATOR-B"
+        }
+      },
+      "name": "SYNTHETIC-WORK-B synthetic edition (fixture, not a real book)",
+      "work_id": "work_g001_yinshanzhengyao",
+      "edition_type": "unknown",
+      "publisher": "SYNTHETIC-TEST-PRESS-NOT-A-REAL-PUBLISHER",
+      "publication_year": null,
+      "locator_scheme": "entry",
+      "notes": "SOURCE_GRADE=D",
+      "unknown_fields": [
+        "publication_year"
+      ]
+    },
+    {
+      "id": "passage_g001_method_corroborating",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "primary_source",
+        "basis_ids": [
+          "edition_g001_yinshanzhengyao_reprint"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_yinshanzhengyao",
+          "edition_id": "edition_g001_yinshanzhengyao_reprint",
+          "passage_id": "passage_g001_method_corroborating",
+          "locator": "fixture-entry-2"
+        }
+      },
+      "name": "蒸制互证条（夹具占位）",
+      "text": "FIXTURE TEXT (placeholder, not a real quotation): 第二条夹具占位文本，用于验证多源互证（E4）所需的第二条直接证据。",
+      "edition_id": "edition_g001_yinshanzhengyao_reprint",
+      "locator": {
+        "chapter": "夹具章节二",
+        "entry": "fixture-entry-2"
+      },
+      "text_origin": "normalized_transcription",
+      "language": "zh",
+      "edition_candidates": [
+        "edition_g001_yinshanzhengyao_reprint"
+      ],
+      "edition_resolution": "resolved"
+    },
+    {
+      "id": "period_g001_song",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "南宋（夹具占位）",
+      "start_year": 1127,
+      "end_year": 1279,
+      "calendar": "chinese_dynastic",
+      "certainty": "approximate"
+    },
+    {
+      "id": "period_g001_yuan",
+      "entity_type": "TimePeriod",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "元代（夹具占位）",
+      "start_year": 1271,
+      "end_year": 1368,
+      "calendar": "chinese_dynastic",
+      "certainty": "approximate"
+    },
+    {
+      "id": "tech_g001_steaming",
+      "entity_type": "Technique",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "隔水蒸（夹具占位）",
+      "category": "heat",
+      "description": "夹具占位描述：以蒸汽加热使食材成熟。",
+      "heritage_designation": null,
+      "unknown_fields": [
+        "heritage_designation"
+      ]
+    },
+    {
+      "id": "ing_g001_orange",
+      "entity_type": "Ingredient",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "橙（夹具占位）",
+      "category": "fruit",
+      "biological_identification_status": "provisional",
+      "availability_status": "available"
+    },
+    {
+      "id": "claim_g001_steaming_closure",
+      "entity_type": "HistoricalClaim",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [
+          "passage_g001_method_primary",
+          "passage_g001_method_corroborating"
+        ],
+        "asserted_by": "human_editor",
+        "source_locator": {
+          "work_id": "work_g001_shanjiaqinggong",
+          "edition_id": "edition_g001_shanjiaqinggong_facsimile",
+          "passage_id": "passage_g001_method_primary",
+          "locator": "fixture-entry-1"
+        }
+      },
+      "name": "蟹酿橙以蒸制成菜（夹具占位）",
+      "statement": "FIXTURE CLAIM (placeholder): 夹具占位陈述，用于验证 E4 多源互证与等级—状态一致性规则。",
+      "claim_type": "technique",
+      "about_ids": [
+        "dish_g001_xieniangcheng"
+      ],
+      "confidence": "medium",
+      "uncertainty_notes": [
+        "夹具占位：本陈述为结构夹具，未经外部专家核实。"
+      ],
+      "notes": "EVIDENCE_LEVEL=E2",
+      "counter_evidence_notes": [
+        "Fixture placeholder: a conflicting record exists and is preserved; it is not removed to make a single tidy answer."
+      ],
+      "unknown_fields": [
+        "statement"
+      ]
+    },
+    {
+      "id": "dish_g001_xieniangcheng",
+      "entity_type": "Dish",
+      "schema_version": "2.0.0",
+      "content_class": "historical_fact",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "蟹酿橙（夹具占位）",
+      "dish_kind": "historical_documented_dish",
+      "period_id": "period_g001_song",
+      "description": "夹具占位描述：以蟹肉填入橙壳蒸制的菜品。",
+      "region_ids": [],
+      "season_ids": []
+    },
+    {
+      "id": "resto_g001_faithful",
+      "entity_type": "RestorationVersion",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "sufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "name": "蟹酿橙·历史忠实版（夹具占位）",
+      "dish_id": "dish_g001_xieniangcheng",
+      "version_kind": "historical_faithful",
+      "based_on_claim_ids": [
+        "claim_g001_steaming_closure"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "text": "夹具占位步骤一"
+        },
+        {
+          "order": 2,
+          "text": "夹具占位步骤二"
+        }
+      ]
+    },
+    {
+      "id": "passage_g001_method_refuting",
+      "entity_type": "SourcePassage",
+      "schema_version": "2.0.0",
+      "content_class": "historical_inference",
+      "evidence_status": "insufficient",
+      "review_status": "unreviewed",
+      "provenance": {
+        "derivation": "unresolved",
+        "basis_ids": [],
+        "asserted_by": "human_editor",
+        "notes": "Fixture placeholder: an opposing record whose own evidential standing is insufficient."
+      },
+      "name": "与蒸制法相左的记载（夹具占位）",
+      "text": "FIXTURE TEXT (placeholder, not a real quotation): 夹具占位反证文本，用于证明正反证据可在数据中并存。",
+      "edition_id": "edition_g001_yinshanzhengyao_reprint",
+      "locator": {
+        "chapter": "夹具反证章节",
+        "entry": "fixture-entry-refute"
+      },
+      "text_origin": "paraphrase",
+      "language": "zh",
+      "edition_candidates": [
+        "edition_g001_yinshanzhengyao_reprint"
+      ],
+      "edition_resolution": "resolved"
+    }
+  ],
+  "relations": [
+    {
+      "type": "passage_in_edition",
+      "source": "passage_g001_method_primary",
+      "target": "edition_g001_shanjiaqinggong_facsimile",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "passage_in_edition",
+      "source": "passage_g001_method_corroborating",
+      "target": "edition_g001_yinshanzhengyao_reprint",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "edition_of_work",
+      "source": "edition_g001_shanjiaqinggong_facsimile",
+      "target": "work_g001_shanjiaqinggong",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "edition_of_work",
+      "source": "edition_g001_yinshanzhengyao_reprint",
+      "target": "work_g001_yinshanzhengyao",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_steaming_closure",
+      "target": "passage_g001_method_primary",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "claim_supported_by",
+      "source": "claim_g001_steaming_closure",
+      "target": "passage_g001_method_corroborating",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "claim_about",
+      "source": "claim_g001_steaming_closure",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "dish_originated_in",
+      "source": "dish_g001_xieniangcheng",
+      "target": "period_g001_song",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "dish_uses_technique",
+      "source": "dish_g001_xieniangcheng",
+      "target": "tech_g001_steaming",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "properties": {
+        "step_order": 1
+      }
+    },
+    {
+      "type": "dish_contains_ingredient",
+      "source": "dish_g001_xieniangcheng",
+      "target": "ing_g001_orange",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "properties": {
+        "role": "container"
+      }
+    },
+    {
+      "type": "dish_recorded_in",
+      "source": "dish_g001_xieniangcheng",
+      "target": "passage_g001_method_primary",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      },
+      "properties": {
+        "chapter": "夹具章节"
+      }
+    },
+    {
+      "type": "restoration_version_of",
+      "source": "resto_g001_faithful",
+      "target": "dish_g001_xieniangcheng",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "restoration_based_on_claim",
+      "source": "resto_g001_faithful",
+      "target": "claim_g001_steaming_closure",
+      "evidence_status": "sufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "claim_refuted_by",
+      "source": "claim_g001_steaming_closure",
+      "target": "passage_g001_method_refuting",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    },
+    {
+      "type": "passage_in_edition",
+      "source": "passage_g001_method_refuting",
+      "target": "edition_g001_yinshanzhengyao_reprint",
+      "evidence_status": "insufficient",
+      "provenance": {
+        "derivation": "editorial",
+        "basis_ids": [],
+        "asserted_by": "human_editor"
+      }
+    }
+  ]
+}

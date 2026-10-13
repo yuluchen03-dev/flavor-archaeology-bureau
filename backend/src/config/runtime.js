@@ -1,9 +1,28 @@
+function isProduction(env = process.env) {
+  return env.NODE_ENV === 'production';
+}
+
 function resolveCorsOrigin(env = process.env) {
   if (env.CORS_ORIGIN) return env.CORS_ORIGIN;
-  if (env.NODE_ENV === 'production') {
+  if (isProduction(env)) {
     throw new Error('CORS_ORIGIN must be configured in production');
   }
-  return '*';
+  // 开发环境使用明确的同源，避免通配符（credentials: true 要求显式 origin）
+  return env.VITE_API_BASE || 'http://localhost:5173';
+}
+
+// 解析 Express trust proxy 配置：TRUST_PROXY_HOPS 表示信任链路上第 N 跳，
+// 未配置或非法值时回退为 0（不信任任何代理头），避免伪造 X-Forwarded-*。
+function resolveTrustProxy(env = process.env) {
+  const raw = env.TRUST_PROXY_HOPS;
+  if (raw === undefined || raw === null || String(raw).trim() === '') {
+    return 0;
+  }
+  const hops = Number(raw);
+  if (!Number.isInteger(hops) || hops < 0) {
+    return 0;
+  }
+  return hops;
 }
 
 function readBoolean(value, fallback = false) {
@@ -65,7 +84,9 @@ function buildReadinessReport({
 }
 
 module.exports = {
+  isProduction,
   resolveCorsOrigin,
+  resolveTrustProxy,
   buildAiProviderReadiness,
   buildReadinessReport,
 };

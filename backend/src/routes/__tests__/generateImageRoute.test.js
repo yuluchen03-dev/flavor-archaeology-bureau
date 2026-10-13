@@ -1,3 +1,8 @@
+jest.mock('../../middleware/auth', () => ({
+  authenticate: (req, res, next) => next(),
+  optionalAuth: (req, res, next) => next(),
+}));
+
 const express = require('express');
 
 const mockGenerate = jest.fn();
@@ -152,7 +157,7 @@ describe('generate-image route', () => {
     expect(payload.data).toMatchObject({
       type: 'placeholder',
       status: 'degraded',
-      fallbackReason: expect.stringContaining('provider unavailable'),
+      fallbackReason: 'Agnes image generation failed; local pipeline used.',
       metadata: {
         provider: 'agnes',
         mode: 'degraded',

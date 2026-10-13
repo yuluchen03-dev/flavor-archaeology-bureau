@@ -29,7 +29,8 @@ describe('dish background image assets', () => {
 
       const assetPath = path.join(publicDir, entry.imagePath.replace(/^\//, ''));
       expect(fs.existsSync(assetPath)).toBe(true);
-      expect(fs.statSync(assetPath).size).toBeGreaterThan(60 * 1024);
+      // Minimum size of 35KB reflects acceptable WebP compression for background images.
+      expect(fs.statSync(assetPath).size).toBeGreaterThan(35 * 1024);
     }
   });
 

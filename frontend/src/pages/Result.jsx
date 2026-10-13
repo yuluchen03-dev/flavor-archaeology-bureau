@@ -1,12 +1,23 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sanitizeChineseText, useLanguage } from '../lib/language.jsx';
+import { consumeSseJsonStream } from '../lib/sseStream.js';
 import { isJudgeModeLocation } from '../lib/judgeMode';
+import Eyebrow from '../components/Eyebrow.jsx';
 import crabOrangeImage from '../assets/crab-orange.png';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3001/api';
 
 const cnNumbers = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+
+// 有界 SSE 流约束：限制事件与缓冲大小，配合首事件/空闲超时避免现场挂起
+const MAX_SSE_EVENT_LENGTH = 64 * 1024;
+const MAX_SSE_BUFFER_LENGTH = 512 * 1024;
+const SSE_FIRST_EVENT_TIMEOUT_MS = 20000;
+const SSE_IDLE_TIMEOUT_MS = 30000;
+const SSE_FIRST_EVENT_TIMEOUT_REASON = 'SSE_FIRST_EVENT_TIMEOUT';
+const SSE_IDLE_TIMEOUT_REASON = 'SSE_IDLE_TIMEOUT';
+
 const evidenceTimelineStages = [
   { key: 'decode', title: '古籍解码', desc: '从原文里抽取食材、器具和做法线索。' },
   { key: 'verify', title: '食材校验', desc: '用朝代、地域、节令约束排除不可靠想象。' },
@@ -319,6 +330,13 @@ const Result = () => {
   const [imageLoading, setImageLoading] = useState(false);
   const [aiStatus, setAiStatus] = useState(aiStatusLabel('generated'));
   const [weakClueDemo, setWeakClueDemo] = useState(null);
+  const [retryNonce, setRetryNonce] = useState(0);
+
+  const handleRetry = () => {
+    setError('');
+    setWeakClueDemo(null);
+    setRetryNonce((nonce) => nonce + 1);
+  };
 
   const loadCachedDemoResult = useCallback((fallbackReason = '后端服务暂不可用，展示已审核的蟹酿橙演示样例。') => {
     setRestoredDish(cachedCrabOrangeDemo);
@@ -332,8 +350,15 @@ const Result = () => {
   }, []);
 
   useEffect(() => {
-    let eventSource;
     let cancelled = false;
+    let streamController = null;
+
+    const showRequestError = (message) => {
+      if (cancelled) return;
+      setIsStreaming(false);
+      setLoading(false);
+      setError(message);
+    };
 
     const loadFallback = async (clues = {}) => {
       try {
@@ -343,70 +368,114 @@ const Result = () => {
           body: JSON.stringify({ clues }),
         });
         const data = await response.json();
-        if (!cancelled && data.success) {
-          if (data.data?.needsMoreClues) {
-            loadCachedDemoResult(data.data.fallbackReason || '缺少输入线索，已切换到缓存演示。');
-            return;
-          }
-          setRestoredDish(normalizeRestoration(data.data));
-          setAiStatus(aiStatusLabel(data.data?.ai?.status || data.data?.status || 'generated'));
+        if (!response.ok || !data?.success) {
+          showRequestError(data?.message || '复原请求失败，请稍后重试。');
+          return;
         }
+        if (data.data?.needsMoreClues) {
+          loadCachedDemoResult(data.data.fallbackReason || '缺少输入线索，已切换到缓存演示。');
+          return;
+        }
+        setRestoredDish(normalizeRestoration(data.data));
+        setAiStatus(aiStatusLabel(data.data?.ai?.status || data.data?.status || 'generated'));
       } catch {
-        if (!cancelled) loadCachedDemoResult('无法连接到后端服务，已切换到缓存演示。');
+        showRequestError('无法连接到后端服务，请确认服务已启动后重试。');
       } finally {
         if (!cancelled) setLoading(false);
       }
+    };
+
+    const startStream = () => {
+      setLoading(false);
+      setIsStreaming(true);
+      setReasoningSteps([]);
+      setError('');
+      streamController = new AbortController();
+
+      const failStream = (message) => {
+        streamController.abort();
+        showRequestError(message);
+      };
+
+      const runStream = async () => {
+        let idleTimer = 0;
+        try {
+          const response = await fetch(`${API_BASE}/analyze-stream`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ clue: inputText }),
+            signal: streamController.signal,
+          });
+          if (!response.ok || !response.body) {
+            failStream('考据链服务暂时不可用，请重试。');
+            return;
+          }
+
+          const armIdleTimer = () => {
+            window.clearTimeout(idleTimer);
+            idleTimer = window.setTimeout(() => streamController.abort(SSE_IDLE_TIMEOUT_REASON), SSE_IDLE_TIMEOUT_MS);
+          };
+          idleTimer = window.setTimeout(() => streamController.abort(SSE_FIRST_EVENT_TIMEOUT_REASON), SSE_FIRST_EVENT_TIMEOUT_MS);
+
+          await consumeSseJsonStream(response.body, {
+            signal: streamController.signal,
+            maxEventLength: MAX_SSE_EVENT_LENGTH,
+            maxBufferLength: MAX_SSE_BUFFER_LENGTH,
+            onEvent: (data) => {
+              if (cancelled) return;
+              armIdleTimer();
+              if (data.type === 'step') {
+                setReasoningSteps((prev) => {
+                  const exists = prev.some((step) => step.step === data.step);
+                  return exists ? prev.map((step) => (step.step === data.step ? data : step)) : [...prev, data];
+                });
+              }
+              if (data.type === 'result') {
+                const dish = normalizeRestoration(data.dish);
+                if (data.dish?.needsMoreClues) {
+                  setRestoredDish(dish);
+                  setReasoningSteps(data.dish.reasoningSteps || []);
+                  setAiStatus(aiStatusLabel('degraded'));
+                } else {
+                  setRestoredDish(dish);
+                  setReasoningSteps(data.dish.reasoningSteps || []);
+                  setAiStatus(aiStatusLabel(data.dish?.ai?.status || data.dish?.status || 'generated'));
+                }
+                setIsStreaming(false);
+                streamController.abort();
+              }
+              if (data.type === 'error') {
+                failStream(data.message || '考据链生成失败，请重试。');
+              }
+            },
+          });
+        } catch (streamError) {
+          if (streamController.signal.reason === SSE_FIRST_EVENT_TIMEOUT_REASON) {
+            failStream('考据链首次响应超时，请重试。');
+          } else if (streamController.signal.reason === SSE_IDLE_TIMEOUT_REASON) {
+            failStream('考据链响应中断（空闲超时），请重试。');
+          } else if (streamError?.name !== 'AbortError') {
+            failStream('流式考据链连接中断，请重试。');
+          }
+        } finally {
+          window.clearTimeout(idleTimer);
+        }
+      };
+
+      runStream();
     };
 
     const inputText = location.state?.inputText;
     if (inputText && location.state?.useStream) {
       const startTimer = window.setTimeout(() => {
         if (cancelled) return;
-        setLoading(false);
-        setIsStreaming(true);
-        setReasoningSteps([]);
-
-        eventSource = new EventSource(`${API_BASE}/analyze-stream?clue=${encodeURIComponent(inputText)}`);
-        eventSource.onmessage = (event) => {
-          const data = JSON.parse(event.data);
-          if (data.type === 'step') {
-            setReasoningSteps((prev) => {
-              const exists = prev.some((step) => step.step === data.step);
-              return exists ? prev.map((step) => (step.step === data.step ? data : step)) : [...prev, data];
-            });
-          }
-          if (data.type === 'result') {
-            if (data.dish?.needsMoreClues) {
-              const dish = normalizeRestoration(data.dish);
-              setRestoredDish(dish);
-              setReasoningSteps(data.dish.reasoningSteps || []);
-              setAiStatus(aiStatusLabel('degraded'));
-              setIsStreaming(false);
-              eventSource.close();
-              return;
-            }
-            const dish = normalizeRestoration(data.dish);
-            setRestoredDish(dish);
-            setReasoningSteps(data.dish.reasoningSteps || []);
-            setAiStatus(aiStatusLabel(data.dish?.ai?.status || data.dish?.status || 'generated'));
-            setIsStreaming(false);
-            eventSource.close();
-          }
-          if (data.type === 'error') {
-            loadCachedDemoResult(data.message || '考据链生成失败，已切换到缓存演示。');
-            eventSource.close();
-          }
-        };
-        eventSource.onerror = () => {
-          loadCachedDemoResult('流式考据链连接中断，已切换到缓存演示。');
-          eventSource.close();
-        };
+        startStream();
       }, 0);
 
       return () => {
         cancelled = true;
         window.clearTimeout(startTimer);
-        if (eventSource) eventSource.close();
+        if (streamController) streamController.abort();
       };
     } else if (location.state?.analysisResult?.possibleDishes?.length > 0) {
       const possibleDishes = location.state.analysisResult.possibleDishes;
@@ -422,7 +491,6 @@ const Result = () => {
       return () => {
         cancelled = true;
         window.clearTimeout(resultTimer);
-        if (eventSource) eventSource.close();
       };
     } else {
       loadFallback();
@@ -430,9 +498,8 @@ const Result = () => {
 
     return () => {
       cancelled = true;
-      if (eventSource) eventSource.close();
     };
-  }, [loadCachedDemoResult, location.state]);
+  }, [loadCachedDemoResult, location.state, retryNonce]);
 
   useEffect(() => {
     reasoningRef.current?.lastElementChild?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -442,6 +509,9 @@ const Result = () => {
     if (!restoredDish?.name) return;
     if (aiStatus.text === '缓存演示') return;
 
+    const controller = new AbortController();
+    const { signal } = controller;
+
     const loadImage = async () => {
       setImageLoading(true);
       try {
@@ -450,6 +520,7 @@ const Result = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ dishId: restoredDish.id, dishName: restoredDish.name, prompt }),
+          signal,
         });
         const data = await response.json();
         if (data.success && data.data?.imageUrl) {
@@ -458,7 +529,8 @@ const Result = () => {
             setAiStatus(aiStatusLabel('degraded'));
           }
         }
-      } catch {
+      } catch (err) {
+        if (err.name === 'AbortError') return;
         setDishImage(crabOrangeImage);
         setAiStatus(aiStatusLabel('degraded'));
       } finally {
@@ -467,6 +539,8 @@ const Result = () => {
     };
 
     loadImage();
+
+    return () => controller.abort();
   }, [aiStatus.text, restoredDish]);
 
   const weakClueRefusal = {
@@ -499,9 +573,14 @@ const Result = () => {
       <div className="flex min-h-[60vh] w-full items-center justify-center bg-paper py-16 px-6">
         <div className="text-center">
           <p className="text-rouge mb-6 text-lg">{error}</p>
-          <button onClick={() => navigate('/input')} className="museum-button py-3 px-8 tracking-wider">
-            重新输入
-          </button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button onClick={handleRetry} className="museum-button py-3 px-8 tracking-wider">
+              重试
+            </button>
+            <button onClick={() => navigate('/input')} className="border border-ink/30 hover:border-cinnabar text-ink hover:text-cinnabar py-3 px-8 tracking-wider">
+              返回输入
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -509,7 +588,7 @@ const Result = () => {
 
   if (isStreaming || (reasoningSteps.length > 0 && !restoredDish)) {
     return (
-      <div className="restoration-gallery min-h-screen w-full px-5 py-14 md:px-6 md:py-16">
+      <div className="restoration-gallery min-h-[70vh] w-full px-5 py-14 md:px-6 md:py-16">
         <div className="mx-auto w-full max-w-3xl">
           <div className="text-center mb-12">
             <span className="text-cinnabar text-sm tracking-[0.3em]">{t('考据链', 'REASONING · Evidence Chain')}</span>
@@ -537,7 +616,24 @@ const Result = () => {
     );
   }
 
-  if (!restoredDish) return null;
+  if (!restoredDish) {
+    return (
+      <div className="flex min-h-[60vh] w-full items-center justify-center bg-paper py-16 px-6">
+        <div className="text-center">
+          <p className="mb-2 text-lg text-ink-gray">暂无可展示的复原档案</p>
+          <p className="mb-6 text-sm text-smoke">可能是复原请求未完成或证据不足，请重试或补充线索。</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button onClick={handleRetry} className="museum-button py-3 px-8 tracking-wider">
+              重试
+            </button>
+            <button onClick={() => navigate('/input')} className="border border-ink/30 hover:border-cinnabar text-ink hover:text-cinnabar py-3 px-8 tracking-wider">
+              返回输入
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const displaySteps = restoredDish.reasoningSteps.length > 0 ? restoredDish.reasoningSteps : reasoningSteps;
 
@@ -546,7 +642,7 @@ const Result = () => {
       <div className="mx-auto w-full max-w-[1120px]">
         <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div>
-            <span className="text-sm tracking-[0.28em] text-cinnabar">{t('复原结果｜展柜', 'RESULT | Restoration Gallery')}</span>
+            <Eyebrow>{t('复原结果｜展柜', 'RESULT | Restoration Gallery')}</Eyebrow>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-ink md:text-6xl">一道菜，复活了</h1>
           </div>
           <div className="archive-surface p-5">
@@ -655,12 +751,6 @@ const Result = () => {
           </section>
         )}
 
-        <section className="mb-16">
-          <span className="text-sm tracking-[0.3em] text-cinnabar">{t('考据链', 'REASONING')}</span>
-          <h3 className="my-6 text-2xl font-bold text-ink">四步可见复原</h3>
-          <EvidenceTimeline />
-        </section>
-
         <EvidenceGraphPanel dish={restoredDish} />
 
         <EvidenceDrawer dish={restoredDish} aiStatus={aiStatus} />
@@ -703,7 +793,6 @@ const Result = () => {
           <section className="evidence-panel mb-16 p-6">
             <span className="text-cinnabar text-sm tracking-[0.3em]">{t('考据链', 'REASONING')}</span>
             <h3 className="text-2xl font-bold text-ink my-6">可见考据链</h3>
-            <EvidenceTimeline />
             <div className="grid md:grid-cols-4 gap-4">
               {displaySteps.map((step) => (
                 <div key={step.step} className="archive-surface p-4">

@@ -12,8 +12,10 @@ COPY backend/package*.json ./
 # 安装依赖
 RUN npm ci --only=production
 
-# 复制后端源代码
-COPY backend/ .
+# 复制后端源代码（显式复制，避免把本地密钥与运行时数据带进镜像）
+COPY backend/src /app/backend/src
+COPY service /app/service
+COPY data /app/data
 
 # 创建非root用户
 RUN addgroup -g 1001 -S nodejs
@@ -29,5 +31,5 @@ USER nodejs
 # 暴露端口
 EXPOSE 3001
 
-# 启动命令
-CMD ["node", "src/app.js"]
+# 启动命令：迁移 → 仅空库种子 → 启动 API
+CMD ["sh", "-c", "npm run db:migrate && npm run db:seed-if-empty && npm start"]

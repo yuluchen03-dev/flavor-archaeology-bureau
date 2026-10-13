@@ -10,6 +10,7 @@ import dishNodes from '../../../../data/knowledge_graph/nodes_dish.json' with { 
 import fakeDishes from '../../../../data/light_mode/fake_dishes.json' with { type: 'json' };
 import quizRealDishes from '../../../../data/light_mode/quiz_real_dishes.json' with { type: 'json' };
 import dishBackgrounds from '../../../../data/visual_assets/dish_backgrounds.json' with { type: 'json' };
+import { generatedDishImages } from './generatedDishImages.js';
 
 // 五类证据等级，离线 UI 与规则模块共享同一套常量。
 export const evidenceKinds = [
@@ -87,10 +88,16 @@ function deriveTechnique(dish) {
   return hits.length ? hits.join('、') : '传统技艺';
 }
 
-// 建立图片路径查找表：dishId -> /dish-backgrounds/dish_xxx.png
+// 建立图片路径查找表：优先使用内嵌 WebP data URI（离线单文件构建用），
+// 回退到 dishBackgrounds.json 中的 imagePath（如内嵌不可用时）。
 const imageByDishId = new Map();
+for (const [dishId, dataUri] of Object.entries(generatedDishImages)) {
+  if (typeof dataUri === 'string' && dataUri.startsWith('data:image')) {
+    imageByDishId.set(dishId, dataUri);
+  }
+}
 for (const entry of dishBackgrounds.images || []) {
-  if (entry.dishId && entry.imagePath) {
+  if (entry.dishId && entry.imagePath && !imageByDishId.has(entry.dishId)) {
     imageByDishId.set(entry.dishId, entry.imagePath);
   }
 }
@@ -121,7 +128,7 @@ function resolveArchiveState(dishId) {
 
 // 规范化单条菜品记录：只保留 UI 使用的字段。
 function normalizeDish(dish) {
-  const image = imageByDishId.get(dish.id) || `/dish-backgrounds/${dish.id}.png`;
+  const image = imageByDishId.get(dish.id) || `/dish-backgrounds/${dish.id}.webp`;
   return {
     id: dish.id,
     name: dish.name,

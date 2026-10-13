@@ -5,9 +5,9 @@ const REQUIRED_LABELS = [
   '离线评审模式',
   '接手这宗风味案',
   '查看融合推演',
-  '探索馆藏',
+  '风味馆藏库',
   '互动研究',
-  '商业合作',
+  '合作展厅',
 ];
 
 export const MAX_OFFLINE_HTML_BYTES = 3_000_000;
